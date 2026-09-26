@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bitácora de Cálculo en Varias Variables · Primer corte</title>
+<link rel="stylesheet" href="../css/estilo.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&family=Public+Sans:wght@400;600&display=swap" rel="stylesheet">
+<script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$']],
+      macros: { sen: '\\operatorname{sen}', tg: '\\operatorname{tg}' }
+    }
+  };
+</script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-svg.js"></script>
+</head>
+<body>
+
+<header class="cabecera">
+  <div class="in">
+    <p>Universidad Nacional de Colombia, Departamento de Matemáticas</p>
+    <h1>Bitácora de Cálculo en Varias Variables</h1>
+    <p>Primer corte, 2026-2S. Carlos Javier Cuervo Baracaldo · Ingeniería de Sistemas</p>
+  </div>
+</header>
+
+<div class="wrap">
+  <nav class="lateral" aria-label="Contenido">
+    <h2>Contenido</h2>
+    <ul>
+      <li><a href="#inicio">Índice de ejercicios</a></li>
+      <li><a href="#bloque-A">A. Geometría en el espacio y cuádricas</a></li>
+      <li><a href="#bloque-B">B. Dominios, curvas y superficies de nivel</a></li>
+      <li><a href="#bloque-C">C. Límites y continuidad</a></li>
+      <li><a href="#bloque-D">D. Derivadas parciales y diferenciabilidad</a></li>
+      <li><a href="#bloque-E">E. Regla de la cadena e implícitas</a></li>
+      <li><a href="#bloque-F">F. Gradiente, derivada direccional y planos tangentes</a></li>
+      <li><a href="#bloque-G">G. Extremos y Hessiano</a></li>
+      <li><a href="#bloque-H">H. Multiplicadores de Lagrange</a></li>
+      <li><a href="#especiales">Entradas especiales</a></li>
+      <li><a href="#herramientas">Herramientas usadas</a></li>
+      <li><a href="#cierre">Cierre</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section id="inicio">
+      <h2 class="primero">Índice de ejercicios</h2>
+      <div class="intro">
+        <p>Los 28 ejercicios que escogí de la hoja del primer corte, recorriendo los bloques A a H. Cada entrada trae el procedimiento, la respuesta señalada y una nota al margen con lo que pasó al resolverlo: el método que servía, el error que apareció, lo que toca repetir antes del parcial.</p>
+      </div>
+      <p class="avance" id="avance" aria-live="polite"></p>
+      <div class="tabla-wrap">
+        <table class="indice">
+          <thead><tr><th scope="col">N.º</th><th scope="col">Ejercicio</th><th scope="col">Tema</th><th scope="col">Estado</th></tr></thead>
+          <tbody>
+<tr class="bloque" data-bloque="A"><th colspan="4" scope="colgroup"><a href="#bloque-A">Bloque A. Geometría en el espacio y cuádricas</a><span class="cuenta" data-cuenta="A"></span></th></tr>
+<tr data-ej="A4"><td class="n">1</td><td><a href="#A4">A.4</a></td><td>Silla de montar</td><td class="estado">pendiente</td></tr>
+<tr data-ej="A9"><td class="n">2</td><td><a href="#A9">A.9</a></td><td>Recta por dos puntos</td><td class="estado">pendiente</td></tr>
+<tr data-ej="A14"><td class="n">3</td><td><a href="#A14">A.14</a></td><td>Recta tangente a una curva de intersección</td><td class="estado">pendiente</td></tr>
+<tr data-ej="AR3"><td class="n">4</td><td><a href="#AR3">A.R3</a></td><td>Plano que contiene una recta</td><td class="estado">pendiente</td></tr>
+<tr class="bloque" data-bloque="B"><th colspan="4" scope="colgroup"><a href="#bloque-B">Bloque B. Dominios, curvas y superficies de nivel</a><span class="cuenta" data-cuenta="B"></span></th></tr>
+<tr data-ej="B19"><td class="n">5</td><td><a href="#B19">B.19</a></td><td>Dominio con raíz y logaritmo</td><td class="estado">pendiente</td></tr>
+<tr data-ej="B24"><td class="n">6</td><td><a href="#B24">B.24</a></td><td>Curvas de nivel de y/(x²+y²)</td><td class="estado">pendiente</td></tr>
+<tr data-ej="BR3"><td class="n">7</td><td><a href="#BR3">B.R3</a></td><td>Niveles de x²+4y²</td><td class="estado">pendiente</td></tr>
+<tr class="bloque" data-bloque="C"><th colspan="4" scope="colgroup"><a href="#bloque-C">Bloque C. Límites y continuidad</a><span class="cuenta" data-cuenta="C"></span></th></tr>
+<tr data-ej="C31"><td class="n">8</td><td><a href="#C31">C.31</a></td><td>Existencia de un límite</td><td class="estado">pendiente</td></tr>
+<tr data-ej="CR2"><td class="n">9</td><td><a href="#CR2">C.R2</a></td><td>Desigualdad y polares</td><td class="estado">pendiente</td></tr>
+<tr data-ej="CR5"><td class="n">10</td><td><a href="#CR5">C.R5</a></td><td>Continuidad con parámetro</td><td class="estado">pendiente</td></tr>
+<tr data-ej="C42"><td class="n">11</td><td><a href="#C42">C.42</a></td><td>Continuidad y diferenciabilidad en el origen</td><td class="estado">pendiente</td></tr>
+<tr class="bloque" data-bloque="D"><th colspan="4" scope="colgroup"><a href="#bloque-D">Bloque D. Derivadas parciales y diferenciabilidad</a><span class="cuenta" data-cuenta="D"></span></th></tr>
+<tr data-ej="D46"><td class="n">12</td><td><a href="#D46">D.46</a></td><td>Parciales de x·e^(y/x)</td><td class="estado">pendiente</td></tr>
+<tr data-ej="D52"><td class="n">13</td><td><a href="#D52">D.52</a></td><td>Parciales por definición</td><td class="estado">pendiente</td></tr>
+<tr data-ej="DR5"><td class="n">14</td><td><a href="#DR5">D.R5</a></td><td>Diferenciabilidad en el origen</td><td class="estado">pendiente</td></tr>
+<tr data-ej="DR4"><td class="n">15</td><td><a href="#DR4">D.R4</a></td><td>Plano tangente y linealización</td><td class="estado">pendiente</td></tr>
+<tr class="bloque" data-bloque="E"><th colspan="4" scope="colgroup"><a href="#bloque-E">Bloque E. Regla de la cadena e implícitas</a><span class="cuenta" data-cuenta="E"></span></th></tr>
+<tr data-ej="E61"><td class="n">16</td><td><a href="#E61">E.61</a></td><td>Regla de la cadena</td><td class="estado">pendiente</td></tr>
+<tr data-ej="ER3"><td class="n">17</td><td><a href="#ER3">E.R3</a></td><td>Derivación implícita</td><td class="estado">pendiente</td></tr>
+<tr data-ej="E64"><td class="n">18</td><td><a href="#E64">E.64</a></td><td>Razón de cambio del volumen</td><td class="estado">pendiente</td></tr>
+<tr class="bloque" data-bloque="F"><th colspan="4" scope="colgroup"><a href="#bloque-F">Bloque F. Gradiente, derivada direccional y planos tangentes</a><span class="cuenta" data-cuenta="F"></span></th></tr>
+<tr data-ej="F69"><td class="n">19</td><td><a href="#F69">F.69</a></td><td>Gradiente y derivada direccional</td><td class="estado">pendiente</td></tr>
+<tr data-ej="F74"><td class="n">20</td><td><a href="#F74">F.74</a></td><td>Cuatro planos tangentes</td><td class="estado">pendiente</td></tr>
+<tr data-ej="FR3"><td class="n">21</td><td><a href="#FR3">F.R3</a></td><td>Normal y plano tangente a un elipsoide</td><td class="estado">pendiente</td></tr>
+<tr data-ej="FR4"><td class="n">22</td><td><a href="#FR4">F.R4</a></td><td>La colina</td><td class="estado">pendiente</td></tr>
+<tr class="bloque" data-bloque="G"><th colspan="4" scope="colgroup"><a href="#bloque-G">G. Extremos y Hessiano</a><span class="cuenta" data-cuenta="G"></span></th></tr>
+<tr data-ej="G75"><td class="n">23</td><td><a href="#G75">G.75</a></td><td>Puntos críticos de xy(1−x−y)</td><td class="estado">pendiente</td></tr>
+<tr data-ej="G77"><td class="n">24</td><td><a href="#G77">G.77</a></td><td>Hessiano degenerado</td><td class="estado">pendiente</td></tr>
+<tr data-ej="GR3"><td class="n">25</td><td><a href="#GR3">G.R3</a></td><td>x⁴+y⁴−4xy</td><td class="estado">pendiente</td></tr>
+<tr class="bloque" data-bloque="H"><th colspan="4" scope="colgroup"><a href="#bloque-H">Bloque H. Multiplicadores de Lagrange</a><span class="cuenta" data-cuenta="H"></span></th></tr>
+<tr data-ej="H80"><td class="n">26</td><td><a href="#H80">H.80</a></td><td>Utilidad máxima con presupuesto</td><td class="estado">pendiente</td></tr>
+<tr data-ej="H82"><td class="n">27</td><td><a href="#H82">H.82</a></td><td>Caja de volumen fijo</td><td class="estado">pendiente</td></tr>
+<tr data-ej="H84"><td class="n">28</td><td><a href="#H84">H.84</a></td><td>Punto del plano más cercano a otro punto</td><td class="estado">pendiente</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+<section class="bloque-sec" id="bloque-A"><h2>Bloque A. Geometría en el espacio y cuádricas</h2>
+
+<article class="ej hecho" id="A4" data-bloque="A">
+  <h3><span class="idx">1.</span> A.4, Silla de montar</h3>
+  <p class="meta">Tipo: geométrico.</p>
+  <div class="cuerpo">
+    <div class="principal">
+      <p class="enun"><strong>Enunciado.</strong> Para el paraboloide hiperbólico $z=x^2-y^2$: (a) obtenga las trazas con $x=0$, $y=0$ y $z=0$; (b) determine las curvas de nivel $z=c$ e interprete su forma para $c>0$, $c=0$ y $c<0$; (c) bosqueje la superficie.</p>
+      <h4>Procedimiento</h4>
+      <div class="proc">
+        <p><strong>Trazas con planos coordenados.</strong></p>
+        <ul>
+          <li>$x=0$: queda $z=-y^2$, una parábola que abre hacia abajo en el plano $yz$.</li>
+          <li>$y=0$: queda $z=x^2$, una parábola que abre hacia arriba en el plano $xz$.</li>
+          <li>$z=0$: $x^2-y^2=0$, es decir $(x-y)(x+y)=0$: las rectas $y=x$ y $y=-x$, que se cruzan en el origen.</li>
+        </ul>
+        <p><strong>Curvas de nivel $z=c$.</strong> La ecuación $x^2-y^2=c$ describe una familia de hipérbolas:</p>
+        <ul>
+          <li>$c>0$: $\dfrac{x^2}{c}-\dfrac{y^2}{c}=1$, ramas abiertas hacia $\pm x$.</li>
+          <li>$c=0$: las dos rectas degeneradas de arriba.</li>
+          <li>$c<0$: escribiendo $y^2-x^2=-c$, ramas abiertas hacia $\pm y$.</li>
+        </ul>
+        <p>Las trazas verticales son parábolas con aberturas opuestas y la orientación de los niveles rota 90° al cruzar $c=0$. Esas dos lecturas describen la silla: la superficie sube en una dirección y baja en la otra, con el cruce en el origen.</p>
+        <figure>
+          <img src="img/a4-niveles.png" alt="Mapa de niveles de z=x^2-y^2: hiperbolas para c=1, 4 y c=-1, -4, y las rectas y=x, y=-x del nivel c=0.">
+          <figcaption>Mapa de niveles de $z=x^2-y^2$ en GeoGebra: hipérbolas para $c=1,4$ (rojo) y $c=-1,-4$ (azul), y el nivel degenerado $c=0$ en negro, que son las rectas $y=\pm x$.</figcaption>
+        </figure>
+      </div>
+      <h4>Respuesta</h4>
+      <div class="resp"><p>Trazas verticales: $z=-y^2$ y $z=x^2$ (parábolas de abertura opuesta). Corte $z=0$: el par de rectas $y=\pm x$. Niveles: hipérbolas con el eje real orientado según el signo de $c$. La superficie es un paraboloide hiperbólico (silla de montar) con punto silla en $(0,0,0)$.</p></div>
+    </div>
+    <aside class="margen">
+      <p class="margen-t">Nota</p>
+      <p>El corte $z=0$ no da una curva sino dos rectas, y eso desconcierta la primera vez. Dos ayudas de clase: las trazas se sacan "rebanando la superficie como una manzana", y a este paraboloide el profe le dice "la de las papas Pringles" (esa curvatura es diseño del empaque, para que no se partan en el camino). La rutina de la semana 2 (s26) y el mapa de niveles confirman lo razonado.</p>
+    </aside>
+  </div>
+</article>
+
+<article class="ej hecho" id="A9" data-bloque="A">
+  <h3><span class="idx">2.</span> A.9, Recta por dos puntos</h3>
+  <div class="cuerpo">
+    <div class="principal">
+      <p class="enun"><strong>Enunciado.</strong> Halle ecuaciones paramétricas y simétricas de la recta que pasa por $A=(1,-2,3)$ y $B=(-1,4,0)$.</p>
+      <h4>Procedimiento</h4>
+      <div class="proc">
+        <p>El vector director es la diferencia de los puntos:</p>
+        $$\mathbf{d}=B-A=(-1-1,\ 4-(-2),\ 0-3)=(-2,\ 6,\ -3).$$
+        <p>Con $A$ como punto base, las paramétricas quedan</p>
+        $$x=1-2t,\qquad y=-2+6t,\qquad z=3-3t,\qquad t\in\mathbb{R}.$$
+        <p>Para las simétricas despejo $t$ de cada ecuación. Ninguna componente del director se anula, así que la escritura encadenada es válida:</p>
+        $$\frac{x-1}{-2}=\frac{y+2}{6}=\frac{z-3}{-3}.$$
+      </div>
+      <h4>Respuesta</h4>
+      <div class="resp"><p>Paramétricas: $(x,y,z)=(1-2t,\,-2+6t,\,3-3t)$. Simétricas: $\dfrac{x-1}{-2}=\dfrac{y+2}{6}=\dfrac{z-3}{-3}$.</p></div>
+    </div>
+    <aside class="margen">
+      <p class="margen-t">Nota</p>
+      <p>Es directo con la forma $\mathbf{r}(t)=\mathbf{p}+t\mathbf{v}$ de la primera semana (s5). Creo que vale anotar un caso límite: las simétricas se escriben solo si ninguna componente del director es cero. Si alguna lo fuera, esa coordenada queda fija y se trata aparte.</p>
+    </aside>
+  </div>
+</article>
+
+<article class="ej hecho" id="A14" data-bloque="A">
+  <h3><span class="idx">3.</span> A.14, Recta tangente a una curva de intersección</h3>
+  <p class="meta">Tipo: geométrico.</p>
+  <div class="cuerpo">
+    <div class="principal">
+      <p class="enun"><strong>Enunciado.</strong> Sea $C$ la curva intersección entre el paraboloide $z=x^2+y^2$ y el elipsoide $4x^2+y^2+z^2=9$. (a) Verifique que $(-1,1,2)\in C$. (b) Halle una ecuación para la recta tangente a $C$ en $(-1,1,2)$.</p>
+      <h4>Procedimiento</h4>
+      <div class="proc">
+        <p><strong>(a) Verificación.</strong> Sustituyo el punto en ambas ecuaciones:</p>
+        <ul>
+          <li>$z=x^2+y^2$: $\ 2=(-1)^2+1^2=2$. Correcto.</li>
+          <li>$4x^2+y^2+z^2=9$: $\ 4(1)+1+4=9$. Correcto.</li>
+        </ul>
+        <p><strong>(b)</strong> Escribo las dos superficies como niveles, $F(x,y,z)=x^2+y^2-z=0$ y $G(x,y,z)=4x^2+y^2+z^2-9=0$. Sus gradientes son normales a la curva de intersección:</p>
+        $$\nabla F=(2x,\,2y,\,-1),\qquad \nabla G=(8x,\,2y,\,2z).$$
+        <p>En $P=(-1,1,2)$:</p>
+        $$\nabla F(P)=(-2,\,2,\,-1),\qquad \nabla G(P)=(-8,\,2,\,4).$$
+        <p>La tangente a $C$ es perpendicular a ambas normales, así que el vector director sale del producto cruz:</p>
+        $$\mathbf{v}=\nabla F\times\nabla G=\begin{vmatrix}\mathbf{i}&\mathbf{j}&\mathbf{k}\\-2&2&-1\\-8&2&4\end{vmatrix}=\mathbf{i}(8+2)-\mathbf{j}(-8-8)+\mathbf{k}(-4+16)=(10,\,16,\,12).$$
+        <p>Dividiendo entre 2: $\mathbf{v}\sim(5,8,6)$. La recta tangente es</p>
+        $$\mathbf{r}(t)=(-1,\,1,\,2)+t\,(5,\,8,\,6).$$
+        <figure>
+          <img src="img/a14-interseccion.png" alt="Paraboloide z=x^2+y^2 y elipsoide 4x^2+y^2+z^2=9 en GeoGebra 3D, con el punto (-1,1,2) y la recta tangente.">
+          <figcaption>El paraboloide y el elipsoide del ejercicio en GeoGebra 3D, con el punto $(-1,1,2)$ y la recta tangente de dirección $(5,8,6)$.</figcaption>
+        </figure>
+      </div>
+      <h4>Respuesta</h4>
+      <div class="resp"><p>(a) El punto pertenece a ambas superficies. (b) Recta tangente: $(x,y,z)=(-1+5t,\ 1+8t,\ 2+6t)$.</p></div>
+    </div>
+    <aside class="margen">
+      <p class="margen-t">Nota</p>
+      <p>La dirección de la tangente es perpendicular a las dos normales de la intersección, por eso sale del producto cruz. En el primer intento me descuadró un signo del término $\mathbf{j}$ del determinante. Escribirlo completo, fila por fila, lo corrige. Cuando armé la figura me acordé de las gráficas 3D que hice en Python (matplotlib/plotly) para otros cursos. Ya con eso, el 3D de acá es solo para mirar cómodo.</p>
+    </aside>
+  </div>
+</article>
+
+<article class="ej hecho" id="AR3" data-bloque="A">
+  <h3><span class="idx">4.</span> A.R3, Plano que contiene una recta</h3>
+  <div class="cuerpo">
+    <div class="principal">
+      <p class="enun"><strong>Enunciado.</strong> Encuentre la ecuación del plano que contiene la recta $\mathbf{r}(t)=(1,2,-1)+t(2,-1,3)$ y además pasa por $Q=(0,1,2)$. Determine luego el ángulo entre ese plano y el plano $2x-y+z=4$.</p>
+      <h4>Procedimiento</h4>
+      <div class="proc">
+        <p>Tomo un punto de la recta, $P=(1,2,-1)$, su director $\mathbf{d}=(2,-1,3)$ y el vector que une $P$ con $Q$:</p>
+        $$\overrightarrow{PQ}=Q-P=(-1,\,-1,\,3).$$
+        <p>La normal al plano pedido es perpendicular al director y a $\overrightarrow{PQ}$:</p>
+        $$\mathbf{n}=\mathbf{d}\times\overrightarrow{PQ}=\begin{vmatrix}\mathbf{i}&\mathbf{j}&\mathbf{k}\\2&-1&3\\-1&-1&3\end{vmatrix}=\mathbf{i}(-3+3)-\mathbf{j}(6+3)+\mathbf{k}(-2-1)=(0,\,-9,\,-3)\sim(0,3,1).$$
+        <p>Con $Q=(0,1,2)$:</p>
+        $$0\,(x-0)+3\,(y-1)+1\,(z-2)=0\quad\Longrightarrow\quad 3y+z=5.$$
+        <p>Verifico con los dos puntos: para $P$, $3(2)-1=5$, y para $Q$, $3(1)+2=5$. Ambos cumplen.</p>
+        <p><strong>Ángulo con $\Pi_2:2x-y+z=4$</strong> (normal $\mathbf{n}_2=(2,-1,1)$):</p>
+        $$\cos\theta=\frac{|\mathbf{n}\cdot\mathbf{n}_2|}{\|\mathbf{n}\|\,\|\mathbf{n}_2\|}=\frac{|0-3+1|}{\sqrt{10}\,\sqrt{6}}=\frac{2}{\sqrt{60}}=\frac{1}{\sqrt{15}},$$
+        $$\theta=\arccos\!\left(\frac{1}{\sqrt{15}}\right)\approx 75{,}04^\circ.$$
+      </div>
+      <h4>Respuesta</h4>
+      <div class="resp"><p>Plano: $3y+z=5$. Ángulo con $2x-y+z=4$: $\theta=\arccos(1/\sqrt{15})\approx 75^\circ$.</p></div>
+    </div>
+    <aside class="margen">
+      <p class="margen-t">Nota</p>
+      <p>Un plano contiene una recta cuando su normal es perpendicular al director: aquí $\mathbf{n}=(0,3,1)$ cumple $\mathbf{n}\cdot\mathbf{d}=0$ con $\mathbf{d}=(2,-1,3)$. De ahí en adelante es mecánico. En el primer intento solo saqué el plano y se me olvidó el ángulo, que también pedía el enunciado (clásico en mí, a veces dejo la mitad de la letra). El seguro fue meter $P$ y $Q$ en el resultado final: dos sustituciones que evitan rehacer todo si la normal quedó mal.</p>
+    </aside>
+  </div>
+</article>
+</section>
+
+<section class="bloque-sec" id="bloque-B"><h2>Bloque B. Dominios, curvas y superficies de nivel</h2>
+
+<article class="ej hecho" id="B19" data-bloque="B">
+  <h3><span class="idx">5.</span> B.19, Dominio con raíz y logaritmo</h3>
+  <div class="cuerpo">
+    <div class="principal">
+      <p class="enun"><strong>Enunciado.</strong> Determine el dominio de $f(x,y)=\sqrt{x^2+y^2-x}-\ln(2x-x^2-y^2)$.</p>
+      <h4>Procedimiento</h4>
+      <div class="proc">
+        <p><strong>Condición de la raíz.</strong> $x^2+y^2-x\ge 0$. Completando cuadrado en $x$:</p>
+        $$\left(x-\tfrac12\right)^2+y^2\ge \tfrac14.$$
+        <p>Es el exterior (frontera incluida) de la circunferencia $\mathcal{C}_1$ de centro $(\tfrac12,0)$ y radio $\tfrac12$.</p>
+        <p><strong>Condición del logaritmo.</strong> $2x-x^2-y^2>0$, es decir $x^2-2x+y^2<0$. Completando cuadrado:</p>
+        $$(x-1)^2+y^2<1.$$
+        <p>Es el interior (borde excluido) de la circunferencia $\mathcal{C}_2$ de centro $(1,0)$ y radio $1$.</p>
+        <p><strong>Intersección.</strong> $\mathcal{C}_1$ pasa por $(0,0)$ y $(1,0)$, y $\mathcal{C}_2$ pasa por $(0,0)$ y $(2,0)$. Las dos son tangentes en el origen. $\mathcal{C}_1$ queda adentro de $\mathcal{C}_2$, así que el dominio es la región entre ambas: los puntos del disco grande que no están dentro del disco pequeño.</p>
+      </div>
+      <h4>Respuesta</h4>
+      <div class="resp"><p>$D=\{(x,y):(x-1)^2+y^2<1\ \text{y}\ (x-\tfrac12)^2+y^2\ge\tfrac14\}$. Geométricamente: el interior del disco grande $(x-1)^2+y^2<1$ menos el interior del disco pequeño $(x-\tfrac12)^2+y^2<\tfrac14$, con la frontera del pequeño incluida y la del grande excluida.</p></div>
+    </div>
+    <aside class="margen">
+      <p class="margen-t">Nota</p>
+      <p>El logaritmo es el mismo del ejemplo de clase (semana 3, s7). Con los cuadrados completos las dos condiciones quedan como discos y la intersección se lee sola. Antes de ese paso me enredé con los signos de las desigualdades.</p>
+    </aside>
+  </div>
+</article>
+
+<article class="ej hecho" id="B24" data-bloque="B">
+  <h3><span class="idx">6.</span> B.24, Curvas de nivel de y/(x²+y²)</h3>
+  <p class="meta">Tipo: geométrico. Entrada especial 2 (cambiar de representación).</p>
+  <div class="cuerpo">
+    <div class="principal">
+      <p class="enun"><strong>Enunciado.</strong> Bosqueje algunas curvas de nivel de $f(x,y)=\dfrac{y}{x^2+y^2}$, $(x,y)\neq(0,0)$.</p>
+      <h4>Procedimiento</h4>
+      <div class="proc">
+        <p>Igualo $f(x,y)=c$: $\ y=c\,(x^2+y^2)$.</p>
+        <p><strong>Caso $c=0$:</strong> queda $y=0$, el eje $x$ sin el origen.</p>
+        <p><strong>Caso $c\neq0$:</strong> reorganizando, $x^2+y^2-\dfrac{y}{c}=0$, y completando cuadrado en $y$,</p>
+        $$x^2+\left(y-\frac{1}{2c}\right)^2=\frac{1}{4c^2}.$$
+        <p>Son circunferencias de centro $\left(0,\frac{1}{2c}\right)$ y radio $\frac{1}{2|c|}$, todas tangentes al eje $x$ en el origen (que no pertenece al dominio).</p>
+        <table class="datos">
+          <thead><tr><th>$c$</th><th>Centro</th><th>Radio</th></tr></thead>
+          <tbody>
+            <tr><td>$1$</td><td>$(0,\tfrac12)$</td><td>$\tfrac12$</td></tr>
+            <tr><td>$-1$</td><td>$(0,-\tfrac12)$</td><td>$\tfrac12$</td></tr>
+            <tr><td>$\tfrac12$</td><td>$(0,1)$</td><td>$1$</td></tr>
+            <tr><td>$2$</td><td>$(0,\tfrac14)$</td><td>$\tfrac14$</td></tr>
+          </tbody>
+        </table>
+        <p>Cuando $|c|$ crece, las circunferencias se achican y se aprietan contra el eje $x$. Cuando $|c|\to0$, crecen indefinidamente.</p>
+        <figure>
+          <img src="img/b24-niveles.png" alt="Cuatro circunferencias tangentes al eje x en el origen, centros sobre el eje y, correspondientes a los niveles c=1, -1, 1/2 y 2.">
+          <figcaption>Cuatro niveles de $f(x,y)=y/(x^2+y^2)$: todos son circunferencias tangentes al eje $x$ en el origen. Con $|c|$ grande se achican y con $|c|$ pequeño se estiran.</figcaption>
+        </figure>
+      </div>
+      <h4>Respuesta</h4>
+      <div class="resp"><p>Para $c=0$, el eje $x$ (sin el origen). Para $c\neq0$, la familia de circunferencias $\ x^2+\left(y-\frac{1}{2c}\right)^2=\frac{1}{4c^2}$, tangentes al eje $x$ en el origen.</p></div>
+    </div>
+    <aside class="margen">
+      <p class="margen-t">Nota</p>
+      <p>Es el mismo del ejercicio de clase (semana 3, s10). La fórmula no dice gran cosa a primera vista, pero al pasarla a niveles queda una familia ordenada de circunferencias. Por el eje $y$ la función se dispara y por el eje $x$ se aplana. Y el origen queda fuera del dominio: en clase el profe lo mencionó, "el primer mandamiento de las matemáticas: nunca dividirás por cero".</p>
+    </aside>
+  </div>
+</article>
+
+<article class="ej hecho" id="BR3" data-bloque="B">
+  <h3><span class="idx">7.</span> B.R3, Niveles de x²+4y²</h3>
+  <div class="cuerpo">
+    <div class="principal">
+      <p class="enun"><strong>Enunciado.</strong> Para $f(x,y)=x^2+4y^2$, trace las curvas de nivel $f=c$ para $c=1,4,9$ y explique cómo la separación entre curvas permite anticipar en qué dirección cambia más rápidamente la superficie.</p>
+      <h4>Procedimiento</h4>
+      <div class="proc">
+        <p>La curva de nivel $x^2+4y^2=c$ se escribe</p>
+        $$\frac{x^2}{c}+\frac{y^2}{c/4}=1,$$
+        <p>una elipse con semiejes $a=\sqrt{c}$ en $x$ y $b=\frac{\sqrt{c}}{2}$ en $y$:</p>
+        <table class="datos">
+          <thead><tr><th>$c$</th><th>$a$</th><th>$b$</th></tr></thead>
+          <tbody>
+            <tr><td>$1$</td><td>$1$</td><td>$\tfrac12$</td></tr>
+            <tr><td>$4$</td><td>$2$</td><td>$1$</td></tr>
+            <tr><td>$9$</td><td>$3$</td><td>$\tfrac32$</td></tr>
+          </tbody>
+        </table>
+        <p>El semieje en $y$ es siempre la mitad del semieje en $x$: las elipses quedan aplastadas en la dirección $y$, y por lo tanto las curvas de nivel se aprietan más por ese eje. Comparando puntos a la misma distancia del origen, $\nabla f=(2x,8y)$ confirma la lectura: la componente en $y$ es cuatro veces más grande.</p>
+        <figure>
+          <img src="img/br3-niveles.png" alt="Elipses concéntricas de niveles c=1, 4 y 9 para la función x^2+4y^2, más apretadas en la dirección y.">
+          <figcaption>Niveles $c=1,4,9$ de $x^2+4y^2$ en GeoGebra: el semieje en $y$ siempre mide la mitad del semieje en $x$.</figcaption>
+        </figure>
+      </div>
+      <h4>Respuesta</h4>
+      <div class="resp"><p>Elipses concéntricas con semiejes $(\sqrt{c},\ \frac{\sqrt{c}}{2})$. La mayor densidad de niveles en la dirección $y$ anticipa que la superficie cambia más rápido en esa dirección, como confirma $\nabla f=(2x,8y)$.</p></div>
+    </div>
+    <aside class="margen">
+      <p class="margen-t">Nota</p>
+      <p>El ejemplo de la semana 1 (s7) ya mostraba la idea con $x^2+y^2$: niveles circulares y gradiente radial. Aquí el $4y^2$ aplasta las elipses y eso se lee en el mapa antes de derivar.</p>
+    </aside>
+  </div>
+</article>
+</section>
+
+<section class="bloque-sec" id="bloque-C"><h2>Bloque C. Límites y continuidad</h2>
+
+<article class="ej pendiente" id="C31" data-bloque="C">
+  <h3><span class="idx">8.</span> C.31, Existencia de un límite</h3>
+  <p class="meta">Tipo: existencia.</p>
+<div class="cuerpo">
+    <div class="principal">
+      <p class="enun"><strong>Enunciado.</strong> Calcule, o demuestre que no existe, $\displaystyle\lim_{(x,y)\to(0,0)}\frac{3xy^3}{2y^6+x^2}$.</p>
+      <h4>Procedimiento</h4>
+      <div class="proc"><p class="vacio">Sin desarrollar todavía.</p></div>
+      <h4>Respuesta</h4>
+      <div class="resp"><p class="vacio">Sin respuesta todavía.</p></div>
+    </div>
+    <aside class="margen">
+      <p class="margen-t">Nota</p>
+      <p class="vacio">Sin nota.</p>
+    </aside>
+  </div>
+</article>
+
+<aside class="pausa" id="pausa1">
+  <h3>Pausa 1, después del ejercicio 8</h3>
+  <dl>
+    <dt>¿Qué entiendo mejor ahora?</dt>
+    <dd>Creo que los caminos sirven para tumbar un límite, no para confirmarlo, y confirmarlo exige cota o polares con lectura de $\theta$.</dd>
+    <dt>¿Qué error estoy repitiendo?</dt>
+    <dd>Quedarme con el primer valor que sale y no cerrar la justificación.</dd>
+    <dt>¿Qué ejercicio debo repetir?</dt>
+    <dd>C.31 desde cero, y algún límite tipo parcial con potencias desbalanceadas.</dd>
+    <dt>¿Qué estrategia sí me está funcionando?</dt>
+    <dd>Antes de calcular, escribir qué forma tiene la función (potencias, raíces) y qué método le toca: sustitución, caminos, cota o polares.</dd>
+  </dl>
+</aside>
+
+<article class="ej pendiente" id="CR2" data-bloque="C">
+  <h3><span class="idx">9.</span> C.R2, Desigualdad y polares</h3>
+  <div class="cuerpo">
+    <div class="principal">
+      <p class="enun"><strong>Enunciado.</strong> Calcule $\displaystyle\lim_{(x,y)\to(0,0)}\frac{x^2y^2}{x^2+y^2}$ mediante una desigualdad y también mediante coordenadas polares.</p>
+      <h4>Procedimiento</h4>
+      <div class="proc"><p class="vacio">Sin desarrollar todavía.</p></div>
+      <h4>Respuesta</h4>
+      <div class="resp"><p class="vacio">Sin respuesta todavía.</p></div>
+    </div>
+    <aside class="margen">
+      <p class="margen-t">Nota</p>
+      <p class="vacio">Sin nota.</p>
+    </aside>
+  </div>
+</article>
+
+<article class="ej pendiente" id="CR5" data-bloque="C">
+  <h3><span class="idx">10.</span> C.R5, Continuidad con parámetro</h3>
+  <p class="meta">Tipo: existencia.</p>
+<div class="cuerpo">
+    <div class="principal">
+      <p class="enun"><strong>Enunciado.</strong> Sea $f_a(x,y)=\dfrac{x^2y}{x^2+y^2}$ si $(x,y)\neq(0,0)$ y $f_a(0,0)=a$. Determine el único valor de $a$ que puede hacerla continua y demuestre que efectivamente funciona.</p>
+      <h4>Procedimiento</h4>
+      <div class="proc"><p class="vacio">Sin desarrollar todavía.</p></div>
+      <h4>Respuesta</h4>
+      <div class="resp"><p class="vacio">Sin respuesta todavía.</p></div>
+    </div>
+    <aside class="margen">
+      <p class="margen-t">Nota</p>
+      <p class="vacio">Sin nota.</p>
+    </aside>
+  </div>
+</article>
+
+<article class="ej pendiente" id="C42" data-bloque="C">
+  <h3><span class="idx">11.</span> C.42, Continuidad y diferenciabilidad en el origen</h3>
+  <p class="meta">Tipo: existencia.</p>
+<div class="cuerpo">
+    <div class="principal">
+      <p class="enun"><strong>Enunciado.</strong> Defina $f(x,y)=\dfrac{x(1-\cos y)}{\sqrt{x^2+y^2}}\,(x^2+y^4)$ si $(x,y)\neq(0,0)$ y $f(0,0)=a$. (a) Determine $a$ para que $f$ sea continua en $(0,0)$. (b) Decida si $f$ es diferenciable en $(0,0)$.</p>
+      <h4>Procedimiento</h4>
+      <div class="proc"><p class="vacio">Sin desarrollar todavía.</p></div>
+      <h4>Respuesta</h4>
+      <div class="resp"><p class="vacio">Sin respuesta todavía.</p></div>
+    </div>
+    <aside class="margen">
+      <p class="margen-t">Nota</p>
+      <p class="vacio">Sin nota.</p>
+    </aside>
+  </div>
+</article>
+</section>
+
+<section class="bloque-sec" id="bloque-D"><h2>Bloque D. Derivadas parciales y diferenciabilidad</h2>
+
+<article class="ej pendiente" id="D46" data-bloque="D">
+  <h3><span class="idx">12.</span> D.46, Parciales de $x\,e^{y/x}$</h3>
+  <div class="cuerpo">
+    <div class="principal">
+      <p class="enun"><strong>Enunciado.</strong> Calcule $f_x$ y $f_y$ para $f(x,y)=x\,e^{y/x}$, con $x\neq 0$.</p>
+      <h4>Procedimiento</h4>
+      <div class="proc"><p class="vacio">Sin desarrollar todavía.</p></div>
+      <h4>Respuesta</h4>
+      <div class="resp"><p class="vacio">Sin respuesta todavía.</p></div>
+    </div>
+    <aside class="margen">
+      <p class="margen-t">Nota</p>
+      <p class="vacio">Sin nota.</p>
+    </aside>
+  </div>
+</article>
+
+<article class="ej pendiente" id="D52" data-bloque="D">
+  <h3><span class="idx">13.</span> D.52, Parciales de una función a trozos</h3>
+  <div class="cuerpo">
+    <div class="principal">
+      <p class="enun"><strong>Enunciado.</strong> Sea
+      $$f(x,y)=\begin{cases}\dfrac{x^{2}y+2xy^{2}}{x^{2}+y^{2}},&(x,y)\neq(0,0),\\[2mm]0,&(x,y)=(0,0).\end{cases}$$
+      (a) Calcule $f_x$ y $f_y$ para $(x,y)\neq(0,0)$. (b) Determine si existen $f_x(0,0)$ y $f_y(0,0)$ usando la definición.</p>
+      <h4>Procedimiento</h4>
+      <div class="proc"><p class="vacio">Sin desarrollar todavía.</p></div>
+      <h4>Respuesta</h4>
+      <div class="resp"><p class="vacio">Sin respuesta todavía.</p></div>
+    </div>
+    <aside class="margen">
+      <p class="margen-t">Nota</p>
+      <p class="vacio">Sin nota.</p>
+    </aside>
+  </div>
+</article>
+
+<article class="ej pendiente" id="DR5" data-bloque="D">
+  <h3><span class="idx">14.</span> D.R5, Continuidad y diferenciabilidad en el origen</h3>
+  <div class="cuerpo">
+    <div class="principal">
+      <p class="enun"><strong>Enunciado.</strong> Sea
+      $$f(x,y)=\begin{cases}\dfrac{x^{2}y}{\sqrt{x^{2}+y^{2}}},&(x,y)\neq(0,0),\\[2mm]0,&(x,y)=(0,0).\end{cases}$$
+      ¿Es $f$ continua en el origen? Calcule sus derivadas parciales allí y decida si es diferenciable.</p>
+      <h4>Procedimiento</h4>
+      <div class="proc"><p class="vacio">Sin desarrollar todavía.</p></div>
+      <h4>Respuesta</h4>
+      <div class="resp"><p class="vacio">Sin respuesta todavía.</p></div>
+    </div>
+    <aside class="margen">
+      <p class="margen-t">Nota</p>
+      <p class="vacio">Sin nota.</p>
+    </aside>
+  </div>
+</article>
+
+<article class="ej pendiente" id="DR4" data-bloque="D">
+  <h3><span class="idx">15.</span> D.R4, Plano tangente y aproximación lineal</h3>
+  <div class="cuerpo">
+    <div class="principal">
+      <p class="enun"><strong>Enunciado.</strong> Halle el plano tangente y la aproximación lineal de $f(x,y)=\sqrt{25-x^{2}-4y^{2}}$ en $(3,1)$. Use la linealización para estimar $f(3{,}04;\,0{,}98)$.</p>
+      <h4>Procedimiento</h4>
+      <div class="proc"><p class="vacio">Sin desarrollar todavía.</p></div>
+      <h4>Respuesta</h4>
+      <div class="resp"><p class="vacio">Sin respuesta todavía.</p></div>
+    </div>
+    <aside class="margen">
+      <p class="margen-t">Nota</p>
+      <p class="vacio">Sin nota.</p>
+    </aside>
+  </div>
+</article>
+</section>
+
+<section class="bloque-sec" id="bloque-E"><h2>Bloque E. Regla de la cadena e implícitas</h2>
+
+<article class="ej pendiente" id="E61" data-bloque="E">
+  <h3><span class="idx">16.</span> E.61, Regla de la cadena con dos variables independientes</h3>
+  <div class="cuerpo">
+    <div class="principal">
+      <p class="enun"><strong>Enunciado.</strong> Sea $z=e^{x}\operatorname{sen}y$, con $x=st^{2}$ y $y=s^{2}t$. Calcule $\dfrac{\partial z}{\partial s}$ y $\dfrac{\partial z}{\partial t}$.</p>
+      <h4>Procedimiento</h4>
+      <div class="proc"><p class="vacio">Sin desarrollar todavía.</p></div>
+      <h4>Respuesta</h4>
+      <div class="resp"><p class="vacio">Sin respuesta todavía.</p></div>
+    </div>
+    <aside class="margen">
+      <p class="margen-t">Nota</p>
+      <p class="vacio">Sin nota.</p>
+    </aside>
+  </div>
+</article>
+
+<aside class="pausa" id="pausa2">
+  <h3>Pausa 2, después del ejercicio 16</h3>
+  <dl>
+    <dt>¿Qué entiendo mejor ahora?</dt>
+    <dd class="vacio">Sin responder.</dd>
+    <dt>¿Qué error estoy repitiendo?</dt>
+    <dd class="vacio">Sin responder.</dd>
+    <dt>¿Qué ejercicio debo repetir?</dt>
+    <dd class="vacio">Sin responder.</dd>
+    <dt>¿Qué estrategia sí me está funcionando?</dt>
+    <dd class="vacio">Sin responder.</dd>
+  </dl>
+</aside>
+
+<article class="ej pendiente" id="ER3" data-bloque="E">
+  <h3><span class="idx">17.</span> E.R3, Derivación implícita de una superficie</h3>
+  <div class="cuerpo">
+    <div class="principal">
+      <p class="enun"><strong>Enunciado.</strong> La superficie $x^{2}+xy+y^{2}+z^{2}=7$ define localmente $z=z(x,y)$ cerca de los puntos donde $z\neq 0$. Halle $z_x$ y $z_y$ y evalúelos en $(1,1,2)$.</p>
+      <h4>Procedimiento</h4>
+      <div class="proc"><p class="vacio">Sin desarrollar todavía.</p></div>
+      <h4>Respuesta</h4>
+      <div class="resp"><p class="vacio">Sin respuesta todavía.</p></div>
+    </div>
+    <aside class="margen">
+      <p class="margen-t">Nota</p>
+      <p class="vacio">Sin nota.</p>
+    </aside>
+  </div>
+</article>
+
+<article class="ej pendiente" id="E64" data-bloque="E">
+  <h3><span class="idx">18.</span> E.64, Razón de cambio del volumen de un cilindro</h3>
+  <div class="cuerpo">
+    <div class="principal">
+      <p class="enun"><strong>Enunciado.</strong> El volumen de un cilindro circular recto es $V=\pi r^{2}h$. Si $h$ y el diámetro $d=2r$ aumentan a tasas constantes de $20$ y $3$ pulgadas por año, halle $\dfrac{dV}{dt}$ cuando $h=200$ y $d=30$.</p>
+      <h4>Procedimiento</h4>
+      <div class="proc"><p class="vacio">Sin desarrollar todavía.</p></div>
+      <h4>Respuesta</h4>
+      <div class="resp"><p class="vacio">Sin respuesta todavía.</p></div>
+    </div>
+    <aside class="margen">
+      <p class="margen-t">Nota</p>
+      <p class="vacio">Sin nota.</p>
+    </aside>
+  </div>
+</article>
+</section>
+
+<section class="bloque-sec" id="bloque-F"><h2>Bloque F. Gradiente, derivada direccional y planos tangentes</h2>
+
+<article class="ej pendiente" id="F69" data-bloque="F">
+  <h3><span class="idx">19.</span> F.69, Gradiente y derivada direccional de $xy+yz^2+xz^3$</h3>
+  <div class="cuerpo">
+    <div class="principal">
+      <p class="enun"><strong>Enunciado.</strong> Sea $f(x,y,z)=xy+yz^2+xz^3$. (a) Calcule $\nabla f$. (b) Evalúe $\nabla f$ en $P=(2,0,3)$. (c) Halle la derivada direccional de $f$ en $P$ en la dirección del vector unitario $\mathbf{u}=(-2/3,-1/3,2/3)$.</p>
+      <h4>Procedimiento</h4>
+      <div class="proc"><p class="vacio">Sin desarrollar todavía.</p></div>
+      <h4>Respuesta</h4>
+      <div class="resp"><p class="vacio">Sin respuesta todavía.</p></div>
+    </div>
+    <aside class="margen">
+      <p class="margen-t">Nota</p>
+      <p class="vacio">Sin nota.</p>
+    </aside>
+  </div>
+</article>
+
+<article class="ej pendiente" id="F74" data-bloque="F">
+  <h3><span class="idx">20.</span> F.74, Plano tangente a cuatro superficies</h3>
+  <div class="cuerpo">
+    <div class="principal">
+      <p class="enun"><strong>Enunciado.</strong> Halle la ecuación del plano tangente a $z=f(x,y)$ en el punto indicado:
+      (a) $f(x,y)=x\cos x\cos y$ en $(0,\pi,0)$;
+      (b) $f(x,y)=\sqrt{50-x^2-y^2}$ en $(4,-3,5)$;
+      (c) $f(x,y)=xy$ en $(1,-1,-1)$;
+      (d) $f(x,y)=e^x\ln y$ en $(3,1,0)$.</p>
+      <h4>Procedimiento</h4>
+      <div class="proc"><p class="vacio">Sin desarrollar todavía.</p></div>
+      <h4>Respuesta</h4>
+      <div class="resp"><p class="vacio">Sin respuesta todavía.</p></div>
+    </div>
+    <aside class="margen">
+      <p class="margen-t">Nota</p>
+      <p class="vacio">Sin nota.</p>
+    </aside>
+  </div>
+</article>
+
+<article class="ej pendiente" id="FR3" data-bloque="F">
+  <h3><span class="idx">21.</span> F.R3, Normal y plano tangente a una superficie de nivel</h3>
+  <div class="cuerpo">
+    <div class="principal">
+      <p class="enun"><strong>Enunciado.</strong> Sea la superficie de nivel $F(x,y,z)=x^2+2y^2+3z^2-12=0$. Encuentre un vector normal y la ecuación del plano tangente en $P=(1,2,1)$, después de verificar que $P$ pertenece a la superficie.</p>
+      <h4>Procedimiento</h4>
+      <div class="proc"><p class="vacio">Sin desarrollar todavía.</p></div>
+      <h4>Respuesta</h4>
+      <div class="resp"><p class="vacio">Sin respuesta todavía.</p></div>
+    </div>
+    <aside class="margen">
+      <p class="margen-t">Nota</p>
+      <p class="vacio">Sin nota.</p>
+    </aside>
+  </div>
+</article>
+
+<article class="ej pendiente" id="FR4" data-bloque="F">
+  <h3><span class="idx">22.</span> F.R4, Ascenso más rápido en una colina</h3>
+  <div class="cuerpo">
+    <div class="principal">
+      <p class="enun"><strong>Enunciado.</strong> La altura de una colina está dada por $h(x,y)=800-2x^2-y^2+2xy$. Desde el punto $(3,1)$ determine: (a) la dirección de ascenso más rápido, (b) la razón máxima de ascenso, (c) una dirección en la que inicialmente no cambie la altura.</p>
+      <h4>Procedimiento</h4>
+      <div class="proc"><p class="vacio">Sin desarrollar todavía.</p></div>
+      <h4>Respuesta</h4>
+      <div class="resp"><p class="vacio">Sin respuesta todavía.</p></div>
+    </div>
+    <aside class="margen">
+      <p class="margen-t">Nota</p>
+      <p class="vacio">Sin nota.</p>
+    </aside>
+  </div>
+</article>
+</section>
+
+<section class="bloque-sec" id="bloque-G"><h2>Bloque G. Extremos y Hessiano</h2>
+
+<article class="ej pendiente" id="G75" data-bloque="G">
+  <h3><span class="idx">23.</span> G.75, Puntos críticos de $xy(1-x-y)$</h3>
+  <div class="cuerpo">
+    <div class="principal">
+      <p class="enun"><strong>Enunciado.</strong> Halle y clasifique, si es posible, los puntos críticos de $f(x,y)=xy(1-x-y)$.</p>
+      <h4>Procedimiento</h4>
+      <div class="proc"><p class="vacio">Sin desarrollar todavía.</p></div>
+      <h4>Respuesta</h4>
+      <div class="resp"><p class="vacio">Sin respuesta todavía.</p></div>
+    </div>
+    <aside class="margen">
+      <p class="margen-t">Nota</p>
+      <p class="vacio">Sin nota.</p>
+    </aside>
+  </div>
+</article>
+
+<article class="ej pendiente" id="G77" data-bloque="G">
+  <h3><span class="idx">24.</span> G.77, Hessiano degenerado en $x^2-2xy+y^2$</h3>
+  <div class="cuerpo">
+    <div class="principal">
+      <p class="enun"><strong>Enunciado.</strong> Determine y clasifique los puntos críticos de $f(x,y)=x^2-2xy+y^2$. Además, interprete geométricamente la gráfica y explique por qué el criterio usual del determinante Hessiano resulta degenerado.</p>
+      <h4>Procedimiento</h4>
+      <div class="proc"><p class="vacio">Sin desarrollar todavía.</p></div>
+      <h4>Respuesta</h4>
+      <div class="resp"><p class="vacio">Sin respuesta todavía.</p></div>
+    </div>
+    <aside class="margen">
+      <p class="margen-t">Nota</p>
+      <p class="vacio">Sin nota.</p>
+    </aside>
+  </div>
+</article>
+
+<article class="ej pendiente" id="GR3" data-bloque="G">
+  <h3><span class="idx">25.</span> G.R3, Críticos de $x^4+y^4-4xy$</h3>
+  <div class="cuerpo">
+    <div class="principal">
+      <p class="enun"><strong>Enunciado.</strong> Analice los puntos críticos de $f(x,y)=x^4+y^4-4xy$. Use el Hessiano donde sea concluyente y un argumento adicional donde no lo sea.</p>
+      <h4>Procedimiento</h4>
+      <div class="proc"><p class="vacio">Sin desarrollar todavía.</p></div>
+      <h4>Respuesta</h4>
+      <div class="resp"><p class="vacio">Sin respuesta todavía.</p></div>
+    </div>
+    <aside class="margen">
+      <p class="margen-t">Nota</p>
+      <p class="vacio">Sin nota.</p>
+    </aside>
+  </div>
+</article>
+
+<aside class="pausa" id="pausa3">
+  <h3>Pausa 3, después del ejercicio 25</h3>
+  <dl>
+    <dt>¿Qué entiendo mejor ahora?</dt>
+    <dd class="vacio">Sin responder.</dd>
+    <dt>¿Qué error estoy repitiendo?</dt>
+    <dd class="vacio">Sin responder.</dd>
+    <dt>¿Qué ejercicio debo repetir?</dt>
+    <dd class="vacio">Sin responder.</dd>
+    <dt>¿Qué estrategia sí me está funcionando?</dt>
+    <dd class="vacio">Sin responder.</dd>
+  </dl>
+</aside>
+</section>
+
+<section class="bloque-sec" id="bloque-H"><h2>Bloque H. Multiplicadores de Lagrange</h2>
+
+<article class="ej pendiente" id="H80" data-bloque="H">
+  <h3><span class="idx">26.</span> H.80, Utilidad máxima con presupuesto</h3>
+  <p class="meta">Tipo: aplicación.</p>
+<div class="cuerpo">
+    <div class="principal">
+      <p class="enun"><strong>Enunciado.</strong> Un consumidor tiene utilidad $U(x,y)=\ln x+2\ln y$ con $x,y>0$, y enfrenta el presupuesto $p_xx+p_yy=m$ con $p_x,p_y,m>0$. (a) Maximice $U$ sujeta a la restricción. (b) Obtenga $x^*$ y $y^*$. (c) Interprete la condición de primer orden como igualdad entre la tasa marginal de sustitución y la razón de precios.</p>
+      <h4>Procedimiento</h4>
+      <div class="proc"><p class="vacio">Sin desarrollar todavía.</p></div>
+      <h4>Respuesta</h4>
+      <div class="resp"><p class="vacio">Sin respuesta todavía.</p></div>
+    </div>
+    <aside class="margen">
+      <p class="margen-t">Nota</p>
+      <p class="vacio">Sin nota.</p>
+    </aside>
+  </div>
+</article>
+
+<article class="ej pendiente" id="H82" data-bloque="H">
+  <h3><span class="idx">27.</span> H.82, Caja de volumen fijo y área mínima</h3>
+  <p class="meta">Tipo: aplicación.</p>
+<div class="cuerpo">
+    <div class="principal">
+      <p class="enun"><strong>Enunciado.</strong> Caja rectangular cerrada de dimensiones $x,y,z>0$ con volumen fijo $xyz=V_0$, y área total $A(x,y,z)=2(xy+xz+yz)$. (a) Minimice $A$. (b) Interprete geométricamente. (c) Compruebe que es mínimo global en $x,y,z>0$.</p>
+      <h4>Procedimiento</h4>
+      <div class="proc"><p class="vacio">Sin desarrollar todavía.</p></div>
+      <h4>Respuesta</h4>
+      <div class="resp"><p class="vacio">Sin respuesta todavía.</p></div>
+    </div>
+    <aside class="margen">
+      <p class="margen-t">Nota</p>
+      <p class="vacio">Sin nota.</p>
+    </aside>
+  </div>
+</article>
+
+<article class="ej pendiente" id="H84" data-bloque="H">
+  <h3><span class="idx">28.</span> H.84, Punto del plano más cercano a $P_0$</h3>
+  <p class="meta">Tipo: geométrico.</p>
+<div class="cuerpo">
+    <div class="principal">
+      <p class="enun"><strong>Enunciado.</strong> Encuentre el punto $(x,y,z)$ del plano $x+2y-2z=5$ más cercano a $P_0=(1,-2,4)$. (a) Formule como minimización y aplique Lagrange. (b) Halle el punto y la distancia mínima. (c) Compare con la proyección ortogonal.</p>
+      <h4>Procedimiento</h4>
+      <div class="proc"><p class="vacio">Sin desarrollar todavía.</p></div>
+      <h4>Respuesta</h4>
+      <div class="resp"><p class="vacio">Sin respuesta todavía.</p></div>
+    </div>
+    <aside class="margen">
+      <p class="margen-t">Nota</p>
+      <p class="vacio">Sin nota.</p>
+    </aside>
+  </div>
+</article>
+</section>
+
+    <section id="especiales">
+      <h2>Entradas especiales</h2>
+      <p class="intro">Seis entradas de formato libre. Cada una se apoya en un ejercicio de arriba para mirar el tema desde otra representación.</p>
+
+<article class="especial hecho" id="especial1">
+  <h3>Entrada especial 1: Ver el espacio</h3>
+  <p class="meta">Ejercicio: A.4. Qué revelan las trazas del paraboloide hiperbólico.</p>
+  <p>La silla $z=x^2-y^2$ se puede contar con tres cortes: $x=0$ da la parábola $z=-y^2$ y $y=0$ la parábola $z=x^2$ (perfiles opuestos), y $z=0$ da las rectas $y=\pm x$. Los niveles $z=c$ completan la historia: hipérbolas cuya orientación rota al cruzar el cero. Es el caso que en clase quedó marcado como el de la traza central degenerada (semana 2, s21), y es la superficie donde mejor se ve que una familia de cortes explica más que un solo dibujo. Y queda el truco del profe para no perderse en $\mathbb{R}^3$: la esquina del salón como sistema de ejes (piso $XY$, pared de la pantalla $ZY$, pared lateral $ZX$). En general me sirve dibujar: hago borradores feos a mano antes de cualquier cuenta, porque ver la forma me ordena más que leer los pasos en fila. Con el dibujo adelante, el resto cae más fácil.</p>
+</article>
+
+<article class="especial hecho" id="especial2">
+  <h3>Entrada especial 2: Cambiar de representación</h3>
+  <p class="meta">Ejercicio: B.24. De la fórmula al mapa de niveles y a la superficie.</p>
+  <p>La fórmula $y/(x^2+y^2)$ parecía un obstáculo, pero sus niveles son limpios: para $c\neq0$, $\ x^2+\left(y-\tfrac{1}{2c}\right)^2=\tfrac{1}{4c^2}$ son circunferencias que pasan por el origen. Cambiar de representación permitió ver el comportamiento cerca de $(0,0)$, el punto que ni siquiera está en el dominio: sobre el eje $x$ la función se aplana, sobre el eje $y$ se dispara en ambos sentidos, y todo lo demás queda en medio.</p>
+</article>
+
+<article class="especial pendiente" id="especial3">
+  <h3>Entrada especial 3: Defender un argumento</h3>
+  <p class="meta">Ejercicio: D.R5. Por qué la prueba de continuidad o diferenciabilidad sí es suficiente.</p>
+  <p class="vacio">Sin desarrollar todavía.</p>
+</article>
+
+<article class="especial pendiente" id="especial4">
+  <h3>Entrada especial 4: Seguir una dirección</h3>
+  <p class="meta">Ejercicio: F.R4. Con el gradiente y las curvas de nivel, hacia dónde crece la colina.</p>
+  <p class="vacio">Sin desarrollar todavía.</p>
+</article>
+
+<article class="especial pendiente" id="especial5">
+  <h3>Entrada especial 5: Aprender de un error</h3>
+  <p class="meta">Ejercicio sugerido: por definir. Un intento que falló, su corrección y la alerta para el parcial. Se elige cuando pase de verdad.</p>
+  <p class="vacio">Sin desarrollar todavía.</p>
+</article>
+
+<article class="especial pendiente" id="especial6">
+  <h3>Entrada especial 6: Conectar con una aplicación</h3>
+  <p class="meta">Ejercicio: H.80. Qué significa el resultado en el problema económico.</p>
+  <p class="vacio">Sin desarrollar todavía.</p>
+</article>
+    </section>
+
+    <section id="herramientas">
+      <h2>Herramientas usadas</h2>
+      <p>Cada resultado pasó por una verificación antes de quedar escrito: los límites, con las cotas y las polares (y una comprobación numérica por trayectorias cuando hacía falta); las derivadas y los sistemas de optimización, con SymPy (Python); las superficies y los mapas de nivel, con GeoGebra 3D. Es la regla del curso (semana 2, s14): primero se razona, después se verifica con software.</p>
+    </section>
+
+    <section id="cierre" class="cierre">
+      <h2>Cierre</h2>
+      <ol>
+        <li><p>La idea del curso que más cambió para mí fue…</p><p class="vacio">Sin responder todavía.</p></li>
+        <li><p>El error que ahora detecto más rápido es…</p><p class="vacio">Sin responder todavía.</p></li>
+        <li><p>La estrategia que más me ayuda cuando me bloqueo es…</p><p class="vacio">Sin responder todavía.</p></li>
+        <li><p>Antes del parcial quiero repetir el ejercicio… porque…</p><p class="vacio">Sin responder todavía.</p></li>
+        <li><p>Una nota para mí el día del parcial:</p><p class="vacio">Sin responder todavía.</p></li>
+      </ol>
+    </section>
+
+    <p class="pie">Ejercicios tomados de la Hoja del primer corte, 2026-2. Docente: Jhoan Sebastián Tenjo García.</p>
+  </main>
+</div>
+
+<script>
+(function () {
+  var arts = document.querySelectorAll('article.ej');
+  var porBloque = {}, hechos = 0;
+  arts.forEach(function (a) {
+    var b = a.dataset.bloque;
+    porBloque[b] = porBloque[b] || {h: 0, t: 0};
+    porBloque[b].t++;
+    var ok = a.classList.contains('hecho');
+    if (ok) { porBloque[b].h++; hechos++; }
+    var fila = document.querySelector('tr[data-ej="' + a.id + '"]');
+    if (fila) {
+      fila.classList.toggle('hecho', ok);
+      fila.querySelector('.estado').textContent = ok ? 'hecho' : 'pendiente';
+    }
+  });
+  Object.keys(porBloque).forEach(function (b) {
+    var c = document.querySelector('[data-cuenta="' + b + '"]');
+    if (c) c.textContent = porBloque[b].h + ' de ' + porBloque[b].t;
+  });
+  var esp = document.querySelectorAll('article.especial.hecho').length;
+  document.getElementById('avance').textContent =
+    hechos + ' de ' + arts.length + ' ejercicios terminados. Entradas especiales: ' + esp + ' de 6.';
+})();
+</script>
+</body>
+</html>
