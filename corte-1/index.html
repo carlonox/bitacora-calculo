@@ -329,20 +329,34 @@
 
 <section class="bloque-sec" id="bloque-C"><h2>Bloque C. Límites y continuidad</h2>
 
-<article class="ej pendiente" id="C31" data-bloque="C">
+<article class="ej hecho" id="C31" data-bloque="C">
   <h3><span class="idx">8.</span> C.31, Existencia de un límite</h3>
   <p class="meta">Tipo: existencia.</p>
-<div class="cuerpo">
+  <div class="cuerpo">
     <div class="principal">
       <p class="enun"><strong>Enunciado.</strong> Calcule, o demuestre que no existe, $\displaystyle\lim_{(x,y)\to(0,0)}\frac{3xy^3}{2y^6+x^2}$.</p>
       <h4>Procedimiento</h4>
-      <div class="proc"><p class="vacio">Sin desarrollar todavía.</p></div>
+      <div class="proc">
+        <div class="intento">
+          <p>Probé primero por rectas $y=mx$:</p>
+          $$\frac{3x(mx)^3}{2(mx)^6+x^2}=\frac{3m^3x^4}{2m^6x^6+x^2}=\frac{3m^3x^2}{2m^6x^4+1}\xrightarrow{\ x\to0\ }0.$$
+          <p>Todas las rectas dan 0, pero eso no prueba existencia: lo de la semana 4 (s5) es que varios caminos con el mismo valor no alcanzan.</p>
+        </div>
+        <div class="correccion">
+          <p>El denominador tiene potencias desbalanceadas ($x^2$ contra $y^6$). Hay que probar una curva que las empareje. Con $x=y^3$:</p>
+          $$\frac{3(y^3)y^3}{2y^6+(y^3)^2}=\frac{3y^6}{2y^6+y^6}=\frac{3y^6}{3y^6}=1.$$
+          <p>Por este camino el límite es 1, distinto del 0 de las rectas.</p>
+        </div>
+        <div class="alerta">
+          <p>Dos caminos con valores distintos ⇒ el límite no existe. Señal para detectarlo: denominadores con potencias dispares piden un camino tipo $x=y^k$.</p>
+        </div>
+      </div>
       <h4>Respuesta</h4>
-      <div class="resp"><p class="vacio">Sin respuesta todavía.</p></div>
+      <div class="resp"><p>El límite no existe: por rectas $y=mx$ vale 0, y por la curva $x=y^3$ vale 1.</p></div>
     </div>
     <aside class="margen">
       <p class="margen-t">Nota</p>
-      <p class="vacio">Sin nota.</p>
+      <p>Casi me quedo con el 0 que dan todas las rectas :P, pero la señal estaba en el denominador: potencias distintas que piden una curva del tipo $x=y^k$ para equilibrarlas, como en los caminos de la semana 4 (s5-s6).</p>
     </aside>
   </div>
 </article>
@@ -361,55 +375,78 @@
   </dl>
 </aside>
 
-<article class="ej pendiente" id="CR2" data-bloque="C">
+<article class="ej hecho" id="CR2" data-bloque="C">
   <h3><span class="idx">9.</span> C.R2, Desigualdad y polares</h3>
   <div class="cuerpo">
     <div class="principal">
       <p class="enun"><strong>Enunciado.</strong> Calcule $\displaystyle\lim_{(x,y)\to(0,0)}\frac{x^2y^2}{x^2+y^2}$ mediante una desigualdad y también mediante coordenadas polares.</p>
       <h4>Procedimiento</h4>
-      <div class="proc"><p class="vacio">Sin desarrollar todavía.</p></div>
+      <div class="proc">
+        <p><strong>Método 1: desigualdad.</strong> Por AM-GM, $|xy|\le\frac{x^2+y^2}{2}$, de donde $x^2y^2\le\frac{(x^2+y^2)^2}{4}$. Entonces</p>
+        $$0\le\frac{x^2y^2}{x^2+y^2}\le\frac{(x^2+y^2)^2/4}{x^2+y^2}=\frac{x^2+y^2}{4}\xrightarrow{\ (x,y)\to(0,0)\ }0.$$
+        <p>Por sándwich, el límite es 0.</p>
+        <p><strong>Método 2: polares.</strong> Con $x=r\cos\theta$, $y=r\sen\theta$:</p>
+        $$\frac{x^2y^2}{x^2+y^2}=\frac{r^4\cos^2\theta\,\sen^2\theta}{r^2}=r^2\cos^2\theta\,\sen^2\theta.$$
+        <p>Como $0\le\cos^2\theta\,\sen^2\theta\le1$ es acotado y $r^2\to0$, el límite es 0 sin importar la dirección.</p>
+      </div>
       <h4>Respuesta</h4>
-      <div class="resp"><p class="vacio">Sin respuesta todavía.</p></div>
+      <div class="resp"><p>El límite es $0$: por cota con AM-GM y por polares con factor radial.</p></div>
     </div>
     <aside class="margen">
       <p class="margen-t">Nota</p>
-      <p class="vacio">Sin nota.</p>
+      <p>Los dos métodos son los de la semana 4: el sándwich con AM-GM (s11, ahí está este mismo ejercicio) y los polares (s16-s17). Escribirlos juntos creo que queda bien: la cota explica el porqué y los polares descartan que alguna dirección se escape.</p>
     </aside>
   </div>
 </article>
 
-<article class="ej pendiente" id="CR5" data-bloque="C">
+<article class="ej hecho" id="CR5" data-bloque="C">
   <h3><span class="idx">10.</span> C.R5, Continuidad con parámetro</h3>
   <p class="meta">Tipo: existencia.</p>
-<div class="cuerpo">
+  <div class="cuerpo">
     <div class="principal">
       <p class="enun"><strong>Enunciado.</strong> Sea $f_a(x,y)=\dfrac{x^2y}{x^2+y^2}$ si $(x,y)\neq(0,0)$ y $f_a(0,0)=a$. Determine el único valor de $a$ que puede hacerla continua y demuestre que efectivamente funciona.</p>
       <h4>Procedimiento</h4>
-      <div class="proc"><p class="vacio">Sin desarrollar todavía.</p></div>
+      <div class="proc">
+        <p><strong>Candidato.</strong> Si $f_a$ es continua, $a$ tiene que ser el límite en el origen. En polares:</p>
+        $$f_a(r\cos\theta,r\sen\theta)=\frac{r^3\cos^2\theta\,\sen\theta}{r^2}=r\cos^2\theta\,\sen\theta.$$
+        <p>Como $|\cos^2\theta\,\sen\theta|\le1$, se tiene $|f_a|\le r\to0$. El único candidato es $a=0$.</p>
+        <p><strong>Demostración.</strong> Con $a=0$ y $(x,y)\neq(0,0)$, usando $x^2\le x^2+y^2$:</p>
+        $$|f_0(x,y)|=\frac{x^2|y|}{x^2+y^2}\le|y|\le\sqrt{x^2+y^2}.$$
+        <p>Dado $\varepsilon>0$, tomo $\delta=\varepsilon$. Si $0<\sqrt{x^2+y^2}<\delta$, entonces $|f_0(x,y)-f_0(0,0)|<\varepsilon$. Luego $f_0$ es continua en el origen.</p>
+      </div>
       <h4>Respuesta</h4>
-      <div class="resp"><p class="vacio">Sin respuesta todavía.</p></div>
+      <div class="resp"><p>El único valor posible es $a=0$, y con él la función es continua en $(0,0)$.</p></div>
     </div>
     <aside class="margen">
       <p class="margen-t">Nota</p>
-      <p class="vacio">Sin nota.</p>
+      <p>La cota $x^2\le x^2+y^2$ es la misma idea del compendio radial de la semana 4 (s9): si $|f|\le Cr^{\alpha}$ con $\alpha>0$, el límite es 0 y no hace falta pasear caminos.</p>
     </aside>
   </div>
 </article>
 
-<article class="ej pendiente" id="C42" data-bloque="C">
+<article class="ej hecho" id="C42" data-bloque="C">
   <h3><span class="idx">11.</span> C.42, Continuidad y diferenciabilidad en el origen</h3>
   <p class="meta">Tipo: existencia.</p>
-<div class="cuerpo">
+  <div class="cuerpo">
     <div class="principal">
       <p class="enun"><strong>Enunciado.</strong> Defina $f(x,y)=\dfrac{x(1-\cos y)}{\sqrt{x^2+y^2}}\,(x^2+y^4)$ si $(x,y)\neq(0,0)$ y $f(0,0)=a$. (a) Determine $a$ para que $f$ sea continua en $(0,0)$. (b) Decida si $f$ es diferenciable en $(0,0)$.</p>
       <h4>Procedimiento</h4>
-      <div class="proc"><p class="vacio">Sin desarrollar todavía.</p></div>
+      <div class="proc">
+        <p><strong>(a) Continuidad.</strong> Con $r=\sqrt{x^2+y^2}$ uso $|x|\le r$, $|1-\cos y|\le\frac{y^2}{2}$ y $x^2+y^4\le r^2+r^4$. Para $(x,y)\neq(0,0)$:</p>
+        $$|f(x,y)|=\frac{|x|\,|1-\cos y|}{r}\,(x^2+y^4)\le \frac{r\cdot\frac{y^2}{2}}{r}\,(x^2+y^4)=\frac{y^2}{2}(x^2+y^4)\le\frac{r^2}{2}(r^2+r^4)=\frac{r^4+r^6}{2}.$$
+        <p>El lado derecho tiende a 0, así que por sándwich $\lim f=0$ y la continuidad exige $a=0$.</p>
+        <p><strong>(b) Diferenciabilidad.</strong> Con $f(0,0)=0$, las parciales en el origen salen de la definición: $f(h,0)=0$ para todo $h\neq0$, luego</p>
+        $$f_x(0,0)=\lim_{h\to0}\frac{0-0}{h}=0,\qquad f_y(0,0)=\lim_{k\to0}\frac{0-0}{k}=0.$$
+        <p>El diferencial candidato es $L(x,y)=0$. Para diferenciabilidad hay que ver que el error es un $o(r)$:</p>
+        $$\frac{|f(x,y)-L(x,y)|}{r}=\frac{|f(x,y)|}{r}\le\frac{r^4+r^6}{2r}=\frac{r^3+r^5}{2}\xrightarrow{\ r\to0\ }0.$$
+        <p>El límite es 0, luego $f$ es diferenciable en el origen con diferencial $L=0$.</p>
+      </div>
       <h4>Respuesta</h4>
-      <div class="resp"><p class="vacio">Sin respuesta todavía.</p></div>
+      <div class="resp"><p>(a) $a=0$. (b) Sí: $f$ es diferenciable en $(0,0)$, con $f_x(0,0)=f_y(0,0)=0$ y diferencial $L(x,y)=0$.</p></div>
     </div>
     <aside class="margen">
       <p class="margen-t">Nota</p>
-      <p class="vacio">Sin nota.</p>
+      <p>El factor $(x^2+y^4)$ asusta pero solo suma potencias. El trabajo lo hacen la cota $|1-\cos y|\le\frac{y^2}{2}$ y la raíz del denominador, que juntas dejan puros múltiplos de $r$ (semana 4, s9). Después de eso, la diferenciabilidad sale del mismo cinturón de cotas.</p>
     </aside>
   </div>
 </article>
@@ -417,24 +454,37 @@
 
 <section class="bloque-sec" id="bloque-D"><h2>Bloque D. Derivadas parciales y diferenciabilidad</h2>
 
-<article class="ej pendiente" id="D46" data-bloque="D">
+<article class="ej hecho" id="D46" data-bloque="D">
   <h3><span class="idx">12.</span> D.46, Parciales de $x\,e^{y/x}$</h3>
   <div class="cuerpo">
     <div class="principal">
       <p class="enun"><strong>Enunciado.</strong> Calcule $f_x$ y $f_y$ para $f(x,y)=x\,e^{y/x}$, con $x\neq 0$.</p>
       <h4>Procedimiento</h4>
-      <div class="proc"><p class="vacio">Sin desarrollar todavía.</p></div>
+      <div class="proc">
+        <p>Para $f_x$ se trata $y$ como constante. Hay producto de dos factores dependientes de $x$, así que va la regla del producto:</p>
+        <p>$$f_x=\frac{\partial}{\partial x}\bigl(x\bigr)\,e^{y/x}+x\,\frac{\partial}{\partial x}\bigl(e^{y/x}\bigr).$$</p>
+        <p>El segundo factor es una exponencial con exponente $u=y/x$. Por regla de la cadena, $\dfrac{\partial}{\partial x}e^{u}=e^{u}\,u_x$ y $u_x=\dfrac{\partial}{\partial x}\left(\dfrac{y}{x}\right)=-\dfrac{y}{x^{2}}$. Entonces</p>
+        <p>$$f_x=e^{y/x}+x\,e^{y/x}\left(-\frac{y}{x^{2}}\right)=e^{y/x}-e^{y/x}\,\frac{y}{x}=e^{y/x}\left(1-\frac{y}{x}\right).$$</p>
+        <p>Para $f_y$, la variable activa es $y$, con $u=y/x$ y $u_y=\dfrac{1}{x}$:</p>
+        <p>$$f_y=x\,e^{y/x}\cdot\frac{1}{x}=e^{y/x}.$$</p>
+        <figure>
+          <img src="img/IMG_202610031227.jpg" alt="Mi gata mirándome mientras estudiaba, pidiendo comida." style="max-width: 24rem;">
+          <figcaption>Aquí mi gata me estaba pidiendo comida.</figcaption>
+        </figure>
+      </div>
       <h4>Respuesta</h4>
-      <div class="resp"><p class="vacio">Sin respuesta todavía.</p></div>
+      <div class="resp">
+        <p>$$f_x=e^{y/x}\left(1-\frac{y}{x}\right),\qquad f_y=e^{y/x},\qquad x\neq 0.$$</p>
+      </div>
     </div>
     <aside class="margen">
       <p class="margen-t">Nota</p>
-      <p class="vacio">Sin nota.</p>
+      <p>Me enredé un rato con $f_x$: el error no fue la regla del cociente, fue tratar $e^{y/x}$ como constante. En $f_y$, la $x$ sale del paso y el exponente cae limpio.</p>
     </aside>
   </div>
 </article>
 
-<article class="ej pendiente" id="D52" data-bloque="D">
+<article class="ej hecho" id="D52" data-bloque="D">
   <h3><span class="idx">13.</span> D.52, Parciales de una función a trozos</h3>
   <div class="cuerpo">
     <div class="principal">
@@ -442,18 +492,33 @@
       $$f(x,y)=\begin{cases}\dfrac{x^{2}y+2xy^{2}}{x^{2}+y^{2}},&(x,y)\neq(0,0),\\[2mm]0,&(x,y)=(0,0).\end{cases}$$
       (a) Calcule $f_x$ y $f_y$ para $(x,y)\neq(0,0)$. (b) Determine si existen $f_x(0,0)$ y $f_y(0,0)$ usando la definición.</p>
       <h4>Procedimiento</h4>
-      <div class="proc"><p class="vacio">Sin desarrollar todavía.</p></div>
+      <div class="proc">
+        <p><strong>(a)</strong> Fuera del origen el denominador no se anula y la regla del cociente aplica directamente. Con $N=x^{2}y+2xy^{2}$ y $D=x^{2}+y^{2}$ (y $D_x=2x$, $D_y=2y$):</p>
+        <p>$$f_x=\frac{(2xy+2y^{2})(x^{2}+y^{2})-(x^{2}y+2xy^{2})(2x)}{(x^{2}+y^{2})^{2}}.$$</p>
+        <p>Al desarrollar, el numerador se ordena como $-2x^{2}y^{2}+2xy^{3}+2y^{4}=2y^{2}\,(y^{2}+xy-x^{2})$, de donde</p>
+        <p>$$f_x=\frac{2y^{2}\,(y^{2}+xy-x^{2})}{(x^{2}+y^{2})^{2}}.$$</p>
+        <p>De forma análoga, con $N_y=x^{2}+4xy$:</p>
+        <p>$$f_y=\frac{(x^{2}+4xy)(x^{2}+y^{2})-(x^{2}y+2xy^{2})(2y)}{(x^{2}+y^{2})^{2}}=\frac{x^{2}\,(x^{2}+4xy-y^{2})}{(x^{2}+y^{2})^{2}}.$$</p>
+        <p><strong>(b)</strong> En el origen las fórmulas anteriores son indeterminadas ($0/0$). Hay que volver a la definición. Sobre el eje $x$, $f(h,0)=\dfrac{h^{2}\cdot 0+2h\cdot 0}{h^{2}}=0$, y $f(0,0)=0$, luego</p>
+        <p>$$f_x(0,0)=\lim_{h\to 0}\frac{f(h,0)-f(0,0)}{h}=\lim_{h\to 0}\frac{0}{h}=0.$$</p>
+        <p>Sobre el eje $y$, $f(0,k)=0$, así que
+        $$f_y(0,0)=\lim_{k\to 0}\frac{f(0,k)-f(0,0)}{k}=\lim_{k\to 0}\frac{0}{k}=0.$$</p>
+        <p>Ambos límites son finitos: las dos parciales existen en el origen y valen $0$.</p>
+      </div>
       <h4>Respuesta</h4>
-      <div class="resp"><p class="vacio">Sin respuesta todavía.</p></div>
+      <div class="resp">
+        <p>(a) $f_x=\dfrac{2y^{2}(y^{2}+xy-x^{2})}{(x^{2}+y^{2})^{2}}$ y $f_y=\dfrac{x^{2}(x^{2}+4xy-y^{2})}{(x^{2}+y^{2})^{2}}$ para $(x,y)\neq(0,0)$.</p>
+        <p>(b) $f_x(0,0)=0$ y $f_y(0,0)=0$, ambas existen.</p>
+      </div>
     </div>
     <aside class="margen">
       <p class="margen-t">Nota</p>
-      <p class="vacio">Sin nota.</p>
+      <p>Lo que me costó ver: la definición esquiva la indeterminación del origen, y el cociente de fórmulas no dice nada allí. Evaluar en $(h,0)$ o $(0,k)$ colapsa el numerador a cero y sale todo solo.</p>
     </aside>
   </div>
 </article>
 
-<article class="ej pendiente" id="DR5" data-bloque="D">
+<article class="ej hecho" id="DR5" data-bloque="D">
   <h3><span class="idx">14.</span> D.R5, Continuidad y diferenciabilidad en el origen</h3>
   <div class="cuerpo">
     <div class="principal">
@@ -461,30 +526,59 @@
       $$f(x,y)=\begin{cases}\dfrac{x^{2}y}{\sqrt{x^{2}+y^{2}}},&(x,y)\neq(0,0),\\[2mm]0,&(x,y)=(0,0).\end{cases}$$
       ¿Es $f$ continua en el origen? Calcule sus derivadas parciales allí y decida si es diferenciable.</p>
       <h4>Procedimiento</h4>
-      <div class="proc"><p class="vacio">Sin desarrollar todavía.</p></div>
+      <div class="proc">
+        <p><strong>Continuidad.</strong> Sea $r=\sqrt{x^{2}+y^{2}}$. Como $|x|\le r$, se tiene $x^{2}\le x^{2}+y^{2}=r^{2}$ y por tanto, para $(x,y)\neq(0,0)$,</p>
+        <p>$$|f(x,y)|=\frac{x^{2}|y|}{\sqrt{x^{2}+y^{2}}}\le\frac{r^{2}\cdot r}{r}=r^{2}.$$</p>
+        <p>Con $r\to 0$ el acotado da $\lim_{(x,y)\to(0,0)}f(x,y)=0=f(0,0)$: $f$ es continua en el origen.</p>
+        <p><strong>Parciales en el origen (por definición).</strong> Sobre el eje $x$, $f(h,0)=\dfrac{h^{2}\cdot 0}{\sqrt{h^{2}}}=0$, luego
+        $$f_x(0,0)=\lim_{h\to 0}\frac{f(h,0)-f(0,0)}{h}=\lim_{h\to 0}\frac{0-0}{h}=0.$$
+        Sobre el eje $y$, $f(0,k)=\dfrac{0\cdot k}{\sqrt{k^{2}}}=0$, así que $f_y(0,0)=\lim_{k\to 0}\dfrac{f(0,k)-0}{k}=0$.</p>
+        <p><strong>Diferenciabilidad.</strong> Deben existir $f_x(0,0)=f_y(0,0)=0$ y el candidato a diferencial es $L=0$. Hay que comprobar que
+        $$\frac{f(x,y)-0-L(x,y)}{\sqrt{x^{2}+y^{2}}}=\frac{f(x,y)}{r}\longrightarrow 0\quad (r\to 0).$$
+        Con la misma cota, $\dfrac{|f(x,y)|}{r}\le\dfrac{r^{2}}{r}=r\to 0$. Luego $f$ es diferenciable en $(0,0)$ con diferencial $L(h,k)=0$.</p>
+      </div>
       <h4>Respuesta</h4>
-      <div class="resp"><p class="vacio">Sin respuesta todavía.</p></div>
+      <div class="resp">
+        <p>$f$ es continua en $(0,0)$ y tiene $f_x(0,0)=f_y(0,0)=0$. También es diferenciable en el origen, con $L(h,k)=0$.</p>
+      </div>
     </div>
     <aside class="margen">
       <p class="margen-t">Nota</p>
-      <p class="vacio">Sin nota.</p>
+      <p>Este me tenía desconfiado porque esperaba el caso clásico que falla. Aproveché la misma cota $|x^2 y|\le r^3$ dos veces y con eso salieron continuidad y diferenciabilidad sin cuentas extra.</p>
     </aside>
   </div>
 </article>
 
-<article class="ej pendiente" id="DR4" data-bloque="D">
+<article class="ej hecho" id="DR4" data-bloque="D">
   <h3><span class="idx">15.</span> D.R4, Plano tangente y aproximación lineal</h3>
   <div class="cuerpo">
     <div class="principal">
       <p class="enun"><strong>Enunciado.</strong> Halle el plano tangente y la aproximación lineal de $f(x,y)=\sqrt{25-x^{2}-4y^{2}}$ en $(3,1)$. Use la linealización para estimar $f(3{,}04;\,0{,}98)$.</p>
       <h4>Procedimiento</h4>
-      <div class="proc"><p class="vacio">Sin desarrollar todavía.</p></div>
+      <div class="proc">
+        <p>Punto de tangencia: $f(3,1)=\sqrt{25-9-4}=\sqrt{12}=2\sqrt{3}$.</p>
+        <p>Parciales, con $u=25-x^{2}-4y^{2}$ y $\dfrac{d}{du}\sqrt{u}=\dfrac{1}{2\sqrt{u}}$:</p>
+        <p>$$f_x=\frac{-x}{\sqrt{25-x^{2}-4y^{2}}}\Rightarrow f_x(3,1)=\frac{-3}{2\sqrt{3}}=-\frac{\sqrt{3}}{2},$$</p>
+        <p>$$f_y=\frac{-4y}{\sqrt{25-x^{2}-4y^{2}}}\Rightarrow f_y(3,1)=\frac{-4}{2\sqrt{3}}=-\frac{2}{\sqrt{3}}.$$</p>
+        <p>Plano tangente y linealización ($a=3,\ b=1$):</p>
+        <p>$$z=2\sqrt{3}-\frac{\sqrt{3}}{2}(x-3)-\frac{2}{\sqrt{3}}(y-1),\qquad L(x,y)=2\sqrt{3}-\frac{\sqrt{3}}{2}(x-3)-\frac{2}{\sqrt{3}}(y-1).$$</p>
+        <p>Estimación con $\Delta x=0{,}04$ y $\Delta y=-0{,}02$:</p>
+        <p>$$f(3{,}04;0{,}98)\approx 2\sqrt{3}-\frac{\sqrt{3}}{2}(0{,}04)-\frac{2}{\sqrt{3}}(-0{,}02)=2\sqrt{3}-\frac{\sqrt{3}}{50}+\frac{1}{25\sqrt{3}}\approx 3{,}4526.$$</p>
+        <div class="intento">
+          <p><strong>Intento.</strong> Al pasar a números escribí el aporte de $y$ como $-\tfrac{2}{\sqrt{3}}(-0{,}02)$ pero tomé el corchete como $-\tfrac{2}{\sqrt{3}}\cdot 0{,}02$, es decir dejé el signo de $y-1$ fuera y resté otra vez.</p>
+        </div>
+        <div class="correccion">
+          <p><strong>Corrección.</strong> Como $\Delta y=-0{,}02<0$ y $f_y<0$, el término $f_y\,\Delta y$ es <em>positivo</em>: la estimación sube, no baja. El error cambia el resultado en $2\cdot\tfrac{2}{\sqrt{3}}\cdot 0{,}02\approx 0{,}046$. Comparado con el valor real $f(3{,}04;0{,}98)\approx 3{,}45207$ se ve que la versión correcta queda pegada y la otra se aleja.</p>
+        </div>
+      </div>
       <h4>Respuesta</h4>
-      <div class="resp"><p class="vacio">Sin respuesta todavía.</p></div>
+      <div class="resp">
+        <p>Plano: $z=2\sqrt{3}-\dfrac{\sqrt{3}}{2}(x-3)-\dfrac{2}{\sqrt{3}}(y-1)$. Estimación: $f(3{,}04;0{,}98)\approx 3{,}4526$.</p>
+      </div>
     </div>
     <aside class="margen">
       <p class="margen-t">Nota</p>
-      <p class="vacio">Sin nota.</p>
+      <p>Lo verifiqué sustituyendo los valores reales: la diferencia entre estimación y valor exacto es del orden de $10^{-3}$, así que el signo estaba bien una vez corregido. Ese tropiezo lo destrabé preguntándole a una IA: me hizo ver el signo del $\Delta y$, y contra el valor real comprobé que tenía razón. También me acordé de las estimaciones de software (los puntos de historia de mi proyecto de Ingesoft 2), es lo mismo, un valor cercano y defendible en vez de la cuenta exacta.</p>
     </aside>
   </div>
 </article>
@@ -492,19 +586,31 @@
 
 <section class="bloque-sec" id="bloque-E"><h2>Bloque E. Regla de la cadena e implícitas</h2>
 
-<article class="ej pendiente" id="E61" data-bloque="E">
+<article class="ej hecho" id="E61" data-bloque="E">
   <h3><span class="idx">16.</span> E.61, Regla de la cadena con dos variables independientes</h3>
   <div class="cuerpo">
     <div class="principal">
       <p class="enun"><strong>Enunciado.</strong> Sea $z=e^{x}\operatorname{sen}y$, con $x=st^{2}$ y $y=s^{2}t$. Calcule $\dfrac{\partial z}{\partial s}$ y $\dfrac{\partial z}{\partial t}$.</p>
       <h4>Procedimiento</h4>
-      <div class="proc"><p class="vacio">Sin desarrollar todavía.</p></div>
+      <div class="proc">
+        <p>Z depende de $x,y$ y ambas dependen de $s,t$. El esquema es</p>
+        <p>$$z\longleftarrow x=st^{2},\qquad z\longleftarrow y=s^{2}t.$$</p>
+        <p>Parciales de $z$: $\ z_x=e^{x}\operatorname{sen}y$, $\ z_y=e^{x}\cos y$.</p>
+        <p>Derivadas de las intermedias: $\ x_s=t^{2},\ x_t=2st,\quad y_s=2st,\ y_t=s^{2}$.</p>
+        <p><strong>Respecto a $s$:</strong></p>
+        <p>$$z_s=z_x\,x_s+z_y\,y_s=e^{st^{2}}\operatorname{sen}(s^{2}t)\cdot t^{2}+e^{st^{2}}\cos(s^{2}t)\cdot 2st.$$</p>
+        <p><strong>Respecto a $t$:</strong></p>
+        <p>$$z_t=z_x\,x_t+z_y\,y_t=e^{st^{2}}\operatorname{sen}(s^{2}t)\cdot 2st+e^{st^{2}}\cos(s^{2}t)\cdot s^{2}.$$</p>
+      </div>
       <h4>Respuesta</h4>
-      <div class="resp"><p class="vacio">Sin respuesta todavía.</p></div>
+      <div class="resp">
+        <p>$$\frac{\partial z}{\partial s}=e^{st^{2}}\Bigl(t^{2}\operatorname{sen}(s^{2}t)+2st\cos(s^{2}t)\Bigr),$$</p>
+        <p>$$\frac{\partial z}{\partial t}=e^{st^{2}}\Bigl(2st\operatorname{sen}(s^{2}t)+s^{2}\cos(s^{2}t)\Bigr).$$</p>
+      </div>
     </div>
     <aside class="margen">
       <p class="margen-t">Nota</p>
-      <p class="vacio">Sin nota.</p>
+      <p>Dibujar las flechas $z\leftarrow x$, $z\leftarrow y$ antes de derivar me ahorró confundir $x_s$ con $x_t$. Revisé aparte que $x_t=2st$ y $y_s=2st$ son parecidos pero van multiplicados por funciones distintas.</p>
     </aside>
   </div>
 </article>
@@ -513,46 +619,72 @@
   <h3>Pausa 2, después del ejercicio 16</h3>
   <dl>
     <dt>¿Qué entiendo mejor ahora?</dt>
-    <dd class="vacio">Sin responder.</dd>
+    <dd>Que las parciales son las derivadas de siempre, medidas a lo largo de una traza, y que el esquema de dependencias (qué depende de qué) decide la regla de la cadena.</dd>
     <dt>¿Qué error estoy repitiendo?</dt>
-    <dd class="vacio">Sin responder.</dd>
+    <dd>Cambiar signos al pasar de fórmulas a números. La comparación con el valor real lo detecta rápido :P</dd>
     <dt>¿Qué ejercicio debo repetir?</dt>
-    <dd class="vacio">Sin responder.</dd>
+    <dd>D.R4, la estimación lineal con su signo, y E.64, las tasas encadenadas.</dd>
     <dt>¿Qué estrategia sí me está funcionando?</dt>
-    <dd class="vacio">Sin responder.</dd>
+    <dd>Reescribir el problema con las variables propias (el radio, no el diámetro) antes de derivar.</dd>
   </dl>
 </aside>
 
-<article class="ej pendiente" id="ER3" data-bloque="E">
+<article class="ej hecho" id="ER3" data-bloque="E">
   <h3><span class="idx">17.</span> E.R3, Derivación implícita de una superficie</h3>
   <div class="cuerpo">
     <div class="principal">
       <p class="enun"><strong>Enunciado.</strong> La superficie $x^{2}+xy+y^{2}+z^{2}=7$ define localmente $z=z(x,y)$ cerca de los puntos donde $z\neq 0$. Halle $z_x$ y $z_y$ y evalúelos en $(1,1,2)$.</p>
       <h4>Procedimiento</h4>
-      <div class="proc"><p class="vacio">Sin desarrollar todavía.</p></div>
+      <div class="proc">
+        <p>Escribimos $F(x,y,z)=x^{2}+xy+y^{2}+z^{2}-7=0$. El teorema de la función implícita pide $F_z\neq 0$. Aquí $F_z=2z$, así que la condición $z\neq 0$ es justo la que lo garantiza.</p>
+        <p>Derivando respecto a $x$ con $y$ fija y $z=z(x,y)$:</p>
+        <p>$$2x+y+2z\,z_x=0\ \Longrightarrow\ z_x=-\frac{2x+y}{2z}.$$</p>
+        <p>Derivando respecto a $y$ con $x$ fija:</p>
+        <p>$$x+2y+2z\,z_y=0\ \Longrightarrow\ z_y=-\frac{x+2y}{2z}.$$</p>
+        <p>En $(1,1,2)$: $2z=4\neq 0$ y</p>
+        <p>$$z_x=-\frac{2(1)+1}{4}=-\frac{3}{4},\qquad z_y=-\frac{1+2(1)}{4}=-\frac{3}{4}.$$</p>
+      </div>
       <h4>Respuesta</h4>
-      <div class="resp"><p class="vacio">Sin respuesta todavía.</p></div>
+      <div class="resp">
+        <p>$z_x=-\dfrac{2x+y}{2z}$ y $z_y=-\dfrac{x+2y}{2z}$. En $(1,1,2)$, $z_x=z_y=-\dfrac{3}{4}$.</p>
+      </div>
     </div>
     <aside class="margen">
       <p class="margen-t">Nota</p>
-      <p class="vacio">Sin nota.</p>
+      <p>Comprobé el punto: $1+1+1+4=7$, sí está en la superficie. Y $z\neq 0$ no es un capricho del enunciado, es lo que hace que $F_z$ no se anule.</p>
     </aside>
   </div>
 </article>
 
-<article class="ej pendiente" id="E64" data-bloque="E">
+<article class="ej hecho" id="E64" data-bloque="E">
   <h3><span class="idx">18.</span> E.64, Razón de cambio del volumen de un cilindro</h3>
   <div class="cuerpo">
     <div class="principal">
       <p class="enun"><strong>Enunciado.</strong> El volumen de un cilindro circular recto es $V=\pi r^{2}h$. Si $h$ y el diámetro $d=2r$ aumentan a tasas constantes de $20$ y $3$ pulgadas por año, halle $\dfrac{dV}{dt}$ cuando $h=200$ y $d=30$.</p>
       <h4>Procedimiento</h4>
-      <div class="proc"><p class="vacio">Sin desarrollar todavía.</p></div>
+      <div class="proc">
+        <p>Datos en el instante pedido: $d=30\Rightarrow r=\dfrac{d}{2}=15$, y $h=200$.</p>
+        <p>Como $d=2r$, el radio cambia a la mitad de la tasa del diámetro:
+        $$\frac{dr}{dt}=\frac{1}{2}\frac{dd}{dt}=\frac{3}{2}=1{,}5\ \text{pulg/año},\qquad \frac{dh}{dt}=20.$$</p>
+        <p>Derivando $V=\pi r^{2}h$ respecto a $t$ (ambos factores dependen de $t$, regla del producto):</p>
+        <p>$$\frac{dV}{dt}=\pi\left(2rh\,\frac{dr}{dt}+r^{2}\frac{dh}{dt}\right).$$</p>
+        <p>Sustituyendo:</p>
+        <p>$$\frac{dV}{dt}=\pi\Bigl(2(15)(200)(1{,}5)+(15)^{2}(20)\Bigr)=\pi\bigl(9000+4500\bigr)=13500\pi.$$</p>
+        <div class="intento">
+          <p><strong>Intento.</strong> Primero metí $dd/dt=3$ directamente como $dr/dt$: derivé con $\tfrac{dr}{dt}=3$ y me quedó $14700\pi$.</p>
+        </div>
+        <div class="correccion">
+          <p><strong>Corrección.</strong> El dato $3$ es la rapidez del <em>diámetro</em>. Como $d=2r$, el radio crece a $dr/dt=1{,}5$, la mitad. El volumen de un cilindro depende de $r$, no de $d$, así que el factor $\tfrac12$ no se puede omitir. Corregido, da $13500\pi$.</p>
+        </div>
+      </div>
       <h4>Respuesta</h4>
-      <div class="resp"><p class="vacio">Sin respuesta todavía.</p></div>
+      <div class="resp">
+        <p>$\dfrac{dV}{dt}=13500\pi\approx 42411{,}5$ pulg$^{3}$/año.</p>
+      </div>
     </div>
     <aside class="margen">
       <p class="margen-t">Nota</p>
-      <p class="vacio">Sin nota.</p>
+      <p>La trampa era justamente el diámetro. Me sirvió reescribir todo con $r$ antes de derivar en vez de arrastrar $d$. Confirmé al sustituir que $9000\pi+4500\pi$ es lo que sale. Esto me recordó al taller de monitoreo de Sistemas Operativos: allá el estado del sistema (memoria, disco) se mira por muestras, y aquí la tasa de cambio sale exacta, sin esperar la siguiente medición.</p>
     </aside>
   </div>
 </article>
@@ -774,10 +906,10 @@
   <p>La fórmula $y/(x^2+y^2)$ parecía un obstáculo, pero sus niveles son limpios: para $c\neq0$, $\ x^2+\left(y-\tfrac{1}{2c}\right)^2=\tfrac{1}{4c^2}$ son circunferencias que pasan por el origen. Cambiar de representación permitió ver el comportamiento cerca de $(0,0)$, el punto que ni siquiera está en el dominio: sobre el eje $x$ la función se aplana, sobre el eje $y$ se dispara en ambos sentidos, y todo lo demás queda en medio.</p>
 </article>
 
-<article class="especial pendiente" id="especial3">
+<article class="especial hecho" id="especial3">
   <h3>Entrada especial 3: Defender un argumento</h3>
   <p class="meta">Ejercicio: D.R5. Por qué la prueba de continuidad o diferenciabilidad sí es suficiente.</p>
-  <p class="vacio">Sin desarrollar todavía.</p>
+  <p>La duda al resolver D.R5 era si tanta cota bastaba como prueba. Sí: $|f|\le r^{2}$ muestra que el límite en el origen es 0 (continuidad), y la misma cota aplicada a $|f|/r\le r$ muestra que el error de linealización es $o(r)$ (diferenciabilidad). No quedaron caminos por probar ni casos raros: las dos desigualdades son la demostración completa, y eso es lo que las vuelve suficientes. Cuando lo estaba escribiendo me acordé de la lógica de cuantificadores de Discretas: el límite es un "para todo camino" y tumbarlo solo necesita un "existe un camino" que falle.</p>
 </article>
 
 <article class="especial pendiente" id="especial4">
@@ -786,10 +918,10 @@
   <p class="vacio">Sin desarrollar todavía.</p>
 </article>
 
-<article class="especial pendiente" id="especial5">
+<article class="especial hecho" id="especial5">
   <h3>Entrada especial 5: Aprender de un error</h3>
-  <p class="meta">Ejercicio sugerido: por definir. Un intento que falló, su corrección y la alerta para el parcial. Se elige cuando pase de verdad.</p>
-  <p class="vacio">Sin desarrollar todavía.</p>
+  <p class="meta">Ejercicio: C.31. Un intento que falló, su corrección y la alerta para el parcial.</p>
+  <p>El error que vale la pena contar es el de C.31: probar por rectas, obtener 0 en todas y creer que el límite existía. Las rectas solo sirven de filtro. Varios valores iguales no demuestran nada. Con el camino $x=y^3$ el valor cambia a 1 y el límite se cae. Cuando le pregunté a una IA por qué ese camino funcionaba, me lo explicó como "emparejar las potencias" del denominador, y ahí entendí el criterio. La alerta que me llevo: denominadores con potencias distintas ($x^2$ contra $y^6$) ⇒ buscar $x=y^k$ que empareje los exponentes, como en los caminos de la semana 4 (s5).</p>
 </article>
 
 <article class="especial pendiente" id="especial6">
