@@ -692,24 +692,38 @@
 
 <section class="bloque-sec" id="bloque-F"><h2>Bloque F. Gradiente, derivada direccional y planos tangentes</h2>
 
-<article class="ej pendiente" id="F69" data-bloque="F">
+<article class="ej hecho" id="F69" data-bloque="F">
   <h3><span class="idx">19.</span> F.69, Gradiente y derivada direccional de $xy+yz^2+xz^3$</h3>
   <div class="cuerpo">
     <div class="principal">
       <p class="enun"><strong>Enunciado.</strong> Sea $f(x,y,z)=xy+yz^2+xz^3$. (a) Calcule $\nabla f$. (b) Evalúe $\nabla f$ en $P=(2,0,3)$. (c) Halle la derivada direccional de $f$ en $P$ en la dirección del vector unitario $\mathbf{u}=(-2/3,-1/3,2/3)$.</p>
       <h4>Procedimiento</h4>
-      <div class="proc"><p class="vacio">Sin desarrollar todavía.</p></div>
+      <div class="proc">
+        <p>(a) Derivo respecto a cada variable tratando las otras como constantes:</p>
+        <p>$$f_x=y+z^3,\qquad f_y=x+z^2,\qquad f_z=2yz+3xz^2.$$</p>
+        <p>Con eso $\nabla f=(y+z^3,\;x+z^2,\;2yz+3xz^2)$.</p>
+        <p>(b) Sustituyo $P=(2,0,3)$ en cada componente:
+        $$f_x(P)=0+27=27,\quad f_y(P)=2+9=11,\quad f_z(P)=2\cdot0\cdot3+3\cdot2\cdot9=54,$$
+        de modo que $\nabla f(P)=(27,11,54)$.</p>
+        <p>(c) Como $\mathbf{u}$ es unitario ($\|\mathbf{u}\|=\sqrt{4/9+1/9+4/9}=1$), la derivada direccional es el producto punto:
+        $$D_{\mathbf u}f(P)=\nabla f(P)\cdot\mathbf u=27\left(-\tfrac23\right)+11\left(-\tfrac13\right)+54\left(\tfrac23\right)=-18-\tfrac{11}{3}+36=\tfrac{43}{3}.$$</p>
+        <p>El signo es positivo, así que sobre esa dirección la función crece.</p>
+      </div>
       <h4>Respuesta</h4>
-      <div class="resp"><p class="vacio">Sin respuesta todavía.</p></div>
+      <div class="resp">
+        <p>(a) $\nabla f=(y+z^3,\;x+z^2,\;2yz+3xz^2)$.</p>
+        <p>(b) $\nabla f(2,0,3)=(27,11,54)$.</p>
+        <p>(c) $D_{\mathbf u}f(P)=\dfrac{43}{3}$.</p>
+      </div>
     </div>
     <aside class="margen">
       <p class="margen-t">Nota</p>
-      <p class="vacio">Sin nota.</p>
+      <p>Por la semana 6 (s16-s18), el paso donde se cae la gente es normalizar cuando el vector no viene unitario. Aquí ya lo traen así, pero igual lo verifiqué antes de usarlo: una vez dividí un vector que ya era unitario y todo salió chiquito sin razón. Desde entonces verifico primero.</p>
     </aside>
   </div>
 </article>
 
-<article class="ej pendiente" id="F74" data-bloque="F">
+<article class="ej hecho" id="F74" data-bloque="F">
   <h3><span class="idx">20.</span> F.74, Plano tangente a cuatro superficies</h3>
   <div class="cuerpo">
     <div class="principal">
@@ -719,101 +733,219 @@
       (c) $f(x,y)=xy$ en $(1,-1,-1)$;
       (d) $f(x,y)=e^x\ln y$ en $(3,1,0)$.</p>
       <h4>Procedimiento</h4>
-      <div class="proc"><p class="vacio">Sin desarrollar todavía.</p></div>
+      <div class="proc">
+        <p>En todos los incisos uso $z=f(a,b)+f_x(a,b)(x-a)+f_y(a,b)(y-b)$.</p>
+        <p><strong>(a)</strong> Aquí $f$ es un producto, $x\cos x\cos y$. Derivo manteniendo el factor $x\cos x$ y aplicando la regla del producto:
+        $$f_x=(\cos x-x\operatorname{sen}x)\cos y,\qquad f_y=-x\cos x\operatorname{sen}y.$$
+        En $(0,\pi)$: $f(0,\pi)=0$, $f_x(0,\pi)=(1-0)\cos\pi=-1$, $f_y(0,\pi)=-0\cdot\cos 0\cdot\operatorname{sen}\pi=0$. Entonces
+        $$z=0+(-1)(x-0)+0\,(y-\pi)=-x.$$</p>
+        <div class="intento">
+          <p>Primero derivé como si la función fuera solo $\cos x\cos y$ y me daba $f_x=-\operatorname{sen}x\cos y$, que en $(0,\pi)$ vale $0$. Con eso el plano quedaba $z=0$.</p>
+        </div>
+        <div class="correccion">
+          <p>Estaba ignorando el factor $x$ que multiplica. $x\cos x$ es un producto y su derivada es $\cos x-x\operatorname{sen}x$. Con el $\cos y$ del otro factor, la parcial en $x$ sí aporta el $-1$. El plano correcto es $z=-x$.</p>
+        </div>
+        <p><strong>(b)</strong> $f(4,-3)=\sqrt{50-16-9}=5$. Con $f_x=\dfrac{-x}{\sqrt{50-x^2-y^2}}$ y $f_y=\dfrac{-y}{\sqrt{50-x^2-y^2}}$:
+        $$f_x(4,-3)=-\tfrac45,\qquad f_y(4,-3)=\tfrac35,$$
+        luego $z=5-\tfrac45(x-4)+\tfrac35(y+3)$.</p>
+        <p><strong>(c)</strong> $f(1,-1)=-1$, $f_x=y|_{(1,-1)}=-1$, $f_y=x|_{(1,-1)}=1$:
+        $$z=-1-(x-1)+(y+1)=y-x+1.$$</p>
+        <p><strong>(d)</strong> $f(3,1)=e^3\ln 1=0$. Las parciales son $f_x=e^x\ln y$ y $f_y=e^x/y$, así que $f_x(3,1)=0$ y $f_y(3,1)=e^3$. Queda
+        $$z=0+0\,(x-3)+e^3(y-1)=e^3(y-1).$$</p>
+      </div>
       <h4>Respuesta</h4>
-      <div class="resp"><p class="vacio">Sin respuesta todavía.</p></div>
+      <div class="resp">
+        <p>(a) $z=-x$.</p>
+        <p>(b) $z=5-\dfrac45(x-4)+\dfrac35(y+3)$.</p>
+        <p>(c) $z=y-x+1$.</p>
+        <p>(d) $z=e^3(y-1)$.</p>
+      </div>
     </div>
     <aside class="margen">
       <p class="margen-t">Nota</p>
-      <p class="vacio">Sin nota.</p>
+      <p>En (d) conviene recordar que $\ln y$ solo tiene sentido para $y>0$. El punto $(3,1,0)$ está en el dominio, así que todo bien.</p>
     </aside>
   </div>
 </article>
 
-<article class="ej pendiente" id="FR3" data-bloque="F">
+<article class="ej hecho" id="FR3" data-bloque="F">
   <h3><span class="idx">21.</span> F.R3, Normal y plano tangente a una superficie de nivel</h3>
   <div class="cuerpo">
     <div class="principal">
       <p class="enun"><strong>Enunciado.</strong> Sea la superficie de nivel $F(x,y,z)=x^2+2y^2+3z^2-12=0$. Encuentre un vector normal y la ecuación del plano tangente en $P=(1,2,1)$, después de verificar que $P$ pertenece a la superficie.</p>
       <h4>Procedimiento</h4>
-      <div class="proc"><p class="vacio">Sin desarrollar todavía.</p></div>
+      <div class="proc">
+        <p><strong>Verificación de pertenencia.</strong> Evalúo primero, porque si $P$ no estuviera sobre la superficie no tendría sentido calcular el plano ahí:
+        $$F(1,2,1)=1^2+2(2)^2+3(1)^2-12=1+8+3-12=0.$$
+        Como $F(P)=0$, el punto sí pertenece a la superficie.</p>
+        <p><strong>Vector normal.</strong> El gradiente de $F$ es normal a cada superficie de nivel:
+        $$\nabla F=(2x,\;4y,\;6z),\qquad \nabla F(1,2,1)=(2,8,6).$$
+        Cualquier múltiplo sirve. Simplificando, $\nabla F(P)\parallel(1,4,3)$.</p>
+        <p><strong>Plano tangente.</strong> Uso $\nabla F(P)\cdot\bigl((x,y,z)-P\bigr)=0$:
+        $$2(x-1)+8(y-2)+6(z-1)=0\;\Longrightarrow\;2x+8y+6z=24,$$
+        y dividiendo por $2$, $x+4y+3z=12$.</p>
+      </div>
       <h4>Respuesta</h4>
-      <div class="resp"><p class="vacio">Sin respuesta todavía.</p></div>
+      <div class="resp">
+        <p>Normal: $\nabla F(1,2,1)=(2,8,6)$, o equivalentemente $(1,4,3)$.</p>
+        <p>Plano tangente: $x+4y+3z=12$.</p>
+      </div>
     </div>
     <aside class="margen">
       <p class="margen-t">Nota</p>
-      <p class="vacio">Sin nota.</p>
+      <p>Comprobé sustituyendo: $1+4(2)+3(1)=12$, así que $P$ también satisface la ecuación del plano, como debe ser.</p>
     </aside>
   </div>
 </article>
 
-<article class="ej pendiente" id="FR4" data-bloque="F">
+<article class="ej hecho" id="FR4" data-bloque="F">
   <h3><span class="idx">22.</span> F.R4, Ascenso más rápido en una colina</h3>
   <div class="cuerpo">
     <div class="principal">
       <p class="enun"><strong>Enunciado.</strong> La altura de una colina está dada por $h(x,y)=800-2x^2-y^2+2xy$. Desde el punto $(3,1)$ determine: (a) la dirección de ascenso más rápido, (b) la razón máxima de ascenso, (c) una dirección en la que inicialmente no cambie la altura.</p>
       <h4>Procedimiento</h4>
-      <div class="proc"><p class="vacio">Sin desarrollar todavía.</p></div>
+      <div class="proc">
+        <p>Calculo el gradiente:
+        $$h_x=-4x+2y,\qquad h_y=-2y+2x,$$
+        y lo evalúo en $(3,1)$:
+        $$\nabla h(3,1)=(-12+2,\;-2+6)=(-10,\;4).$$</p>
+        <p><strong>(a)</strong> La dirección de ascenso más rápido es la del gradiente. Como piden una dirección, la normalizo:
+        $$\|\nabla h(3,1)\|=\sqrt{100+16}=\sqrt{116}=2\sqrt{29},\qquad
+        \mathbf u=\frac{(-10,4)}{2\sqrt{29}}=\frac{1}{\sqrt{29}}(-5,2).$$</p>
+        <p><strong>(b)</strong> La razón máxima de ascenso es la norma del gradiente: $\|\nabla h(3,1)\|=2\sqrt{29}\approx10.77$.</p>
+        <p><strong>(c)</strong> La altura no cambia, en primera aproximación, en cualquier dirección perpendicular al gradiente. Un vector ortogonal a $(-10,4)$ es $(2,5)$, pues $(-10)(2)+4(5)=0$. Normalizando queda
+        $$\pm\frac{1}{\sqrt{29}}(2,5).$$</p>
+      </div>
       <h4>Respuesta</h4>
-      <div class="resp"><p class="vacio">Sin respuesta todavía.</p></div>
+      <div class="resp">
+        <p>(a) $\dfrac{1}{\sqrt{29}}(-5,2)$.</p>
+        <p>(b) $2\sqrt{29}\approx10.77$.</p>
+        <p>(c) $\pm\dfrac{1}{\sqrt{29}}(2,5)$.</p>
+      </div>
     </div>
     <aside class="margen">
       <p class="margen-t">Nota</p>
-      <p class="vacio">Sin nota.</p>
+      <p>Conecta con la semana 6 (s16-s18): el gradiente apunta hacia donde las curvas de nivel se aprietan. El profe lo contó con Monserrate: si uno se pierde arriba, la bajada más rápida es rodar en la dirección del gradiente. Antes de dar (c) verifiqué que $(2,5)\cdot(-10,4)=0$, para que en esa dirección no haya componente de ascenso. Y me recordó a cuando entrenaba el clasificador de señales, creo que su optimizador baja por esa misma dirección.</p>
     </aside>
   </div>
+  <figure>
+    <img src="img/fr4-colina.png" alt="Curvas de nivel de la colina h(x,y)=800-2x^2-y^2+2xy alrededor de (3,1), con la dirección de máximo ascenso (rojo) y una perpendicular (azul).">
+    <figcaption>La colina alrededor de $(3,1)$: curvas de nivel y, desde el punto, la dirección de máximo ascenso (rojo, hacia $(-5,2)$) y una perpendicular (azul, hacia $(2,5)$), donde la altura no cambia en primera aproximación.</figcaption>
+  </figure>
 </article>
 </section>
 
 <section class="bloque-sec" id="bloque-G"><h2>Bloque G. Extremos y Hessiano</h2>
 
-<article class="ej pendiente" id="G75" data-bloque="G">
+<article class="ej hecho" id="G75" data-bloque="G">
   <h3><span class="idx">23.</span> G.75, Puntos críticos de $xy(1-x-y)$</h3>
   <div class="cuerpo">
     <div class="principal">
       <p class="enun"><strong>Enunciado.</strong> Halle y clasifique, si es posible, los puntos críticos de $f(x,y)=xy(1-x-y)$.</p>
       <h4>Procedimiento</h4>
-      <div class="proc"><p class="vacio">Sin desarrollar todavía.</p></div>
+      <div class="proc">
+        <p>Conviene expandir antes de derivar: $f(x,y)=xy-x^2y-xy^2$. Entonces</p>
+        $$f_x=y-2xy-y^2=y(1-2x-y),\qquad f_y=x-x^2-2xy=x(1-x-2y).$$
+        <p>Los puntos críticos salen de $f_x=0$ y $f_y=0$ a la vez. De $f_x=0$: $y=0$ o $1-2x-y=0$. De $f_y=0$: $x=0$ o $1-x-2y=0$. Combinando las opciones:</p>
+        <ul>
+          <li>$y=0$ con $x=0$: el origen $(0,0)$.</li>
+          <li>$y=0$ con $1-x-2y=0$: $x=1$, el punto $(1,0)$.</li>
+          <li>$1-2x-y=0$ con $x=0$: $y=1$, el punto $(0,1)$.</li>
+          <li>$1-2x-y=0$ con $1-x-2y=0$: restando queda $x=y$, y con $3x=1$, el punto $\left(\tfrac13,\tfrac13\right)$.</li>
+        </ul>
+        <p>Para clasificar uso el discriminante con las segundas derivadas: $f_{xx}=-2y$, $f_{yy}=-2x$, $f_{xy}=1-2x-2y$, y $D=f_{xx}f_{yy}-f_{xy}^2$.</p>
+        <table class="datos">
+          <thead><tr><th>Punto</th><th>$f_{xx}$</th><th>$f_{yy}$</th><th>$f_{xy}$</th><th>$D$</th><th>Clasificación</th></tr></thead>
+          <tbody>
+            <tr><td>$(0,0)$</td><td>$0$</td><td>$0$</td><td>$1$</td><td>$-1$</td><td>silla</td></tr>
+            <tr><td>$(0,1)$</td><td>$-2$</td><td>$0$</td><td>$-1$</td><td>$-1$</td><td>silla</td></tr>
+            <tr><td>$(1,0)$</td><td>$0$</td><td>$-2$</td><td>$-1$</td><td>$-1$</td><td>silla</td></tr>
+            <tr><td>$\left(\tfrac13,\tfrac13\right)$</td><td>$-\tfrac23$</td><td>$-\tfrac23$</td><td>$\tfrac13$</td><td>$\tfrac13$</td><td>máximo local</td></tr>
+          </tbody>
+        </table>
+        <p>En $\left(\tfrac13,\tfrac13\right)$, $D=\tfrac{4}{9}-\tfrac{1}{9}=\tfrac13>0$ y $f_{xx}=-\tfrac23<0$, luego es máximo local. Su valor es $f\left(\tfrac13,\tfrac13\right)=\tfrac19\cdot\tfrac13=\tfrac{1}{27}$.</p>
+      </div>
       <h4>Respuesta</h4>
-      <div class="resp"><p class="vacio">Sin respuesta todavía.</p></div>
+      <div class="resp">
+        <p>Críticos: $(0,0)$, $(0,1)$ y $(1,0)$, los tres puntos de silla ($D=-1$). Y $\left(\tfrac13,\tfrac13\right)$, máximo local con $f=\tfrac{1}{27}$.</p>
+      </div>
     </div>
     <aside class="margen">
       <p class="margen-t">Nota</p>
-      <p class="vacio">Sin nota.</p>
+      <p>El discriminante Hessiano $D=f_{xx}f_{yy}-f_{xy}^2$ lo vimos en la semana 6 (s25) y es el número que clasifica un punto crítico. Acá el trabajo real está en los cuatro casos del sistema, no en el determinante.</p>
     </aside>
   </div>
 </article>
 
-<article class="ej pendiente" id="G77" data-bloque="G">
+<article class="ej hecho" id="G77" data-bloque="G">
   <h3><span class="idx">24.</span> G.77, Hessiano degenerado en $x^2-2xy+y^2$</h3>
   <div class="cuerpo">
     <div class="principal">
       <p class="enun"><strong>Enunciado.</strong> Determine y clasifique los puntos críticos de $f(x,y)=x^2-2xy+y^2$. Además, interprete geométricamente la gráfica y explique por qué el criterio usual del determinante Hessiano resulta degenerado.</p>
       <h4>Procedimiento</h4>
-      <div class="proc"><p class="vacio">Sin desarrollar todavía.</p></div>
+      <div class="proc">
+        <p>Las parciales son</p>
+        $$f_x=2x-2y=2(x-y),\qquad f_y=-2x+2y=-2(x-y).$$
+        <p>Las dos se anulan exactamente cuando $x=y$. Es decir, no hay puntos críticos aislados: todo punto de la recta $x=y$ es crítico.</p>
+        <p>El Hessiano es constante: $f_{xx}=2$, $f_{yy}=2$, $f_{xy}=-2$, de modo que</p>
+        $$D=f_{xx}f_{yy}-f_{xy}^2=2\cdot 2-(-2)^2=0$$
+        <p>en todo el plano. Con $D=0$ el criterio no decide nada, ni máximo ni mínimo ni silla.</p>
+        <p>La salida es mirar la forma algebraica: completando el cuadrado,</p>
+        $$f(x,y)=(x-y)^2\ge 0,$$
+        <p>con $f=0$ exactamente sobre $x=y$ y $f>0$ fuera de la recta. Sobre la recta se alcanza el menor valor posible de la función, así que cada punto de $x=y$ es un mínimo.</p>
+        <figure>
+          <img src="img/g77-valle.png" alt="Superficie z=(x-y)^2 en GeoGebra 3D con la recta x=y marcada en rojo sobre el fondo del valle.">
+          <figcaption>El valle $z=(x-y)^2$: la superficie no baja de $0$ y lo alcanza en toda la recta $x=y$ (en rojo).</figcaption>
+        </figure>
+        <p>La gráfica es $z=(x-y)^2$. En las variables giradas $u=x-y$, $v=x+y$, queda $z=u^2$: una parábola que se traslada sin cambio a lo largo de $v$, o sea un valle parabólico (canal) cuyo fondo es la recta $x=y$.</p>
+      </div>
       <h4>Respuesta</h4>
-      <div class="resp"><p class="vacio">Sin respuesta todavía.</p></div>
+      <div class="resp">
+        <p>Los críticos son todos los puntos de la recta $x=y$, y cada uno es un mínimo global no estricto ($f=0$). El Hessiano es degenerado porque $D\equiv 0$. La gráfica es un canal parabólico con fondo a lo largo de $x=y$.</p>
+      </div>
     </div>
     <aside class="margen">
       <p class="margen-t">Nota</p>
-      <p class="vacio">Sin nota.</p>
+      <p>Me enredé al principio buscando puntos aislados. Cuando el sistema da una recta entera, la información útil está en la factorización $f=(x-y)^2$, no en el Hessiano.</p>
     </aside>
   </div>
 </article>
 
-<article class="ej pendiente" id="GR3" data-bloque="G">
+<article class="ej hecho" id="GR3" data-bloque="G">
   <h3><span class="idx">25.</span> G.R3, Críticos de $x^4+y^4-4xy$</h3>
   <div class="cuerpo">
     <div class="principal">
       <p class="enun"><strong>Enunciado.</strong> Analice los puntos críticos de $f(x,y)=x^4+y^4-4xy$. Use el Hessiano donde sea concluyente y un argumento adicional donde no lo sea.</p>
       <h4>Procedimiento</h4>
-      <div class="proc"><p class="vacio">Sin desarrollar todavía.</p></div>
+      <div class="proc">
+        <p>Igualando a cero las parciales:</p>
+        $$f_x=4x^3-4y=0\Rightarrow y=x^3,\qquad f_y=4y^3-4x=0\Rightarrow x=y^3.$$
+        <p>Sustituyendo $y=x^3$ en $x=y^3$: $x=x^9$, o sea $x(x^8-1)=0$, luego $x\in\{0,1,-1\}$. Los críticos son $(0,0)$, $(1,1)$ y $(-1,-1)$.</p>
+        <p>Con $f_{xx}=12x^2$, $f_{yy}=12y^2$, $f_{xy}=-4$, el determinante es $D=144x^2y^2-16$.</p>
+        <table class="datos">
+          <thead><tr><th>Punto</th><th>$D$</th><th>$f_{xx}$</th><th>Clasificación</th></tr></thead>
+          <tbody>
+            <tr><td>$(0,0)$</td><td>$-16$</td><td>$0$</td><td>silla</td></tr>
+            <tr><td>$(1,1)$</td><td>$128$</td><td>$12$</td><td>mínimo local</td></tr>
+            <tr><td>$(-1,-1)$</td><td>$128$</td><td>$12$</td><td>mínimo local</td></tr>
+          </tbody>
+        </table>
+        <p>En $(0,0)$ el Hessiano decide de una vez: $D<0$, silla. En $(\pm1,\pm1)$, $D>0$ y $f_{xx}>0$, mínimos locales con $f(\pm1,\pm1)=1+1-4=-2$.</p>
+        <div class="intento">
+          <p>Con eso ya sabría que son mínimos locales, pero no si hay valores menores en otra parte. Para cerrar el asunto busco una identidad que acote $f$ por debajo.</p>
+        </div>
+        <p>Desarrollando los cuadrados,</p>
+        $$(x^2-y^2)^2+2(xy-1)^2-2=x^4+y^4-4xy=f(x,y).$$
+        <p>Como los dos cuadrados son $\ge 0$, $f\ge -2$ en todo $\mathbb{R}^2$. La igualdad $f=-2$ exige $x^2=y^2$ y $xy=1$, es decir $(x,y)=(1,1)$ o $(-1,-1)$. Esos dos puntos alcanzan la cota: son mínimos globales.</p>
+      </div>
       <h4>Respuesta</h4>
-      <div class="resp"><p class="vacio">Sin respuesta todavía.</p></div>
+      <div class="resp">
+        <p>$(0,0)$ es punto de silla ($D=-16$). Los puntos $(\pm1,\pm1)$ son mínimos locales ($D=128$, $f_{xx}=12$) y, por la identidad $f=(x^2-y^2)^2+2(xy-1)^2-2\ge-2$, también mínimos globales con valor $-2$.</p>
+      </div>
     </div>
     <aside class="margen">
       <p class="margen-t">Nota</p>
-      <p class="vacio">Sin nota.</p>
+      <p>Este $f=x^4+y^4-4xy$ apareció como ejercicio tipo parcial en la semana 6 (s29). Al desarrollar la identidad vuelven a salir exactamente los cuatro términos de $f$.</p>
     </aside>
   </div>
 </article>
@@ -822,69 +954,111 @@
   <h3>Pausa 3, después del ejercicio 25</h3>
   <dl>
     <dt>¿Qué entiendo mejor ahora?</dt>
-    <dd class="vacio">Sin responder.</dd>
+    <dd>Que el gradiente organiza el bloque completo: dirección de máximo cambio, planos tangentes y la lectura del mapa de niveles.</dd>
     <dt>¿Qué error estoy repitiendo?</dt>
-    <dd class="vacio">Sin responder.</dd>
+    <dd>Clasificar antes de entender el punto crítico. El Hessiano degenerado de G.77 y el argumento de cuadrados de G.R3 muestran que primero se mira la forma.</dd>
     <dt>¿Qué ejercicio debo repetir?</dt>
-    <dd class="vacio">Sin responder.</dd>
+    <dd>G.R3 completo, y los planos tangentes de F.74 sin mirar las fórmulas.</dd>
     <dt>¿Qué estrategia sí me está funcionando?</dt>
-    <dd class="vacio">Sin responder.</dd>
+    <dd>Completar cuadrados antes de clasificar cuando el polinomio lo permita: es la lectura más rápida.</dd>
   </dl>
 </aside>
 </section>
 
 <section class="bloque-sec" id="bloque-H"><h2>Bloque H. Multiplicadores de Lagrange</h2>
 
-<article class="ej pendiente" id="H80" data-bloque="H">
+<article class="ej hecho" id="H80" data-bloque="H">
   <h3><span class="idx">26.</span> H.80, Utilidad máxima con presupuesto</h3>
   <p class="meta">Tipo: aplicación.</p>
-<div class="cuerpo">
+  <div class="cuerpo">
     <div class="principal">
       <p class="enun"><strong>Enunciado.</strong> Un consumidor tiene utilidad $U(x,y)=\ln x+2\ln y$ con $x,y>0$, y enfrenta el presupuesto $p_xx+p_yy=m$ con $p_x,p_y,m>0$. (a) Maximice $U$ sujeta a la restricción. (b) Obtenga $x^*$ y $y^*$. (c) Interprete la condición de primer orden como igualdad entre la tasa marginal de sustitución y la razón de precios.</p>
       <h4>Procedimiento</h4>
-      <div class="proc"><p class="vacio">Sin desarrollar todavía.</p></div>
+      <div class="proc">
+        <p>Escribo $g(x,y)=p_xx+p_yy=m$ y planteo $\nabla U=\lambda\nabla g$, que da el sistema</p>
+        $$\frac1x=\lambda p_x,\qquad \frac2y=\lambda p_y,\qquad p_xx+p_yy=m.$$
+        <p>De las dos primeras, $\lambda=\dfrac{1}{x\,p_x}=\dfrac{2}{y\,p_y}$, de donde $y\,p_y=2x\,p_x$, o sea $y=\dfrac{2x\,p_x}{p_y}$.</p>
+        <p>Sustituyo en el presupuesto:</p>
+        $$p_xx+p_y\frac{2x\,p_x}{p_y}=p_xx+2p_xx=3p_xx=m\Rightarrow x^*=\frac{m}{3p_x}.$$
+        <p>Y de vuelta en $y$:</p>
+        $$y^*=\frac{2m}{3p_y}.$$
+        <p>El multiplicador sale de $\frac1x=\lambda p_x$: $\lambda=\dfrac{1}{x^*p_x}=\dfrac3m$.</p>
+        <p>Para (c), la tasa marginal de sustitución es el cociente de utilidades marginales:</p>
+        $$TMS=\frac{U_x}{U_y}=\frac{1/x}{2/y}=\frac{y}{2x}.$$
+        <p>En el óptimo, $\dfrac{y^*}{2x^*}=\dfrac{2m/(3p_y)}{2m/(3p_x)}=\dfrac{p_x}{p_y}$. La condición de primer orden dice justo eso: la pendiente de la curva de nivel se iguala con la pendiente de la recta presupuestal.</p>
+      </div>
       <h4>Respuesta</h4>
-      <div class="resp"><p class="vacio">Sin respuesta todavía.</p></div>
+      <div class="resp">
+        <p>(a)-(b) $x^*=\dfrac{m}{3p_x}$, $y^*=\dfrac{2m}{3p_y}$, con $\lambda=\dfrac3m$. (c) En el óptimo $TMS=\dfrac{y}{2x}=\dfrac{p_x}{p_y}$: la curva de nivel es tangente a la recta presupuestal. Además $\lambda=\dfrac{\partial U^*}{\partial m}$: es la utilidad marginal del ingreso.</p>
+      </div>
     </div>
     <aside class="margen">
       <p class="margen-t">Nota</p>
-      <p class="vacio">Sin nota.</p>
+      <p>La lectura geométrica (recta presupuestal tangente a la curva de nivel) es la de la semana 6 (s30-s31). El reparto del gasto en el óptimo (un tercio en $x$, dos tercios en $y$) coincide con los exponentes de la utilidad, así que no extraña que $y^*$ lleve el factor 2.</p>
     </aside>
   </div>
 </article>
 
-<article class="ej pendiente" id="H82" data-bloque="H">
+<article class="ej hecho" id="H82" data-bloque="H">
   <h3><span class="idx">27.</span> H.82, Caja de volumen fijo y área mínima</h3>
   <p class="meta">Tipo: aplicación.</p>
-<div class="cuerpo">
+  <div class="cuerpo">
     <div class="principal">
       <p class="enun"><strong>Enunciado.</strong> Caja rectangular cerrada de dimensiones $x,y,z>0$ con volumen fijo $xyz=V_0$, y área total $A(x,y,z)=2(xy+xz+yz)$. (a) Minimice $A$. (b) Interprete geométricamente. (c) Compruebe que es mínimo global en $x,y,z>0$.</p>
       <h4>Procedimiento</h4>
-      <div class="proc"><p class="vacio">Sin desarrollar todavía.</p></div>
+      <div class="proc">
+        <p>Con $g(x,y,z)=xyz=V_0$, el sistema $\nabla A=\lambda\nabla g$ es</p>
+        $$2(y+z)=\lambda yz,\qquad 2(x+z)=\lambda xz,\qquad 2(x+y)=\lambda xy.$$
+        <p>Divido la primera entre la segunda:</p>
+        $$\frac{y+z}{yz}=\frac{x+z}{xz}\Rightarrow x(y+z)=y(x+z)\Rightarrow xz=yz\Rightarrow x=y$$
+        <p>pues $z>0$. Igualando la primera y la tercera se llega a $y=z$. Por tanto $x=y=z$, y de la restricción</p>
+        $$x^3=V_0\Rightarrow x=y=z=\sqrt[3]{V_0}.$$
+        <p>El área mínima es $A=2(3x^2)=6x^2=6V_0^{2/3}$. De $2(y+z)=\lambda yz$ con $y=z=x$: $4x=\lambda x^2$, luego $\lambda=\dfrac4x=\dfrac{4}{\sqrt[3]{V_0}}$.</p>
+        <p>Para (c): el sistema tiene un único punto crítico en el dominio abierto $x,y,z>0$. En la frontera, $A\to\infty$. Si $x\to0^+$, entonces $yz=V_0/x\to\infty$ y $A\ge 2yz\to\infty$. Si más bien $x\to\infty$, entonces $yz=V_0/x$ y, usando $y+z\ge 2\sqrt{yz}$,</p>
+        $$A=2(xy+xz+yz)\ge 2x(y+z)\ge 4x\sqrt{yz}=4\sqrt{V_0 x}\to\infty.$$
+        <p>Lo mismo pasa con cada variable, así que $A\to\infty$ hacia toda la frontera y el único crítico interior es el mínimo global.</p>
+      </div>
       <h4>Respuesta</h4>
-      <div class="resp"><p class="vacio">Sin respuesta todavía.</p></div>
+      <div class="resp">
+        <p>(a)-(b) $x=y=z=\sqrt[3]{V_0}$: el cubo, con área mínima $A_{\min}=6V_0^{2/3}$. (c) Es mínimo global: único crítico en el dominio abierto y $A\to\infty$ cuando alguna arista tiende a $0^+$ o a $+\infty$. El multiplicador $\lambda=4/\sqrt[3]{V_0}$ es la sensibilidad, pues $\dfrac{dA_{\min}}{dV_0}=4V_0^{-1/3}=\lambda$.</p>
+      </div>
     </div>
     <aside class="margen">
       <p class="margen-t">Nota</p>
-      <p class="vacio">Sin nota.</p>
+      <p>Comprobé la sensibilidad derivando $6V_0^{2/3}$: da $4V_0^{-1/3}$, igual al $\lambda$ del sistema. Es el mismo patrón del ejemplo de costo mínimo de la semana 6 (s32). Como estudiante de sistemas lo pienso así: es cuadrar un recurso limitado (costos, CPU, ancho de banda) sabiendo cuánto vale aflojar la restricción un poco. Pensando en el multiplicador me acordé del Lab 6 de redes (el de las cárceles): ahí repartía direcciones sin desperdiciar hosts y dejando margen para el crecimiento. Es el mismo problema de fondo: un recurso limitado con una restricción encima.</p>
     </aside>
   </div>
 </article>
 
-<article class="ej pendiente" id="H84" data-bloque="H">
+<article class="ej hecho" id="H84" data-bloque="H">
   <h3><span class="idx">28.</span> H.84, Punto del plano más cercano a $P_0$</h3>
   <p class="meta">Tipo: geométrico.</p>
-<div class="cuerpo">
+  <div class="cuerpo">
     <div class="principal">
       <p class="enun"><strong>Enunciado.</strong> Encuentre el punto $(x,y,z)$ del plano $x+2y-2z=5$ más cercano a $P_0=(1,-2,4)$. (a) Formule como minimización y aplique Lagrange. (b) Halle el punto y la distancia mínima. (c) Compare con la proyección ortogonal.</p>
       <h4>Procedimiento</h4>
-      <div class="proc"><p class="vacio">Sin desarrollar todavía.</p></div>
+      <div class="proc">
+        <p>Minimizo el cuadrado de la distancia, que tiene el mismo optimizador y es más cómodo:</p>
+        $$d^2=(x-1)^2+(y+2)^2+(z-4)^2,\qquad g(x,y,z)=x+2y-2z=5.$$
+        <p>Con $\nabla d^2=\lambda\nabla g$:</p>
+        $$2(x-1)=\lambda,\qquad 2(y+2)=2\lambda,\qquad 2(z-4)=-2\lambda.$$
+        <p>Despejando, $x=1+\dfrac\lambda2$, $y=-2+\lambda$, $z=4-\lambda$. Al sustituir en el plano:</p>
+        $$\left(1+\frac\lambda2\right)+2(-2+\lambda)-2(4-\lambda)=5\Rightarrow \frac{9\lambda}{2}-11=5\Rightarrow \lambda=\frac{32}{9}.$$
+        <p>Entonces $x=1+\dfrac{16}{9}=\dfrac{25}{9}$, $y=-2+\dfrac{32}{9}=\dfrac{14}{9}$, $z=4-\dfrac{32}{9}=\dfrac{4}{9}$.</p>
+        <p>La distancia: los desplazamientos hasta $P_0$ son $\left(\tfrac{16}{9},\tfrac{32}{9},-\tfrac{32}{9}\right)$, de norma al cuadrado</p>
+        $$d^2=\frac{256+1024+1024}{81}=\frac{2304}{81}=\frac{256}{9}\Rightarrow d=\frac{16}{3}.$$
+        <p>Para (c) uso la proyección ortogonal con $\mathbf n=(1,2,-2)$, que es normal al plano. Como $\mathbf n\cdot P_0-5=1-4-8-5=-16$ y $\|\mathbf n\|^2=9$,</p>
+        $$P^*=P_0-\frac{\mathbf n\cdot P_0-5}{\|\mathbf n\|^2}\,\mathbf n=P_0+\frac{16}{9}(1,2,-2)=\left(\frac{25}{9},\frac{14}{9},\frac{4}{9}\right).$$
+        <p>Coincide exactamente con el punto hallado por Lagrange.</p>
+      </div>
       <h4>Respuesta</h4>
-      <div class="resp"><p class="vacio">Sin respuesta todavía.</p></div>
+      <div class="resp">
+        <p>(a)-(b) $P^*=\left(\tfrac{25}{9},\tfrac{14}{9},\tfrac{4}{9}\right)$, con distancia mínima $d=\dfrac{16}{3}$. (c) La proyección ortogonal sobre el plano da el mismo punto, $P^*=P_0-\dfrac{\mathbf n\cdot P_0-5}{\|\mathbf n\|^2}\mathbf n$ con $\mathbf n=(1,2,-2)$.</p>
+      </div>
     </div>
     <aside class="margen">
       <p class="margen-t">Nota</p>
-      <p class="vacio">Sin nota.</p>
+      <p>El punto del ejercicio es justo contrastar los dos métodos: Lagrange para la mínima distancia y la fórmula de proyección llegan al mismo $P^*$. Verifiqué la distancia con el vector normal: $|-16|/3=16/3$. Esto me recordó al proyecto final de redes (la WAN de 4 ciudades): allá también había que minimizar el costo de un camino bajo restricciones, y comparé métodos igual que aquí. En esa clase hice además el curso Introduction to Networking de NetAcad, donde el costo de un enlace es lo que decide las rutas.</p>
     </aside>
   </div>
 </article>
@@ -912,10 +1086,10 @@
   <p>La duda al resolver D.R5 era si tanta cota bastaba como prueba. Sí: $|f|\le r^{2}$ muestra que el límite en el origen es 0 (continuidad), y la misma cota aplicada a $|f|/r\le r$ muestra que el error de linealización es $o(r)$ (diferenciabilidad). No quedaron caminos por probar ni casos raros: las dos desigualdades son la demostración completa, y eso es lo que las vuelve suficientes. Cuando lo estaba escribiendo me acordé de la lógica de cuantificadores de Discretas: el límite es un "para todo camino" y tumbarlo solo necesita un "existe un camino" que falle.</p>
 </article>
 
-<article class="especial pendiente" id="especial4">
+<article class="especial hecho" id="especial4">
   <h3>Entrada especial 4: Seguir una dirección</h3>
   <p class="meta">Ejercicio: F.R4. Con el gradiente y las curvas de nivel, hacia dónde crece la colina.</p>
-  <p class="vacio">Sin desarrollar todavía.</p>
+  <p>Con $\nabla h(3,1)=(-10,4)$ el mapa de la colina se lee así: el gradiente apunta hacia donde los niveles se aprietan (semana 6, s16-s18), que es la subida más empinada. Girando 90° quedan las direcciones $\pm\tfrac{1}{\sqrt{29}}(2,5)$, sobre las cuales la altura no cambia en primera aproximación. Caminar en la dirección del gradiente gana altura al máximo ritmo. Caminar perpendicular es quedarse sobre la misma curva de nivel.</p>
 </article>
 
 <article class="especial hecho" id="especial5">
@@ -924,10 +1098,10 @@
   <p>El error que vale la pena contar es el de C.31: probar por rectas, obtener 0 en todas y creer que el límite existía. Las rectas solo sirven de filtro. Varios valores iguales no demuestran nada. Con el camino $x=y^3$ el valor cambia a 1 y el límite se cae. Cuando le pregunté a una IA por qué ese camino funcionaba, me lo explicó como "emparejar las potencias" del denominador, y ahí entendí el criterio. La alerta que me llevo: denominadores con potencias distintas ($x^2$ contra $y^6$) ⇒ buscar $x=y^k$ que empareje los exponentes, como en los caminos de la semana 4 (s5).</p>
 </article>
 
-<article class="especial pendiente" id="especial6">
+<article class="especial hecho" id="especial6">
   <h3>Entrada especial 6: Conectar con una aplicación</h3>
   <p class="meta">Ejercicio: H.80. Qué significa el resultado en el problema económico.</p>
-  <p class="vacio">Sin desarrollar todavía.</p>
+  <p>El óptimo $x^*=m/(3p_x)$, $y^*=2m/(3p_y)$ tiene lectura económica: el consumidor gasta un tercio del ingreso en $x$ y dos tercios en $y$ (lo que marcan los exponentes de la utilidad), y el multiplicador $\lambda=3/m$ es la utilidad marginal del ingreso, es decir cuánto sube $U^*$ por cada peso adicional. La condición de primer orden, $TMS=p_x/p_y$, dice que en el punto de tangencia el intercambio subjetivo y el de precios coinciden.</p>
 </article>
     </section>
 
