@@ -10,6 +10,8 @@ Carlos Javier Cuervo Baracaldo · Ingeniería de Sistemas, Universidad Nacional 
 ## Formato
 
 Cada entrada lleva el procedimiento, la respuesta señalada y una nota sobre el
-proceso (por qué ese método, qué falló, qué conviene repetir). Las figuras
-están hechas con GeoGebra 3D y sirven para verificar después del desarrollo
-algebraico.
+proceso (por qué ese método, qué falló, qué conviene repetir). El formato está
+inspirado en los apuntes abiertos del MIT (OCW); el contenido se apoya en las
+diapositivas del curso y en las grabaciones de clase transcritas con WhisperX.
+Las figuras están hechas con GeoGebra 3D y sirven para verificar después del
+desarrollo algebraico.

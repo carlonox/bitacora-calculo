@@ -53,6 +53,7 @@
       <h2 class="primero">Índice de ejercicios</h2>
       <div class="intro">
         <p>Los 28 ejercicios que escogí de la hoja del primer corte, recorriendo los bloques A a H. Cada entrada trae el procedimiento, la respuesta señalada y una nota al margen con lo que pasó al resolverlo: el método que servía, el error que apareció, lo que toca repetir antes del parcial.</p>
+        <p>La forma de la página está inspirada en los apuntes abiertos del MIT (OpenCourseWare): índice por temas, notas al margen y las cuentas a la vista. El contenido se apoya en las diapositivas del curso y en las clases grabadas, transcritas con WhisperX en un notebook de Colab.</p>
       </div>
       <p class="avance" id="avance" aria-live="polite"></p>
       <div class="tabla-wrap">
@@ -1107,17 +1108,19 @@
 
     <section id="herramientas">
       <h2>Herramientas usadas</h2>
-      <p>Cada resultado pasó por una verificación antes de quedar escrito: los límites, con las cotas y las polares (y una comprobación numérica por trayectorias cuando hacía falta); las derivadas y los sistemas de optimización, con SymPy (Python); las superficies y los mapas de nivel, con GeoGebra 3D. Es la regla del curso (semana 2, s14): primero se razona, después se verifica con software.</p>
+      <p>El material base son las diapositivas de cada semana y las grabaciones de las clases, transcritas con WhisperX (large-v3, con alineación) en un notebook de Colab. Las transcripciones traen los errores típicos de un audio de salón, así que las usé como apoyo para ubicar las conexiones con lo visto en clase, nunca como cita literal.</p>
+      <p>Cada resultado pasó por una verificación antes de quedar escrito: los límites, con las cotas y las polares (y una comprobación numérica por trayectorias cuando hacía falta). Las derivadas y los sistemas de optimización los contrasté con SymPy (Python), y las superficies y los mapas de nivel, con GeoGebra 3D. Es la regla del curso (semana 2, s14): primero se razona, después se verifica con software. Y cuando me enredaba en un paso, se lo mostraba a una IA para ver por dónde seguir, y en un par de notas queda escrito qué me respondió.</p>
+      <p>Y los proyectos de otros cursos que menciono en las notas (el de redes, el clasificador de señales, los trabajos de S.O.) están en <a href="https://github.com/carlonox">github.com/carlonox</a>.</p>
     </section>
 
     <section id="cierre" class="cierre">
       <h2>Cierre</h2>
       <ol>
-        <li><p>La idea del curso que más cambió para mí fue…</p><p class="vacio">Sin responder todavía.</p></li>
-        <li><p>El error que ahora detecto más rápido es…</p><p class="vacio">Sin responder todavía.</p></li>
-        <li><p>La estrategia que más me ayuda cuando me bloqueo es…</p><p class="vacio">Sin responder todavía.</p></li>
-        <li><p>Antes del parcial quiero repetir el ejercicio… porque…</p><p class="vacio">Sin responder todavía.</p></li>
-        <li><p>Una nota para mí el día del parcial:</p><p class="vacio">Sin responder todavía.</p></li>
+        <li><p>La idea del curso que más cambió para mí fue…</p><p>…creo que fue pensar las fórmulas como superficies y mapas de niveles. En varios ejercicios la lectura geométrica llegó antes que el cálculo, y el bloque de límites me enseñó a no confiar en la primera impresión.</p></li>
+        <li><p>El error que ahora detecto más rápido es…</p><p>…el de los caminos que "confirman" un límite (C.31) y los signos al pasar de fórmulas a números.</p></li>
+        <li><p>La estrategia que más me ayuda cuando me bloqueo es…</p><p>…dibujar primero, con un bosquejo feo que me diga qué objeto tengo enfrente, y después escribir el problema en el lenguaje que menos arrastre tenga: completar cuadrados, pasar a polares o nombrar bien las variables antes de derivar.</p></li>
+        <li><p>Antes del parcial quiero repetir el ejercicio… porque…</p><p>…creo que C.31 y G.R3: uno por las potencias del denominador y el otro por el argumento global, que son los puntos más fáciles de olvidar bajo presión.</p></li>
+        <li><p>Una nota para mí el día del parcial:</p><p>Decidir primero qué se está preguntando (existencia, pendiente, aproximación o extremo), dibujar el objeto que acompaña y escribir el razonamiento completo. La cuenta viene después. Me di cuenta de que varios errores bobos fueron por ir de acelerado, a veces sabiendo lo que había que hacer y equivocándome igual, y cuando uno cae en cuenta se siente como bobo :P. Eso me pasa en parciales, así que voy a intentar ir más lento y esperar que el tiempo alcance, más ahora que el primer parcial va sin ficha bibliográfica de fórmulas.</p></li>
       </ol>
     </section>
 
