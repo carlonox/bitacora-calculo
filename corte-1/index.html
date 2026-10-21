@@ -1,0 +1,1157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bitácora de Cálculo en Varias Variables · Primer corte</title>
+<link rel="stylesheet" href="../css/estilo.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&family=Public+Sans:wght@400;600&display=swap" rel="stylesheet">
+<script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$']],
+      macros: { sen: '\\operatorname{sen}', tg: '\\operatorname{tg}' }
+    }
+  };
+</script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-svg.js"></script>
+</head>
+<body>
+
+<header class="cabecera">
+  <div class="in">
+    <p>Universidad Nacional de Colombia, Departamento de Matemáticas</p>
+    <h1>Bitácora de Cálculo en Varias Variables</h1>
+    <p>Primer corte, 2026-2S. Carlos Javier Cuervo Baracaldo · Ingeniería de Sistemas</p>
+  </div>
+</header>
+
+<div class="wrap">
+  <nav class="lateral" aria-label="Contenido">
+    <h2>Contenido</h2>
+    <ul>
+      <li><a href="#inicio">Índice de ejercicios</a></li>
+      <li><a href="#bloque-A">A. Geometría en el espacio y cuádricas</a></li>
+      <li><a href="#bloque-B">B. Dominios, curvas y superficies de nivel</a></li>
+      <li><a href="#bloque-C">C. Límites y continuidad</a></li>
+      <li><a href="#bloque-D">D. Derivadas parciales y diferenciabilidad</a></li>
+      <li><a href="#bloque-E">E. Regla de la cadena e implícitas</a></li>
+      <li><a href="#bloque-F">F. Gradiente, derivada direccional y planos tangentes</a></li>
+      <li><a href="#bloque-G">G. Extremos y Hessiano</a></li>
+      <li><a href="#bloque-H">H. Multiplicadores de Lagrange</a></li>
+      <li><a href="#especiales">Entradas especiales</a></li>
+      <li><a href="#herramientas">Herramientas usadas</a></li>
+      <li><a href="#cierre">Cierre</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section id="inicio">
+      <h2 class="primero">Índice de ejercicios</h2>
+      <div class="intro">
+        <p>Los 28 ejercicios que escogí de la hoja del primer corte, recorriendo los bloques A a H. Cada entrada trae el procedimiento, la respuesta señalada y una nota al margen con lo que pasó al resolverlo: el método que servía, el error que apareció, lo que toca repetir antes del parcial.</p>
+        <p>La forma de la página está inspirada en los apuntes abiertos del MIT (OpenCourseWare): índice por temas, notas al margen y las cuentas a la vista. El contenido se apoya en las diapositivas del curso y en las clases grabadas, transcritas con WhisperX en un notebook de Colab.</p>
+      </div>
+      <p class="avance" id="avance" aria-live="polite"></p>
+      <div class="tabla-wrap">
+        <table class="indice">
+          <thead><tr><th scope="col">N.º</th><th scope="col">Ejercicio</th><th scope="col">Tema</th><th scope="col">Estado</th></tr></thead>
+          <tbody>
+<tr class="bloque" data-bloque="A"><th colspan="4" scope="colgroup"><a href="#bloque-A">Bloque A. Geometría en el espacio y cuádricas</a><span class="cuenta" data-cuenta="A"></span></th></tr>
+<tr data-ej="A4"><td class="n">1</td><td><a href="#A4">A.4</a></td><td>Silla de montar</td><td class="estado">pendiente</td></tr>
+<tr data-ej="A9"><td class="n">2</td><td><a href="#A9">A.9</a></td><td>Recta por dos puntos</td><td class="estado">pendiente</td></tr>
+<tr data-ej="A14"><td class="n">3</td><td><a href="#A14">A.14</a></td><td>Recta tangente a una curva de intersección</td><td class="estado">pendiente</td></tr>
+<tr data-ej="AR3"><td class="n">4</td><td><a href="#AR3">A.R3</a></td><td>Plano que contiene una recta</td><td class="estado">pendiente</td></tr>
+<tr class="bloque" data-bloque="B"><th colspan="4" scope="colgroup"><a href="#bloque-B">Bloque B. Dominios, curvas y superficies de nivel</a><span class="cuenta" data-cuenta="B"></span></th></tr>
+<tr data-ej="B19"><td class="n">5</td><td><a href="#B19">B.19</a></td><td>Dominio con raíz y logaritmo</td><td class="estado">pendiente</td></tr>
+<tr data-ej="B24"><td class="n">6</td><td><a href="#B24">B.24</a></td><td>Curvas de nivel de y/(x²+y²)</td><td class="estado">pendiente</td></tr>
+<tr data-ej="BR3"><td class="n">7</td><td><a href="#BR3">B.R3</a></td><td>Niveles de x²+4y²</td><td class="estado">pendiente</td></tr>
+<tr class="bloque" data-bloque="C"><th colspan="4" scope="colgroup"><a href="#bloque-C">Bloque C. Límites y continuidad</a><span class="cuenta" data-cuenta="C"></span></th></tr>
+<tr data-ej="C31"><td class="n">8</td><td><a href="#C31">C.31</a></td><td>Existencia de un límite</td><td class="estado">pendiente</td></tr>
+<tr data-ej="CR2"><td class="n">9</td><td><a href="#CR2">C.R2</a></td><td>Desigualdad y polares</td><td class="estado">pendiente</td></tr>
+<tr data-ej="CR5"><td class="n">10</td><td><a href="#CR5">C.R5</a></td><td>Continuidad con parámetro</td><td class="estado">pendiente</td></tr>
+<tr data-ej="C42"><td class="n">11</td><td><a href="#C42">C.42</a></td><td>Continuidad y diferenciabilidad en el origen</td><td class="estado">pendiente</td></tr>
+<tr class="bloque" data-bloque="D"><th colspan="4" scope="colgroup"><a href="#bloque-D">Bloque D. Derivadas parciales y diferenciabilidad</a><span class="cuenta" data-cuenta="D"></span></th></tr>
+<tr data-ej="D46"><td class="n">12</td><td><a href="#D46">D.46</a></td><td>Parciales de x·e^(y/x)</td><td class="estado">pendiente</td></tr>
+<tr data-ej="D52"><td class="n">13</td><td><a href="#D52">D.52</a></td><td>Parciales por definición</td><td class="estado">pendiente</td></tr>
+<tr data-ej="DR5"><td class="n">14</td><td><a href="#DR5">D.R5</a></td><td>Diferenciabilidad en el origen</td><td class="estado">pendiente</td></tr>
+<tr data-ej="DR4"><td class="n">15</td><td><a href="#DR4">D.R4</a></td><td>Plano tangente y linealización</td><td class="estado">pendiente</td></tr>
+<tr class="bloque" data-bloque="E"><th colspan="4" scope="colgroup"><a href="#bloque-E">Bloque E. Regla de la cadena e implícitas</a><span class="cuenta" data-cuenta="E"></span></th></tr>
+<tr data-ej="E61"><td class="n">16</td><td><a href="#E61">E.61</a></td><td>Regla de la cadena</td><td class="estado">pendiente</td></tr>
+<tr data-ej="ER3"><td class="n">17</td><td><a href="#ER3">E.R3</a></td><td>Derivación implícita</td><td class="estado">pendiente</td></tr>
+<tr data-ej="E64"><td class="n">18</td><td><a href="#E64">E.64</a></td><td>Razón de cambio del volumen</td><td class="estado">pendiente</td></tr>
+<tr class="bloque" data-bloque="F"><th colspan="4" scope="colgroup"><a href="#bloque-F">Bloque F. Gradiente, derivada direccional y planos tangentes</a><span class="cuenta" data-cuenta="F"></span></th></tr>
+<tr data-ej="F69"><td class="n">19</td><td><a href="#F69">F.69</a></td><td>Gradiente y derivada direccional</td><td class="estado">pendiente</td></tr>
+<tr data-ej="F74"><td class="n">20</td><td><a href="#F74">F.74</a></td><td>Cuatro planos tangentes</td><td class="estado">pendiente</td></tr>
+<tr data-ej="FR3"><td class="n">21</td><td><a href="#FR3">F.R3</a></td><td>Normal y plano tangente a un elipsoide</td><td class="estado">pendiente</td></tr>
+<tr data-ej="FR4"><td class="n">22</td><td><a href="#FR4">F.R4</a></td><td>La colina</td><td class="estado">pendiente</td></tr>
+<tr class="bloque" data-bloque="G"><th colspan="4" scope="colgroup"><a href="#bloque-G">G. Extremos y Hessiano</a><span class="cuenta" data-cuenta="G"></span></th></tr>
+<tr data-ej="G75"><td class="n">23</td><td><a href="#G75">G.75</a></td><td>Puntos críticos de xy(1−x−y)</td><td class="estado">pendiente</td></tr>
+<tr data-ej="G77"><td class="n">24</td><td><a href="#G77">G.77</a></td><td>Hessiano degenerado</td><td class="estado">pendiente</td></tr>
+<tr data-ej="GR3"><td class="n">25</td><td><a href="#GR3">G.R3</a></td><td>x⁴+y⁴−4xy</td><td class="estado">pendiente</td></tr>
+<tr class="bloque" data-bloque="H"><th colspan="4" scope="colgroup"><a href="#bloque-H">Bloque H. Multiplicadores de Lagrange</a><span class="cuenta" data-cuenta="H"></span></th></tr>
+<tr data-ej="H80"><td class="n">26</td><td><a href="#H80">H.80</a></td><td>Utilidad máxima con presupuesto</td><td class="estado">pendiente</td></tr>
+<tr data-ej="H82"><td class="n">27</td><td><a href="#H82">H.82</a></td><td>Caja de volumen fijo</td><td class="estado">pendiente</td></tr>
+<tr data-ej="H84"><td class="n">28</td><td><a href="#H84">H.84</a></td><td>Punto del plano más cercano a otro punto</td><td class="estado">pendiente</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+<section class="bloque-sec" id="bloque-A"><h2>Bloque A. Geometría en el espacio y cuádricas</h2>
+
+<article class="ej hecho" id="A4" data-bloque="A">
+  <h3><span class="idx">1.</span> A.4, Silla de montar</h3>
+  <p class="meta">Tipo: geométrico.</p>
+  <div class="cuerpo">
+    <div class="principal">
+      <p class="enun"><strong>Enunciado.</strong> Para el paraboloide hiperbólico $z=x^2-y^2$: (a) obtenga las trazas con $x=0$, $y=0$ y $z=0$; (b) determine las curvas de nivel $z=c$ e interprete su forma para $c>0$, $c=0$ y $c<0$; (c) bosqueje la superficie.</p>
+      <h4>Procedimiento</h4>
+      <div class="proc">
+        <p><strong>Trazas con planos coordenados.</strong></p>
+        <ul>
+          <li>$x=0$: queda $z=-y^2$, una parábola que abre hacia abajo en el plano $yz$.</li>
+          <li>$y=0$: queda $z=x^2$, una parábola que abre hacia arriba en el plano $xz$.</li>
+          <li>$z=0$: $x^2-y^2=0$, es decir $(x-y)(x+y)=0$: las rectas $y=x$ y $y=-x$, que se cruzan en el origen.</li>
+        </ul>
+        <p><strong>Curvas de nivel $z=c$.</strong> La ecuación $x^2-y^2=c$ describe una familia de hipérbolas:</p>
+        <ul>
+          <li>$c>0$: $\dfrac{x^2}{c}-\dfrac{y^2}{c}=1$, ramas abiertas hacia $\pm x$.</li>
+          <li>$c=0$: las dos rectas degeneradas de arriba.</li>
+          <li>$c<0$: escribiendo $y^2-x^2=-c$, ramas abiertas hacia $\pm y$.</li>
+        </ul>
+        <p>Las trazas verticales son parábolas con aberturas opuestas y la orientación de los niveles rota 90° al cruzar $c=0$. Esas dos lecturas describen la silla: la superficie sube en una dirección y baja en la otra, con el cruce en el origen.</p>
+        <figure>
+          <img src="img/a4-niveles.png" alt="Mapa de niveles de z=x^2-y^2: hiperbolas para c=1, 4 y c=-1, -4, y las rectas y=x, y=-x del nivel c=0.">
+          <figcaption>Mapa de niveles de $z=x^2-y^2$ en GeoGebra: hipérbolas para $c=1,4$ (rojo) y $c=-1,-4$ (azul), y el nivel degenerado $c=0$ en negro, que son las rectas $y=\pm x$.</figcaption>
+        </figure>
+      </div>
+      <h4>Respuesta</h4>
+      <div class="resp"><p>Trazas verticales: $z=-y^2$ y $z=x^2$ (parábolas de abertura opuesta). Corte $z=0$: el par de rectas $y=\pm x$. Niveles: hipérbolas con el eje real orientado según el signo de $c$. La superficie es un paraboloide hiperbólico (silla de montar) con punto silla en $(0,0,0)$.</p></div>
+    </div>
+    <aside class="margen">
+      <p class="margen-t">Nota</p>
+      <p>El corte $z=0$ no da una curva sino dos rectas, y eso desconcierta la primera vez. Dos ayudas de clase: las trazas se sacan "rebanando la superficie como una manzana", y a este paraboloide el profe le dice "la de las papas Pringles" (esa curvatura es diseño del empaque, para que no se partan en el camino). La rutina de la semana 2 (s26) y el mapa de niveles confirman lo razonado.</p>
+    </aside>
+  </div>
+</article>
+
+<article class="ej hecho" id="A9" data-bloque="A">
+  <h3><span class="idx">2.</span> A.9, Recta por dos puntos</h3>
+  <div class="cuerpo">
+    <div class="principal">
+      <p class="enun"><strong>Enunciado.</strong> Halle ecuaciones paramétricas y simétricas de la recta que pasa por $A=(1,-2,3)$ y $B=(-1,4,0)$.</p>
+      <h4>Procedimiento</h4>
+      <div class="proc">
+        <p>El vector director es la diferencia de los puntos:</p>
+        $$\mathbf{d}=B-A=(-1-1,\ 4-(-2),\ 0-3)=(-2,\ 6,\ -3).$$
+        <p>Con $A$ como punto base, las paramétricas quedan</p>
+        $$x=1-2t,\qquad y=-2+6t,\qquad z=3-3t,\qquad t\in\mathbb{R}.$$
+        <p>Para las simétricas despejo $t$ de cada ecuación. Ninguna componente del director se anula, así que la escritura encadenada es válida:</p>
+        $$\frac{x-1}{-2}=\frac{y+2}{6}=\frac{z-3}{-3}.$$
+      </div>
+      <h4>Respuesta</h4>
+      <div class="resp"><p>Paramétricas: $(x,y,z)=(1-2t,\,-2+6t,\,3-3t)$. Simétricas: $\dfrac{x-1}{-2}=\dfrac{y+2}{6}=\dfrac{z-3}{-3}$.</p></div>
+    </div>
+    <aside class="margen">
+      <p class="margen-t">Nota</p>
+      <p>Es directo con la forma $\mathbf{r}(t)=\mathbf{p}+t\mathbf{v}$ de la primera semana (s5). Creo que vale anotar un caso límite: las simétricas se escriben solo si ninguna componente del director es cero. Si alguna lo fuera, esa coordenada queda fija y se trata aparte.</p>
+    </aside>
+  </div>
+</article>
+
+<article class="ej hecho" id="A14" data-bloque="A">
+  <h3><span class="idx">3.</span> A.14, Recta tangente a una curva de intersección</h3>
+  <p class="meta">Tipo: geométrico.</p>
+  <div class="cuerpo">
+    <div class="principal">
+      <p class="enun"><strong>Enunciado.</strong> Sea $C$ la curva intersección entre el paraboloide $z=x^2+y^2$ y el elipsoide $4x^2+y^2+z^2=9$. (a) Verifique que $(-1,1,2)\in C$. (b) Halle una ecuación para la recta tangente a $C$ en $(-1,1,2)$.</p>
+      <h4>Procedimiento</h4>
+      <div class="proc">
+        <p><strong>(a) Verificación.</strong> Sustituyo el punto en ambas ecuaciones:</p>
+        <ul>
+          <li>$z=x^2+y^2$: $\ 2=(-1)^2+1^2=2$. Correcto.</li>
+          <li>$4x^2+y^2+z^2=9$: $\ 4(1)+1+4=9$. Correcto.</li>
+        </ul>
+        <p><strong>(b)</strong> Escribo las dos superficies como niveles, $F(x,y,z)=x^2+y^2-z=0$ y $G(x,y,z)=4x^2+y^2+z^2-9=0$. Sus gradientes son normales a la curva de intersección:</p>
+        $$\nabla F=(2x,\,2y,\,-1),\qquad \nabla G=(8x,\,2y,\,2z).$$
+        <p>En $P=(-1,1,2)$:</p>
+        $$\nabla F(P)=(-2,\,2,\,-1),\qquad \nabla G(P)=(-8,\,2,\,4).$$
+        <p>La tangente a $C$ es perpendicular a ambas normales, así que el vector director sale del producto cruz:</p>
+        $$\mathbf{v}=\nabla F\times\nabla G=\begin{vmatrix}\mathbf{i}&\mathbf{j}&\mathbf{k}\\-2&2&-1\\-8&2&4\end{vmatrix}=\mathbf{i}(8+2)-\mathbf{j}(-8-8)+\mathbf{k}(-4+16)=(10,\,16,\,12).$$
+        <p>Dividiendo entre 2: $\mathbf{v}\sim(5,8,6)$. La recta tangente es</p>
+        $$\mathbf{r}(t)=(-1,\,1,\,2)+t\,(5,\,8,\,6).$$
+        <figure>
+          <img src="img/a14-interseccion.png" alt="Paraboloide z=x^2+y^2 y elipsoide 4x^2+y^2+z^2=9 en GeoGebra 3D, con el punto (-1,1,2) y la recta tangente.">
+          <figcaption>El paraboloide y el elipsoide del ejercicio en GeoGebra 3D, con el punto $(-1,1,2)$ y la recta tangente de dirección $(5,8,6)$.</figcaption>
+        </figure>
+      </div>
+      <h4>Respuesta</h4>
+      <div class="resp"><p>(a) El punto pertenece a ambas superficies. (b) Recta tangente: $(x,y,z)=(-1+5t,\ 1+8t,\ 2+6t)$.</p></div>
+    </div>
+    <aside class="margen">
+      <p class="margen-t">Nota</p>
+      <p>La dirección de la tangente es perpendicular a las dos normales de la intersección, por eso sale del producto cruz. En el primer intento me descuadró un signo del término $\mathbf{j}$ del determinante. Escribirlo completo, fila por fila, lo corrige. Cuando armé la figura me acordé de las gráficas 3D que hice en Python (matplotlib/plotly) para otros cursos. Ya con eso, el 3D de acá es solo para mirar cómodo.</p>
+    </aside>
+  </div>
+</article>
+
+<article class="ej hecho" id="AR3" data-bloque="A">
+  <h3><span class="idx">4.</span> A.R3, Plano que contiene una recta</h3>
+  <div class="cuerpo">
+    <div class="principal">
+      <p class="enun"><strong>Enunciado.</strong> Encuentre la ecuación del plano que contiene la recta $\mathbf{r}(t)=(1,2,-1)+t(2,-1,3)$ y además pasa por $Q=(0,1,2)$. Determine luego el ángulo entre ese plano y el plano $2x-y+z=4$.</p>
+      <h4>Procedimiento</h4>
+      <div class="proc">
+        <p>Tomo un punto de la recta, $P=(1,2,-1)$, su director $\mathbf{d}=(2,-1,3)$ y el vector que une $P$ con $Q$:</p>
+        $$\overrightarrow{PQ}=Q-P=(-1,\,-1,\,3).$$
+        <p>La normal al plano pedido es perpendicular al director y a $\overrightarrow{PQ}$:</p>
+        $$\mathbf{n}=\mathbf{d}\times\overrightarrow{PQ}=\begin{vmatrix}\mathbf{i}&\mathbf{j}&\mathbf{k}\\2&-1&3\\-1&-1&3\end{vmatrix}=\mathbf{i}(-3+3)-\mathbf{j}(6+3)+\mathbf{k}(-2-1)=(0,\,-9,\,-3)\sim(0,3,1).$$
+        <p>Con $Q=(0,1,2)$:</p>
+        $$0\,(x-0)+3\,(y-1)+1\,(z-2)=0\quad\Longrightarrow\quad 3y+z=5.$$
+        <p>Verifico con los dos puntos: para $P$, $3(2)-1=5$, y para $Q$, $3(1)+2=5$. Ambos cumplen.</p>
+        <p><strong>Ángulo con $\Pi_2:2x-y+z=4$</strong> (normal $\mathbf{n}_2=(2,-1,1)$):</p>
+        $$\cos\theta=\frac{|\mathbf{n}\cdot\mathbf{n}_2|}{\|\mathbf{n}\|\,\|\mathbf{n}_2\|}=\frac{|0-3+1|}{\sqrt{10}\,\sqrt{6}}=\frac{2}{\sqrt{60}}=\frac{1}{\sqrt{15}},$$
+        $$\theta=\arccos\!\left(\frac{1}{\sqrt{15}}\right)\approx 75{,}04^\circ.$$
+      </div>
+      <h4>Respuesta</h4>
+      <div class="resp"><p>Plano: $3y+z=5$. Ángulo con $2x-y+z=4$: $\theta=\arccos(1/\sqrt{15})\approx 75^\circ$.</p></div>
+    </div>
+    <aside class="margen">
+      <p class="margen-t">Nota</p>
+      <p>Un plano contiene una recta cuando su normal es perpendicular al director: aquí $\mathbf{n}=(0,3,1)$ cumple $\mathbf{n}\cdot\mathbf{d}=0$ con $\mathbf{d}=(2,-1,3)$. De ahí en adelante es mecánico. En el primer intento solo saqué el plano y se me olvidó el ángulo, que también pedía el enunciado (clásico en mí, a veces dejo la mitad de la letra). El seguro fue meter $P$ y $Q$ en el resultado final: dos sustituciones que evitan rehacer todo si la normal quedó mal.</p>
+    </aside>
+  </div>
+</article>
+</section>
+
+<section class="bloque-sec" id="bloque-B"><h2>Bloque B. Dominios, curvas y superficies de nivel</h2>
+
+<article class="ej hecho" id="B19" data-bloque="B">
+  <h3><span class="idx">5.</span> B.19, Dominio con raíz y logaritmo</h3>
+  <div class="cuerpo">
+    <div class="principal">
+      <p class="enun"><strong>Enunciado.</strong> Determine el dominio de $f(x,y)=\sqrt{x^2+y^2-x}-\ln(2x-x^2-y^2)$.</p>
+      <h4>Procedimiento</h4>
+      <div class="proc">
+        <p><strong>Condición de la raíz.</strong> $x^2+y^2-x\ge 0$. Completando cuadrado en $x$:</p>
+        $$\left(x-\tfrac12\right)^2+y^2\ge \tfrac14.$$
+        <p>Es el exterior (frontera incluida) de la circunferencia $\mathcal{C}_1$ de centro $(\tfrac12,0)$ y radio $\tfrac12$.</p>
+        <p><strong>Condición del logaritmo.</strong> $2x-x^2-y^2>0$, es decir $x^2-2x+y^2<0$. Completando cuadrado:</p>
+        $$(x-1)^2+y^2<1.$$
+        <p>Es el interior (borde excluido) de la circunferencia $\mathcal{C}_2$ de centro $(1,0)$ y radio $1$.</p>
+        <p><strong>Intersección.</strong> $\mathcal{C}_1$ pasa por $(0,0)$ y $(1,0)$, y $\mathcal{C}_2$ pasa por $(0,0)$ y $(2,0)$. Las dos son tangentes en el origen. $\mathcal{C}_1$ queda adentro de $\mathcal{C}_2$, así que el dominio es la región entre ambas: los puntos del disco grande que no están dentro del disco pequeño.</p>
+      </div>
+      <h4>Respuesta</h4>
+      <div class="resp"><p>$D=\{(x,y):(x-1)^2+y^2<1\ \text{y}\ (x-\tfrac12)^2+y^2\ge\tfrac14\}$. Geométricamente: el interior del disco grande $(x-1)^2+y^2<1$ menos el interior del disco pequeño $(x-\tfrac12)^2+y^2<\tfrac14$, con la frontera del pequeño incluida y la del grande excluida.</p></div>
+    </div>
+    <aside class="margen">
+      <p class="margen-t">Nota</p>
+      <p>El logaritmo es el mismo del ejemplo de clase (semana 3, s7). Con los cuadrados completos las dos condiciones quedan como discos y la intersección se lee sola. Antes de ese paso me enredé con los signos de las desigualdades.</p>
+    </aside>
+  </div>
+</article>
+
+<article class="ej hecho" id="B24" data-bloque="B">
+  <h3><span class="idx">6.</span> B.24, Curvas de nivel de y/(x²+y²)</h3>
+  <p class="meta">Tipo: geométrico. Entrada especial 2 (cambiar de representación).</p>
+  <div class="cuerpo">
+    <div class="principal">
+      <p class="enun"><strong>Enunciado.</strong> Bosqueje algunas curvas de nivel de $f(x,y)=\dfrac{y}{x^2+y^2}$, $(x,y)\neq(0,0)$.</p>
+      <h4>Procedimiento</h4>
+      <div class="proc">
+        <p>Igualo $f(x,y)=c$: $\ y=c\,(x^2+y^2)$.</p>
+        <p><strong>Caso $c=0$:</strong> queda $y=0$, el eje $x$ sin el origen.</p>
+        <p><strong>Caso $c\neq0$:</strong> reorganizando, $x^2+y^2-\dfrac{y}{c}=0$, y completando cuadrado en $y$,</p>
+        $$x^2+\left(y-\frac{1}{2c}\right)^2=\frac{1}{4c^2}.$$
+        <p>Son circunferencias de centro $\left(0,\frac{1}{2c}\right)$ y radio $\frac{1}{2|c|}$, todas tangentes al eje $x$ en el origen (que no pertenece al dominio).</p>
+        <table class="datos">
+          <thead><tr><th>$c$</th><th>Centro</th><th>Radio</th></tr></thead>
+          <tbody>
+            <tr><td>$1$</td><td>$(0,\tfrac12)$</td><td>$\tfrac12$</td></tr>
+            <tr><td>$-1$</td><td>$(0,-\tfrac12)$</td><td>$\tfrac12$</td></tr>
+            <tr><td>$\tfrac12$</td><td>$(0,1)$</td><td>$1$</td></tr>
+            <tr><td>$2$</td><td>$(0,\tfrac14)$</td><td>$\tfrac14$</td></tr>
+          </tbody>
+        </table>
+        <p>Cuando $|c|$ crece, las circunferencias se achican y se aprietan contra el eje $x$. Cuando $|c|\to0$, crecen indefinidamente.</p>
+        <figure>
+          <img src="img/b24-niveles.png" alt="Cuatro circunferencias tangentes al eje x en el origen, centros sobre el eje y, correspondientes a los niveles c=1, -1, 1/2 y 2.">
+          <figcaption>Cuatro niveles de $f(x,y)=y/(x^2+y^2)$: todos son circunferencias tangentes al eje $x$ en el origen. Con $|c|$ grande se achican y con $|c|$ pequeño se estiran.</figcaption>
+        </figure>
+      </div>
+      <h4>Respuesta</h4>
+      <div class="resp"><p>Para $c=0$, el eje $x$ (sin el origen). Para $c\neq0$, la familia de circunferencias $\ x^2+\left(y-\frac{1}{2c}\right)^2=\frac{1}{4c^2}$, tangentes al eje $x$ en el origen.</p></div>
+    </div>
+    <aside class="margen">
+      <p class="margen-t">Nota</p>
+      <p>Es el mismo del ejercicio de clase (semana 3, s10). La fórmula no dice gran cosa a primera vista, pero al pasarla a niveles queda una familia ordenada de circunferencias. Por el eje $y$ la función se dispara y por el eje $x$ se aplana. Y el origen queda fuera del dominio: en clase el profe lo mencionó, "el primer mandamiento de las matemáticas: nunca dividirás por cero".</p>
+    </aside>
+  </div>
+</article>
+
+<article class="ej hecho" id="BR3" data-bloque="B">
+  <h3><span class="idx">7.</span> B.R3, Niveles de x²+4y²</h3>
+  <div class="cuerpo">
+    <div class="principal">
+      <p class="enun"><strong>Enunciado.</strong> Para $f(x,y)=x^2+4y^2$, trace las curvas de nivel $f=c$ para $c=1,4,9$ y explique cómo la separación entre curvas permite anticipar en qué dirección cambia más rápidamente la superficie.</p>
+      <h4>Procedimiento</h4>
+      <div class="proc">
+        <p>La curva de nivel $x^2+4y^2=c$ se escribe</p>
+        $$\frac{x^2}{c}+\frac{y^2}{c/4}=1,$$
+        <p>una elipse con semiejes $a=\sqrt{c}$ en $x$ y $b=\frac{\sqrt{c}}{2}$ en $y$:</p>
+        <table class="datos">
+          <thead><tr><th>$c$</th><th>$a$</th><th>$b$</th></tr></thead>
+          <tbody>
+            <tr><td>$1$</td><td>$1$</td><td>$\tfrac12$</td></tr>
+            <tr><td>$4$</td><td>$2$</td><td>$1$</td></tr>
+            <tr><td>$9$</td><td>$3$</td><td>$\tfrac32$</td></tr>
+          </tbody>
+        </table>
+        <p>El semieje en $y$ es siempre la mitad del semieje en $x$: las elipses quedan aplastadas en la dirección $y$, y por lo tanto las curvas de nivel se aprietan más por ese eje. Comparando puntos a la misma distancia del origen, $\nabla f=(2x,8y)$ confirma la lectura: la componente en $y$ es cuatro veces más grande.</p>
+        <figure>
+          <img src="img/br3-niveles.png" alt="Elipses concéntricas de niveles c=1, 4 y 9 para la función x^2+4y^2, más apretadas en la dirección y.">
+          <figcaption>Niveles $c=1,4,9$ de $x^2+4y^2$ en GeoGebra: el semieje en $y$ siempre mide la mitad del semieje en $x$.</figcaption>
+        </figure>
+      </div>
+      <h4>Respuesta</h4>
+      <div class="resp"><p>Elipses concéntricas con semiejes $(\sqrt{c},\ \frac{\sqrt{c}}{2})$. La mayor densidad de niveles en la dirección $y$ anticipa que la superficie cambia más rápido en esa dirección, como confirma $\nabla f=(2x,8y)$.</p></div>
+    </div>
+    <aside class="margen">
+      <p class="margen-t">Nota</p>
+      <p>El ejemplo de la semana 1 (s7) ya mostraba la idea con $x^2+y^2$: niveles circulares y gradiente radial. Aquí el $4y^2$ aplasta las elipses y eso se lee en el mapa antes de derivar.</p>
+    </aside>
+  </div>
+</article>
+</section>
+
+<section class="bloque-sec" id="bloque-C"><h2>Bloque C. Límites y continuidad</h2>
+
+<article class="ej hecho" id="C31" data-bloque="C">
+  <h3><span class="idx">8.</span> C.31, Existencia de un límite</h3>
+  <p class="meta">Tipo: existencia.</p>
+  <div class="cuerpo">
+    <div class="principal">
+      <p class="enun"><strong>Enunciado.</strong> Calcule, o demuestre que no existe, $\displaystyle\lim_{(x,y)\to(0,0)}\frac{3xy^3}{2y^6+x^2}$.</p>
+      <h4>Procedimiento</h4>
+      <div class="proc">
+        <div class="intento">
+          <p>Probé primero por rectas $y=mx$:</p>
+          $$\frac{3x(mx)^3}{2(mx)^6+x^2}=\frac{3m^3x^4}{2m^6x^6+x^2}=\frac{3m^3x^2}{2m^6x^4+1}\xrightarrow{\ x\to0\ }0.$$
+          <p>Todas las rectas dan 0, pero eso no prueba existencia: lo de la semana 4 (s5) es que varios caminos con el mismo valor no alcanzan.</p>
+        </div>
+        <div class="correccion">
+          <p>El denominador tiene potencias desbalanceadas ($x^2$ contra $y^6$). Hay que probar una curva que las empareje. Con $x=y^3$:</p>
+          $$\frac{3(y^3)y^3}{2y^6+(y^3)^2}=\frac{3y^6}{2y^6+y^6}=\frac{3y^6}{3y^6}=1.$$
+          <p>Por este camino el límite es 1, distinto del 0 de las rectas.</p>
+        </div>
+        <div class="alerta">
+          <p>Dos caminos con valores distintos ⇒ el límite no existe. Señal para detectarlo: denominadores con potencias dispares piden un camino tipo $x=y^k$.</p>
+        </div>
+      </div>
+      <h4>Respuesta</h4>
+      <div class="resp"><p>El límite no existe: por rectas $y=mx$ vale 0, y por la curva $x=y^3$ vale 1.</p></div>
+    </div>
+    <aside class="margen">
+      <p class="margen-t">Nota</p>
+      <p>Casi me quedo con el 0 que dan todas las rectas :P, pero la señal estaba en el denominador: potencias distintas que piden una curva del tipo $x=y^k$ para equilibrarlas, como en los caminos de la semana 4 (s5-s6).</p>
+    </aside>
+  </div>
+</article>
+
+<aside class="pausa" id="pausa1">
+  <h3>Pausa 1, después del ejercicio 8</h3>
+  <dl>
+    <dt>¿Qué entiendo mejor ahora?</dt>
+    <dd>Creo que los caminos sirven para tumbar un límite, no para confirmarlo, y confirmarlo exige cota o polares con lectura de $\theta$.</dd>
+    <dt>¿Qué error estoy repitiendo?</dt>
+    <dd>Quedarme con el primer valor que sale y no cerrar la justificación.</dd>
+    <dt>¿Qué ejercicio debo repetir?</dt>
+    <dd>C.31 desde cero, y algún límite tipo parcial con potencias desbalanceadas.</dd>
+    <dt>¿Qué estrategia sí me está funcionando?</dt>
+    <dd>Antes de calcular, escribir qué forma tiene la función (potencias, raíces) y qué método le toca: sustitución, caminos, cota o polares.</dd>
+  </dl>
+</aside>
+
+<article class="ej hecho" id="CR2" data-bloque="C">
+  <h3><span class="idx">9.</span> C.R2, Desigualdad y polares</h3>
+  <div class="cuerpo">
+    <div class="principal">
+      <p class="enun"><strong>Enunciado.</strong> Calcule $\displaystyle\lim_{(x,y)\to(0,0)}\frac{x^2y^2}{x^2+y^2}$ mediante una desigualdad y también mediante coordenadas polares.</p>
+      <h4>Procedimiento</h4>
+      <div class="proc">
+        <p><strong>Método 1: desigualdad.</strong> Por AM-GM, $|xy|\le\frac{x^2+y^2}{2}$, de donde $x^2y^2\le\frac{(x^2+y^2)^2}{4}$. Entonces</p>
+        $$0\le\frac{x^2y^2}{x^2+y^2}\le\frac{(x^2+y^2)^2/4}{x^2+y^2}=\frac{x^2+y^2}{4}\xrightarrow{\ (x,y)\to(0,0)\ }0.$$
+        <p>Por sándwich, el límite es 0.</p>
+        <p><strong>Método 2: polares.</strong> Con $x=r\cos\theta$, $y=r\sen\theta$:</p>
+        $$\frac{x^2y^2}{x^2+y^2}=\frac{r^4\cos^2\theta\,\sen^2\theta}{r^2}=r^2\cos^2\theta\,\sen^2\theta.$$
+        <p>Como $0\le\cos^2\theta\,\sen^2\theta\le1$ es acotado y $r^2\to0$, el límite es 0 sin importar la dirección.</p>
+      </div>
+      <h4>Respuesta</h4>
+      <div class="resp"><p>El límite es $0$: por cota con AM-GM y por polares con factor radial.</p></div>
+    </div>
+    <aside class="margen">
+      <p class="margen-t">Nota</p>
+      <p>Los dos métodos son los de la semana 4: el sándwich con AM-GM (s11, ahí está este mismo ejercicio) y los polares (s16-s17). Escribirlos juntos creo que queda bien: la cota explica el porqué y los polares descartan que alguna dirección se escape.</p>
+    </aside>
+  </div>
+</article>
+
+<article class="ej hecho" id="CR5" data-bloque="C">
+  <h3><span class="idx">10.</span> C.R5, Continuidad con parámetro</h3>
+  <p class="meta">Tipo: existencia.</p>
+  <div class="cuerpo">
+    <div class="principal">
+      <p class="enun"><strong>Enunciado.</strong> Sea $f_a(x,y)=\dfrac{x^2y}{x^2+y^2}$ si $(x,y)\neq(0,0)$ y $f_a(0,0)=a$. Determine el único valor de $a$ que puede hacerla continua y demuestre que efectivamente funciona.</p>
+      <h4>Procedimiento</h4>
+      <div class="proc">
+        <p><strong>Candidato.</strong> Si $f_a$ es continua, $a$ tiene que ser el límite en el origen. En polares:</p>
+        $$f_a(r\cos\theta,r\sen\theta)=\frac{r^3\cos^2\theta\,\sen\theta}{r^2}=r\cos^2\theta\,\sen\theta.$$
+        <p>Como $|\cos^2\theta\,\sen\theta|\le1$, se tiene $|f_a|\le r\to0$. El único candidato es $a=0$.</p>
+        <p><strong>Demostración.</strong> Con $a=0$ y $(x,y)\neq(0,0)$, usando $x^2\le x^2+y^2$:</p>
+        $$|f_0(x,y)|=\frac{x^2|y|}{x^2+y^2}\le|y|\le\sqrt{x^2+y^2}.$$
+        <p>Dado $\varepsilon>0$, tomo $\delta=\varepsilon$. Si $0<\sqrt{x^2+y^2}<\delta$, entonces $|f_0(x,y)-f_0(0,0)|<\varepsilon$. Luego $f_0$ es continua en el origen.</p>
+      </div>
+      <h4>Respuesta</h4>
+      <div class="resp"><p>El único valor posible es $a=0$, y con él la función es continua en $(0,0)$.</p></div>
+    </div>
+    <aside class="margen">
+      <p class="margen-t">Nota</p>
+      <p>La cota $x^2\le x^2+y^2$ es la misma idea del compendio radial de la semana 4 (s9): si $|f|\le Cr^{\alpha}$ con $\alpha>0$, el límite es 0 y no hace falta pasear caminos.</p>
+    </aside>
+  </div>
+</article>
+
+<article class="ej hecho" id="C42" data-bloque="C">
+  <h3><span class="idx">11.</span> C.42, Continuidad y diferenciabilidad en el origen</h3>
+  <p class="meta">Tipo: existencia.</p>
+  <div class="cuerpo">
+    <div class="principal">
+      <p class="enun"><strong>Enunciado.</strong> Defina $f(x,y)=\dfrac{x(1-\cos y)}{\sqrt{x^2+y^2}}\,(x^2+y^4)$ si $(x,y)\neq(0,0)$ y $f(0,0)=a$. (a) Determine $a$ para que $f$ sea continua en $(0,0)$. (b) Decida si $f$ es diferenciable en $(0,0)$.</p>
+      <h4>Procedimiento</h4>
+      <div class="proc">
+        <p><strong>(a) Continuidad.</strong> Con $r=\sqrt{x^2+y^2}$ uso $|x|\le r$, $|1-\cos y|\le\frac{y^2}{2}$ y $x^2+y^4\le r^2+r^4$. Para $(x,y)\neq(0,0)$:</p>
+        $$|f(x,y)|=\frac{|x|\,|1-\cos y|}{r}\,(x^2+y^4)\le \frac{r\cdot\frac{y^2}{2}}{r}\,(x^2+y^4)=\frac{y^2}{2}(x^2+y^4)\le\frac{r^2}{2}(r^2+r^4)=\frac{r^4+r^6}{2}.$$
+        <p>El lado derecho tiende a 0, así que por sándwich $\lim f=0$ y la continuidad exige $a=0$.</p>
+        <p><strong>(b) Diferenciabilidad.</strong> Con $f(0,0)=0$, las parciales en el origen salen de la definición: $f(h,0)=0$ para todo $h\neq0$, luego</p>
+        $$f_x(0,0)=\lim_{h\to0}\frac{0-0}{h}=0,\qquad f_y(0,0)=\lim_{k\to0}\frac{0-0}{k}=0.$$
+        <p>El diferencial candidato es $L(x,y)=0$. Para diferenciabilidad hay que ver que el error es un $o(r)$:</p>
+        $$\frac{|f(x,y)-L(x,y)|}{r}=\frac{|f(x,y)|}{r}\le\frac{r^4+r^6}{2r}=\frac{r^3+r^5}{2}\xrightarrow{\ r\to0\ }0.$$
+        <p>El límite es 0, luego $f$ es diferenciable en el origen con diferencial $L=0$.</p>
+      </div>
+      <h4>Respuesta</h4>
+      <div class="resp"><p>(a) $a=0$. (b) Sí: $f$ es diferenciable en $(0,0)$, con $f_x(0,0)=f_y(0,0)=0$ y diferencial $L(x,y)=0$.</p></div>
+    </div>
+    <aside class="margen">
+      <p class="margen-t">Nota</p>
+      <p>El factor $(x^2+y^4)$ asusta pero solo suma potencias. El trabajo lo hacen la cota $|1-\cos y|\le\frac{y^2}{2}$ y la raíz del denominador, que juntas dejan puros múltiplos de $r$ (semana 4, s9). Después de eso, la diferenciabilidad sale del mismo cinturón de cotas.</p>
+    </aside>
+  </div>
+</article>
+</section>
+
+<section class="bloque-sec" id="bloque-D"><h2>Bloque D. Derivadas parciales y diferenciabilidad</h2>
+
+<article class="ej hecho" id="D46" data-bloque="D">
+  <h3><span class="idx">12.</span> D.46, Parciales de $x\,e^{y/x}$</h3>
+  <div class="cuerpo">
+    <div class="principal">
+      <p class="enun"><strong>Enunciado.</strong> Calcule $f_x$ y $f_y$ para $f(x,y)=x\,e^{y/x}$, con $x\neq 0$.</p>
+      <h4>Procedimiento</h4>
+      <div class="proc">
+        <p>Para $f_x$ se trata $y$ como constante. Hay producto de dos factores dependientes de $x$, así que va la regla del producto:</p>
+        <p>$$f_x=\frac{\partial}{\partial x}\bigl(x\bigr)\,e^{y/x}+x\,\frac{\partial}{\partial x}\bigl(e^{y/x}\bigr).$$</p>
+        <p>El segundo factor es una exponencial con exponente $u=y/x$. Por regla de la cadena, $\dfrac{\partial}{\partial x}e^{u}=e^{u}\,u_x$ y $u_x=\dfrac{\partial}{\partial x}\left(\dfrac{y}{x}\right)=-\dfrac{y}{x^{2}}$. Entonces</p>
+        <p>$$f_x=e^{y/x}+x\,e^{y/x}\left(-\frac{y}{x^{2}}\right)=e^{y/x}-e^{y/x}\,\frac{y}{x}=e^{y/x}\left(1-\frac{y}{x}\right).$$</p>
+        <p>Para $f_y$, la variable activa es $y$, con $u=y/x$ y $u_y=\dfrac{1}{x}$:</p>
+        <p>$$f_y=x\,e^{y/x}\cdot\frac{1}{x}=e^{y/x}.$$</p>
+        <figure>
+          <img src="img/IMG_202610031227.jpg" alt="Mi gata mirándome mientras estudiaba, pidiendo comida." style="max-width: 24rem;">
+          <figcaption>Aquí mi gata me estaba pidiendo comida.</figcaption>
+        </figure>
+      </div>
+      <h4>Respuesta</h4>
+      <div class="resp">
+        <p>$$f_x=e^{y/x}\left(1-\frac{y}{x}\right),\qquad f_y=e^{y/x},\qquad x\neq 0.$$</p>
+      </div>
+    </div>
+    <aside class="margen">
+      <p class="margen-t">Nota</p>
+      <p>Me enredé un rato con $f_x$: el error no fue la regla del cociente, fue tratar $e^{y/x}$ como constante. En $f_y$, la $x$ sale del paso y el exponente cae limpio.</p>
+    </aside>
+  </div>
+</article>
+
+<article class="ej hecho" id="D52" data-bloque="D">
+  <h3><span class="idx">13.</span> D.52, Parciales de una función a trozos</h3>
+  <div class="cuerpo">
+    <div class="principal">
+      <p class="enun"><strong>Enunciado.</strong> Sea
+      $$f(x,y)=\begin{cases}\dfrac{x^{2}y+2xy^{2}}{x^{2}+y^{2}},&(x,y)\neq(0,0),\\[2mm]0,&(x,y)=(0,0).\end{cases}$$
+      (a) Calcule $f_x$ y $f_y$ para $(x,y)\neq(0,0)$. (b) Determine si existen $f_x(0,0)$ y $f_y(0,0)$ usando la definición.</p>
+      <h4>Procedimiento</h4>
+      <div class="proc">
+        <p><strong>(a)</strong> Fuera del origen el denominador no se anula y la regla del cociente aplica directamente. Con $N=x^{2}y+2xy^{2}$ y $D=x^{2}+y^{2}$ (y $D_x=2x$, $D_y=2y$):</p>
+        <p>$$f_x=\frac{(2xy+2y^{2})(x^{2}+y^{2})-(x^{2}y+2xy^{2})(2x)}{(x^{2}+y^{2})^{2}}.$$</p>
+        <p>Al desarrollar, el numerador se ordena como $-2x^{2}y^{2}+2xy^{3}+2y^{4}=2y^{2}\,(y^{2}+xy-x^{2})$, de donde</p>
+        <p>$$f_x=\frac{2y^{2}\,(y^{2}+xy-x^{2})}{(x^{2}+y^{2})^{2}}.$$</p>
+        <p>De forma análoga, con $N_y=x^{2}+4xy$:</p>
+        <p>$$f_y=\frac{(x^{2}+4xy)(x^{2}+y^{2})-(x^{2}y+2xy^{2})(2y)}{(x^{2}+y^{2})^{2}}=\frac{x^{2}\,(x^{2}+4xy-y^{2})}{(x^{2}+y^{2})^{2}}.$$</p>
+        <p><strong>(b)</strong> En el origen las fórmulas anteriores son indeterminadas ($0/0$). Hay que volver a la definición. Sobre el eje $x$, $f(h,0)=\dfrac{h^{2}\cdot 0+2h\cdot 0}{h^{2}}=0$, y $f(0,0)=0$, luego</p>
+        <p>$$f_x(0,0)=\lim_{h\to 0}\frac{f(h,0)-f(0,0)}{h}=\lim_{h\to 0}\frac{0}{h}=0.$$</p>
+        <p>Sobre el eje $y$, $f(0,k)=0$, así que
+        $$f_y(0,0)=\lim_{k\to 0}\frac{f(0,k)-f(0,0)}{k}=\lim_{k\to 0}\frac{0}{k}=0.$$</p>
+        <p>Ambos límites son finitos: las dos parciales existen en el origen y valen $0$.</p>
+      </div>
+      <h4>Respuesta</h4>
+      <div class="resp">
+        <p>(a) $f_x=\dfrac{2y^{2}(y^{2}+xy-x^{2})}{(x^{2}+y^{2})^{2}}$ y $f_y=\dfrac{x^{2}(x^{2}+4xy-y^{2})}{(x^{2}+y^{2})^{2}}$ para $(x,y)\neq(0,0)$.</p>
+        <p>(b) $f_x(0,0)=0$ y $f_y(0,0)=0$, ambas existen.</p>
+      </div>
+    </div>
+    <aside class="margen">
+      <p class="margen-t">Nota</p>
+      <p>Lo que me costó ver: la definición esquiva la indeterminación del origen, y el cociente de fórmulas no dice nada allí. Evaluar en $(h,0)$ o $(0,k)$ colapsa el numerador a cero y sale todo solo.</p>
+    </aside>
+  </div>
+</article>
+
+<article class="ej hecho" id="DR5" data-bloque="D">
+  <h3><span class="idx">14.</span> D.R5, Continuidad y diferenciabilidad en el origen</h3>
+  <div class="cuerpo">
+    <div class="principal">
+      <p class="enun"><strong>Enunciado.</strong> Sea
+      $$f(x,y)=\begin{cases}\dfrac{x^{2}y}{\sqrt{x^{2}+y^{2}}},&(x,y)\neq(0,0),\\[2mm]0,&(x,y)=(0,0).\end{cases}$$
+      ¿Es $f$ continua en el origen? Calcule sus derivadas parciales allí y decida si es diferenciable.</p>
+      <h4>Procedimiento</h4>
+      <div class="proc">
+        <p><strong>Continuidad.</strong> Sea $r=\sqrt{x^{2}+y^{2}}$. Como $|x|\le r$, se tiene $x^{2}\le x^{2}+y^{2}=r^{2}$ y por tanto, para $(x,y)\neq(0,0)$,</p>
+        <p>$$|f(x,y)|=\frac{x^{2}|y|}{\sqrt{x^{2}+y^{2}}}\le\frac{r^{2}\cdot r}{r}=r^{2}.$$</p>
+        <p>Con $r\to 0$ el acotado da $\lim_{(x,y)\to(0,0)}f(x,y)=0=f(0,0)$: $f$ es continua en el origen.</p>
+        <p><strong>Parciales en el origen (por definición).</strong> Sobre el eje $x$, $f(h,0)=\dfrac{h^{2}\cdot 0}{\sqrt{h^{2}}}=0$, luego
+        $$f_x(0,0)=\lim_{h\to 0}\frac{f(h,0)-f(0,0)}{h}=\lim_{h\to 0}\frac{0-0}{h}=0.$$
+        Sobre el eje $y$, $f(0,k)=\dfrac{0\cdot k}{\sqrt{k^{2}}}=0$, así que $f_y(0,0)=\lim_{k\to 0}\dfrac{f(0,k)-0}{k}=0$.</p>
+        <p><strong>Diferenciabilidad.</strong> Deben existir $f_x(0,0)=f_y(0,0)=0$ y el candidato a diferencial es $L=0$. Hay que comprobar que
+        $$\frac{f(x,y)-0-L(x,y)}{\sqrt{x^{2}+y^{2}}}=\frac{f(x,y)}{r}\longrightarrow 0\quad (r\to 0).$$
+        Con la misma cota, $\dfrac{|f(x,y)|}{r}\le\dfrac{r^{2}}{r}=r\to 0$. Luego $f$ es diferenciable en $(0,0)$ con diferencial $L(h,k)=0$.</p>
+      </div>
+      <h4>Respuesta</h4>
+      <div class="resp">
+        <p>$f$ es continua en $(0,0)$ y tiene $f_x(0,0)=f_y(0,0)=0$. También es diferenciable en el origen, con $L(h,k)=0$.</p>
+      </div>
+    </div>
+    <aside class="margen">
+      <p class="margen-t">Nota</p>
+      <p>Este me tenía desconfiado porque esperaba el caso clásico que falla. Aproveché la misma cota $|x^2 y|\le r^3$ dos veces y con eso salieron continuidad y diferenciabilidad sin cuentas extra.</p>
+    </aside>
+  </div>
+</article>
+
+<article class="ej hecho" id="DR4" data-bloque="D">
+  <h3><span class="idx">15.</span> D.R4, Plano tangente y aproximación lineal</h3>
+  <div class="cuerpo">
+    <div class="principal">
+      <p class="enun"><strong>Enunciado.</strong> Halle el plano tangente y la aproximación lineal de $f(x,y)=\sqrt{25-x^{2}-4y^{2}}$ en $(3,1)$. Use la linealización para estimar $f(3{,}04;\,0{,}98)$.</p>
+      <h4>Procedimiento</h4>
+      <div class="proc">
+        <p>Punto de tangencia: $f(3,1)=\sqrt{25-9-4}=\sqrt{12}=2\sqrt{3}$.</p>
+        <p>Parciales, con $u=25-x^{2}-4y^{2}$ y $\dfrac{d}{du}\sqrt{u}=\dfrac{1}{2\sqrt{u}}$:</p>
+        <p>$$f_x=\frac{-x}{\sqrt{25-x^{2}-4y^{2}}}\Rightarrow f_x(3,1)=\frac{-3}{2\sqrt{3}}=-\frac{\sqrt{3}}{2},$$</p>
+        <p>$$f_y=\frac{-4y}{\sqrt{25-x^{2}-4y^{2}}}\Rightarrow f_y(3,1)=\frac{-4}{2\sqrt{3}}=-\frac{2}{\sqrt{3}}.$$</p>
+        <p>Plano tangente y linealización ($a=3,\ b=1$):</p>
+        <p>$$z=2\sqrt{3}-\frac{\sqrt{3}}{2}(x-3)-\frac{2}{\sqrt{3}}(y-1),\qquad L(x,y)=2\sqrt{3}-\frac{\sqrt{3}}{2}(x-3)-\frac{2}{\sqrt{3}}(y-1).$$</p>
+        <p>Estimación con $\Delta x=0{,}04$ y $\Delta y=-0{,}02$:</p>
+        <p>$$f(3{,}04;0{,}98)\approx 2\sqrt{3}-\frac{\sqrt{3}}{2}(0{,}04)-\frac{2}{\sqrt{3}}(-0{,}02)=2\sqrt{3}-\frac{\sqrt{3}}{50}+\frac{1}{25\sqrt{3}}\approx 3{,}4526.$$</p>
+        <div class="intento">
+          <p><strong>Intento.</strong> Al pasar a números escribí el aporte de $y$ como $-\tfrac{2}{\sqrt{3}}(-0{,}02)$ pero tomé el corchete como $-\tfrac{2}{\sqrt{3}}\cdot 0{,}02$, es decir dejé el signo de $y-1$ fuera y resté otra vez.</p>
+        </div>
+        <div class="correccion">
+          <p><strong>Corrección.</strong> Como $\Delta y=-0{,}02<0$ y $f_y<0$, el término $f_y\,\Delta y$ es <em>positivo</em>: la estimación sube, no baja. El error cambia el resultado en $2\cdot\tfrac{2}{\sqrt{3}}\cdot 0{,}02\approx 0{,}046$. Comparado con el valor real $f(3{,}04;0{,}98)\approx 3{,}45207$ se ve que la versión correcta queda pegada y la otra se aleja.</p>
+        </div>
+      </div>
+      <h4>Respuesta</h4>
+      <div class="resp">
+        <p>Plano: $z=2\sqrt{3}-\dfrac{\sqrt{3}}{2}(x-3)-\dfrac{2}{\sqrt{3}}(y-1)$. Estimación: $f(3{,}04;0{,}98)\approx 3{,}4526$.</p>
+      </div>
+    </div>
+    <aside class="margen">
+      <p class="margen-t">Nota</p>
+      <p>Lo verifiqué sustituyendo los valores reales: la diferencia entre estimación y valor exacto es del orden de $10^{-3}$, así que el signo estaba bien una vez corregido. El tropiezo fue el signo del $\Delta y$; volví al punto de partida y lo comprobé contra el valor real. También me acordé de las estimaciones de software (los puntos de historia de mi proyecto de Ingesoft 2), es lo mismo, un valor cercano y defendible en vez de la cuenta exacta.</p>
+    </aside>
+  </div>
+</article>
+</section>
+
+<section class="bloque-sec" id="bloque-E"><h2>Bloque E. Regla de la cadena e implícitas</h2>
+
+<article class="ej hecho" id="E61" data-bloque="E">
+  <h3><span class="idx">16.</span> E.61, Regla de la cadena con dos variables independientes</h3>
+  <div class="cuerpo">
+    <div class="principal">
+      <p class="enun"><strong>Enunciado.</strong> Sea $z=e^{x}\operatorname{sen}y$, con $x=st^{2}$ y $y=s^{2}t$. Calcule $\dfrac{\partial z}{\partial s}$ y $\dfrac{\partial z}{\partial t}$.</p>
+      <h4>Procedimiento</h4>
+      <div class="proc">
+        <p>Z depende de $x,y$ y ambas dependen de $s,t$. El esquema es</p>
+        <p>$$z\longleftarrow x=st^{2},\qquad z\longleftarrow y=s^{2}t.$$</p>
+        <p>Parciales de $z$: $\ z_x=e^{x}\operatorname{sen}y$, $\ z_y=e^{x}\cos y$.</p>
+        <p>Derivadas de las intermedias: $\ x_s=t^{2},\ x_t=2st,\quad y_s=2st,\ y_t=s^{2}$.</p>
+        <p><strong>Respecto a $s$:</strong></p>
+        <p>$$z_s=z_x\,x_s+z_y\,y_s=e^{st^{2}}\operatorname{sen}(s^{2}t)\cdot t^{2}+e^{st^{2}}\cos(s^{2}t)\cdot 2st.$$</p>
+        <p><strong>Respecto a $t$:</strong></p>
+        <p>$$z_t=z_x\,x_t+z_y\,y_t=e^{st^{2}}\operatorname{sen}(s^{2}t)\cdot 2st+e^{st^{2}}\cos(s^{2}t)\cdot s^{2}.$$</p>
+      </div>
+      <h4>Respuesta</h4>
+      <div class="resp">
+        <p>$$\frac{\partial z}{\partial s}=e^{st^{2}}\Bigl(t^{2}\operatorname{sen}(s^{2}t)+2st\cos(s^{2}t)\Bigr),$$</p>
+        <p>$$\frac{\partial z}{\partial t}=e^{st^{2}}\Bigl(2st\operatorname{sen}(s^{2}t)+s^{2}\cos(s^{2}t)\Bigr).$$</p>
+      </div>
+    </div>
+    <aside class="margen">
+      <p class="margen-t">Nota</p>
+      <p>Dibujar las flechas $z\leftarrow x$, $z\leftarrow y$ antes de derivar me ahorró confundir $x_s$ con $x_t$. Revisé aparte que $x_t=2st$ y $y_s=2st$ son parecidos pero van multiplicados por funciones distintas.</p>
+    </aside>
+  </div>
+</article>
+
+<aside class="pausa" id="pausa2">
+  <h3>Pausa 2, después del ejercicio 16</h3>
+  <dl>
+    <dt>¿Qué entiendo mejor ahora?</dt>
+    <dd>Que las parciales son las derivadas de siempre, medidas a lo largo de una traza, y que el esquema de dependencias (qué depende de qué) decide la regla de la cadena.</dd>
+    <dt>¿Qué error estoy repitiendo?</dt>
+    <dd>Cambiar signos al pasar de fórmulas a números. La comparación con el valor real lo detecta rápido :P</dd>
+    <dt>¿Qué ejercicio debo repetir?</dt>
+    <dd>D.R4, la estimación lineal con su signo, y E.64, las tasas encadenadas.</dd>
+    <dt>¿Qué estrategia sí me está funcionando?</dt>
+    <dd>Reescribir el problema con las variables propias (el radio, no el diámetro) antes de derivar.</dd>
+  </dl>
+</aside>
+
+<article class="ej hecho" id="ER3" data-bloque="E">
+  <h3><span class="idx">17.</span> E.R3, Derivación implícita de una superficie</h3>
+  <div class="cuerpo">
+    <div class="principal">
+      <p class="enun"><strong>Enunciado.</strong> La superficie $x^{2}+xy+y^{2}+z^{2}=7$ define localmente $z=z(x,y)$ cerca de los puntos donde $z\neq 0$. Halle $z_x$ y $z_y$ y evalúelos en $(1,1,2)$.</p>
+      <h4>Procedimiento</h4>
+      <div class="proc">
+        <p>Escribimos $F(x,y,z)=x^{2}+xy+y^{2}+z^{2}-7=0$. El teorema de la función implícita pide $F_z\neq 0$. Aquí $F_z=2z$, así que la condición $z\neq 0$ es justo la que lo garantiza.</p>
+        <p>Derivando respecto a $x$ con $y$ fija y $z=z(x,y)$:</p>
+        <p>$$2x+y+2z\,z_x=0\ \Longrightarrow\ z_x=-\frac{2x+y}{2z}.$$</p>
+        <p>Derivando respecto a $y$ con $x$ fija:</p>
+        <p>$$x+2y+2z\,z_y=0\ \Longrightarrow\ z_y=-\frac{x+2y}{2z}.$$</p>
+        <p>En $(1,1,2)$: $2z=4\neq 0$ y</p>
+        <p>$$z_x=-\frac{2(1)+1}{4}=-\frac{3}{4},\qquad z_y=-\frac{1+2(1)}{4}=-\frac{3}{4}.$$</p>
+      </div>
+      <h4>Respuesta</h4>
+      <div class="resp">
+        <p>$z_x=-\dfrac{2x+y}{2z}$ y $z_y=-\dfrac{x+2y}{2z}$. En $(1,1,2)$, $z_x=z_y=-\dfrac{3}{4}$.</p>
+      </div>
+    </div>
+    <aside class="margen">
+      <p class="margen-t">Nota</p>
+      <p>Comprobé el punto: $1+1+1+4=7$, sí está en la superficie. Y $z\neq 0$ no es un capricho del enunciado, es lo que hace que $F_z$ no se anule.</p>
+    </aside>
+  </div>
+</article>
+
+<article class="ej hecho" id="E64" data-bloque="E">
+  <h3><span class="idx">18.</span> E.64, Razón de cambio del volumen de un cilindro</h3>
+  <div class="cuerpo">
+    <div class="principal">
+      <p class="enun"><strong>Enunciado.</strong> El volumen de un cilindro circular recto es $V=\pi r^{2}h$. Si $h$ y el diámetro $d=2r$ aumentan a tasas constantes de $20$ y $3$ pulgadas por año, halle $\dfrac{dV}{dt}$ cuando $h=200$ y $d=30$.</p>
+      <h4>Procedimiento</h4>
+      <div class="proc">
+        <p>Datos en el instante pedido: $d=30\Rightarrow r=\dfrac{d}{2}=15$, y $h=200$.</p>
+        <p>Como $d=2r$, el radio cambia a la mitad de la tasa del diámetro:
+        $$\frac{dr}{dt}=\frac{1}{2}\frac{dd}{dt}=\frac{3}{2}=1{,}5\ \text{pulg/año},\qquad \frac{dh}{dt}=20.$$</p>
+        <p>Derivando $V=\pi r^{2}h$ respecto a $t$ (ambos factores dependen de $t$, regla del producto):</p>
+        <p>$$\frac{dV}{dt}=\pi\left(2rh\,\frac{dr}{dt}+r^{2}\frac{dh}{dt}\right).$$</p>
+        <p>Sustituyendo:</p>
+        <p>$$\frac{dV}{dt}=\pi\Bigl(2(15)(200)(1{,}5)+(15)^{2}(20)\Bigr)=\pi\bigl(9000+4500\bigr)=13500\pi.$$</p>
+        <div class="intento">
+          <p><strong>Intento.</strong> Primero metí $dd/dt=3$ directamente como $dr/dt$: derivé con $\tfrac{dr}{dt}=3$ y me quedó $14700\pi$.</p>
+        </div>
+        <div class="correccion">
+          <p><strong>Corrección.</strong> El dato $3$ es la rapidez del <em>diámetro</em>. Como $d=2r$, el radio crece a $dr/dt=1{,}5$, la mitad. El volumen de un cilindro depende de $r$, no de $d$, así que el factor $\tfrac12$ no se puede omitir. Corregido, da $13500\pi$.</p>
+        </div>
+      </div>
+      <h4>Respuesta</h4>
+      <div class="resp">
+        <p>$\dfrac{dV}{dt}=13500\pi\approx 42411{,}5$ pulg$^{3}$/año.</p>
+      </div>
+    </div>
+    <aside class="margen">
+      <p class="margen-t">Nota</p>
+      <p>La trampa era justamente el diámetro. Me sirvió reescribir todo con $r$ antes de derivar en vez de arrastrar $d$. Confirmé al sustituir que $9000\pi+4500\pi$ es lo que sale. Esto me recordó al taller de monitoreo de Sistemas Operativos: allá el estado del sistema (memoria, disco) se mira por muestras, y aquí la tasa de cambio sale exacta, sin esperar la siguiente medición.</p>
+    </aside>
+  </div>
+</article>
+</section>
+
+<section class="bloque-sec" id="bloque-F"><h2>Bloque F. Gradiente, derivada direccional y planos tangentes</h2>
+
+<article class="ej hecho" id="F69" data-bloque="F">
+  <h3><span class="idx">19.</span> F.69, Gradiente y derivada direccional de $xy+yz^2+xz^3$</h3>
+  <div class="cuerpo">
+    <div class="principal">
+      <p class="enun"><strong>Enunciado.</strong> Sea $f(x,y,z)=xy+yz^2+xz^3$. (a) Calcule $\nabla f$. (b) Evalúe $\nabla f$ en $P=(2,0,3)$. (c) Halle la derivada direccional de $f$ en $P$ en la dirección del vector unitario $\mathbf{u}=(-2/3,-1/3,2/3)$.</p>
+      <h4>Procedimiento</h4>
+      <div class="proc">
+        <p>(a) Derivo respecto a cada variable tratando las otras como constantes:</p>
+        <p>$$f_x=y+z^3,\qquad f_y=x+z^2,\qquad f_z=2yz+3xz^2.$$</p>
+        <p>Con eso $\nabla f=(y+z^3,\;x+z^2,\;2yz+3xz^2)$.</p>
+        <p>(b) Sustituyo $P=(2,0,3)$ en cada componente:
+        $$f_x(P)=0+27=27,\quad f_y(P)=2+9=11,\quad f_z(P)=2\cdot0\cdot3+3\cdot2\cdot9=54,$$
+        de modo que $\nabla f(P)=(27,11,54)$.</p>
+        <p>(c) Como $\mathbf{u}$ es unitario ($\|\mathbf{u}\|=\sqrt{4/9+1/9+4/9}=1$), la derivada direccional es el producto punto:
+        $$D_{\mathbf u}f(P)=\nabla f(P)\cdot\mathbf u=27\left(-\tfrac23\right)+11\left(-\tfrac13\right)+54\left(\tfrac23\right)=-18-\tfrac{11}{3}+36=\tfrac{43}{3}.$$</p>
+        <p>El signo es positivo, así que sobre esa dirección la función crece.</p>
+      </div>
+      <h4>Respuesta</h4>
+      <div class="resp">
+        <p>(a) $\nabla f=(y+z^3,\;x+z^2,\;2yz+3xz^2)$.</p>
+        <p>(b) $\nabla f(2,0,3)=(27,11,54)$.</p>
+        <p>(c) $D_{\mathbf u}f(P)=\dfrac{43}{3}$.</p>
+      </div>
+    </div>
+    <aside class="margen">
+      <p class="margen-t">Nota</p>
+      <p>Por la semana 6 (s16-s18), el paso donde se cae la gente es normalizar cuando el vector no viene unitario. Aquí ya lo traen así, pero igual lo verifiqué antes de usarlo: una vez dividí un vector que ya era unitario y todo salió chiquito sin razón. Desde entonces verifico primero.</p>
+    </aside>
+  </div>
+</article>
+
+<article class="ej hecho" id="F74" data-bloque="F">
+  <h3><span class="idx">20.</span> F.74, Plano tangente a cuatro superficies</h3>
+  <div class="cuerpo">
+    <div class="principal">
+      <p class="enun"><strong>Enunciado.</strong> Halle la ecuación del plano tangente a $z=f(x,y)$ en el punto indicado:
+      (a) $f(x,y)=x\cos x\cos y$ en $(0,\pi,0)$;
+      (b) $f(x,y)=\sqrt{50-x^2-y^2}$ en $(4,-3,5)$;
+      (c) $f(x,y)=xy$ en $(1,-1,-1)$;
+      (d) $f(x,y)=e^x\ln y$ en $(3,1,0)$.</p>
+      <h4>Procedimiento</h4>
+      <div class="proc">
+        <p>En todos los incisos uso $z=f(a,b)+f_x(a,b)(x-a)+f_y(a,b)(y-b)$.</p>
+        <p><strong>(a)</strong> Aquí $f$ es un producto, $x\cos x\cos y$. Derivo manteniendo el factor $x\cos x$ y aplicando la regla del producto:
+        $$f_x=(\cos x-x\operatorname{sen}x)\cos y,\qquad f_y=-x\cos x\operatorname{sen}y.$$
+        En $(0,\pi)$: $f(0,\pi)=0$, $f_x(0,\pi)=(1-0)\cos\pi=-1$, $f_y(0,\pi)=-0\cdot\cos 0\cdot\operatorname{sen}\pi=0$. Entonces
+        $$z=0+(-1)(x-0)+0\,(y-\pi)=-x.$$</p>
+        <div class="intento">
+          <p>Primero derivé como si la función fuera solo $\cos x\cos y$ y me daba $f_x=-\operatorname{sen}x\cos y$, que en $(0,\pi)$ vale $0$. Con eso el plano quedaba $z=0$.</p>
+        </div>
+        <div class="correccion">
+          <p>Estaba ignorando el factor $x$ que multiplica. $x\cos x$ es un producto y su derivada es $\cos x-x\operatorname{sen}x$. Con el $\cos y$ del otro factor, la parcial en $x$ sí aporta el $-1$. El plano correcto es $z=-x$.</p>
+        </div>
+        <p><strong>(b)</strong> $f(4,-3)=\sqrt{50-16-9}=5$. Con $f_x=\dfrac{-x}{\sqrt{50-x^2-y^2}}$ y $f_y=\dfrac{-y}{\sqrt{50-x^2-y^2}}$:
+        $$f_x(4,-3)=-\tfrac45,\qquad f_y(4,-3)=\tfrac35,$$
+        luego $z=5-\tfrac45(x-4)+\tfrac35(y+3)$.</p>
+        <p><strong>(c)</strong> $f(1,-1)=-1$, $f_x=y|_{(1,-1)}=-1$, $f_y=x|_{(1,-1)}=1$:
+        $$z=-1-(x-1)+(y+1)=y-x+1.$$</p>
+        <p><strong>(d)</strong> $f(3,1)=e^3\ln 1=0$. Las parciales son $f_x=e^x\ln y$ y $f_y=e^x/y$, así que $f_x(3,1)=0$ y $f_y(3,1)=e^3$. Queda
+        $$z=0+0\,(x-3)+e^3(y-1)=e^3(y-1).$$</p>
+      </div>
+      <h4>Respuesta</h4>
+      <div class="resp">
+        <p>(a) $z=-x$.</p>
+        <p>(b) $z=5-\dfrac45(x-4)+\dfrac35(y+3)$.</p>
+        <p>(c) $z=y-x+1$.</p>
+        <p>(d) $z=e^3(y-1)$.</p>
+      </div>
+    </div>
+    <aside class="margen">
+      <p class="margen-t">Nota</p>
+      <p>En (d) conviene recordar que $\ln y$ solo tiene sentido para $y>0$. El punto $(3,1,0)$ está en el dominio, así que todo bien.</p>
+    </aside>
+  </div>
+</article>
+
+<article class="ej hecho" id="FR3" data-bloque="F">
+  <h3><span class="idx">21.</span> F.R3, Normal y plano tangente a una superficie de nivel</h3>
+  <div class="cuerpo">
+    <div class="principal">
+      <p class="enun"><strong>Enunciado.</strong> Sea la superficie de nivel $F(x,y,z)=x^2+2y^2+3z^2-12=0$. Encuentre un vector normal y la ecuación del plano tangente en $P=(1,2,1)$, después de verificar que $P$ pertenece a la superficie.</p>
+      <h4>Procedimiento</h4>
+      <div class="proc">
+        <p><strong>Verificación de pertenencia.</strong> Evalúo primero, porque si $P$ no estuviera sobre la superficie no tendría sentido calcular el plano ahí:
+        $$F(1,2,1)=1^2+2(2)^2+3(1)^2-12=1+8+3-12=0.$$
+        Como $F(P)=0$, el punto sí pertenece a la superficie.</p>
+        <p><strong>Vector normal.</strong> El gradiente de $F$ es normal a cada superficie de nivel:
+        $$\nabla F=(2x,\;4y,\;6z),\qquad \nabla F(1,2,1)=(2,8,6).$$
+        Cualquier múltiplo sirve. Simplificando, $\nabla F(P)\parallel(1,4,3)$.</p>
+        <p><strong>Plano tangente.</strong> Uso $\nabla F(P)\cdot\bigl((x,y,z)-P\bigr)=0$:
+        $$2(x-1)+8(y-2)+6(z-1)=0\;\Longrightarrow\;2x+8y+6z=24,$$
+        y dividiendo por $2$, $x+4y+3z=12$.</p>
+      </div>
+      <h4>Respuesta</h4>
+      <div class="resp">
+        <p>Normal: $\nabla F(1,2,1)=(2,8,6)$, o equivalentemente $(1,4,3)$.</p>
+        <p>Plano tangente: $x+4y+3z=12$.</p>
+      </div>
+    </div>
+    <aside class="margen">
+      <p class="margen-t">Nota</p>
+      <p>Comprobé sustituyendo: $1+4(2)+3(1)=12$, así que $P$ también satisface la ecuación del plano, como debe ser.</p>
+    </aside>
+  </div>
+</article>
+
+<article class="ej hecho" id="FR4" data-bloque="F">
+  <h3><span class="idx">22.</span> F.R4, Ascenso más rápido en una colina</h3>
+  <div class="cuerpo">
+    <div class="principal">
+      <p class="enun"><strong>Enunciado.</strong> La altura de una colina está dada por $h(x,y)=800-2x^2-y^2+2xy$. Desde el punto $(3,1)$ determine: (a) la dirección de ascenso más rápido, (b) la razón máxima de ascenso, (c) una dirección en la que inicialmente no cambie la altura.</p>
+      <h4>Procedimiento</h4>
+      <div class="proc">
+        <p>Calculo el gradiente:
+        $$h_x=-4x+2y,\qquad h_y=-2y+2x,$$
+        y lo evalúo en $(3,1)$:
+        $$\nabla h(3,1)=(-12+2,\;-2+6)=(-10,\;4).$$</p>
+        <p><strong>(a)</strong> La dirección de ascenso más rápido es la del gradiente. Como piden una dirección, la normalizo:
+        $$\|\nabla h(3,1)\|=\sqrt{100+16}=\sqrt{116}=2\sqrt{29},\qquad
+        \mathbf u=\frac{(-10,4)}{2\sqrt{29}}=\frac{1}{\sqrt{29}}(-5,2).$$</p>
+        <p><strong>(b)</strong> La razón máxima de ascenso es la norma del gradiente: $\|\nabla h(3,1)\|=2\sqrt{29}\approx10.77$.</p>
+        <p><strong>(c)</strong> La altura no cambia, en primera aproximación, en cualquier dirección perpendicular al gradiente. Un vector ortogonal a $(-10,4)$ es $(2,5)$, pues $(-10)(2)+4(5)=0$. Normalizando queda
+        $$\pm\frac{1}{\sqrt{29}}(2,5).$$</p>
+      </div>
+      <h4>Respuesta</h4>
+      <div class="resp">
+        <p>(a) $\dfrac{1}{\sqrt{29}}(-5,2)$.</p>
+        <p>(b) $2\sqrt{29}\approx10.77$.</p>
+        <p>(c) $\pm\dfrac{1}{\sqrt{29}}(2,5)$.</p>
+      </div>
+    </div>
+    <aside class="margen">
+      <p class="margen-t">Nota</p>
+      <p>Conecta con la semana 6 (s16-s18): el gradiente apunta hacia donde las curvas de nivel se aprietan. El profe lo contó con Monserrate: si uno se pierde arriba, la bajada más rápida es rodar en la dirección del gradiente. Antes de dar (c) verifiqué que $(2,5)\cdot(-10,4)=0$, para que en esa dirección no haya componente de ascenso. Y me recordó a cuando entrenaba el clasificador de señales, creo que su optimizador baja por esa misma dirección.</p>
+    </aside>
+  </div>
+  <figure>
+    <img src="img/fr4-colina.png" alt="Curvas de nivel de la colina h(x,y)=800-2x^2-y^2+2xy alrededor de (3,1), con la dirección de máximo ascenso (rojo) y una perpendicular (azul).">
+    <figcaption>La colina alrededor de $(3,1)$: curvas de nivel y, desde el punto, la dirección de máximo ascenso (rojo, hacia $(-5,2)$) y una perpendicular (azul, hacia $(2,5)$), donde la altura no cambia en primera aproximación.</figcaption>
+  </figure>
+</article>
+</section>
+
+<section class="bloque-sec" id="bloque-G"><h2>Bloque G. Extremos y Hessiano</h2>
+
+<article class="ej hecho" id="G75" data-bloque="G">
+  <h3><span class="idx">23.</span> G.75, Puntos críticos de $xy(1-x-y)$</h3>
+  <div class="cuerpo">
+    <div class="principal">
+      <p class="enun"><strong>Enunciado.</strong> Halle y clasifique, si es posible, los puntos críticos de $f(x,y)=xy(1-x-y)$.</p>
+      <h4>Procedimiento</h4>
+      <div class="proc">
+        <p>Conviene expandir antes de derivar: $f(x,y)=xy-x^2y-xy^2$. Entonces</p>
+        $$f_x=y-2xy-y^2=y(1-2x-y),\qquad f_y=x-x^2-2xy=x(1-x-2y).$$
+        <p>Los puntos críticos salen de $f_x=0$ y $f_y=0$ a la vez. De $f_x=0$: $y=0$ o $1-2x-y=0$. De $f_y=0$: $x=0$ o $1-x-2y=0$. Combinando las opciones:</p>
+        <ul>
+          <li>$y=0$ con $x=0$: el origen $(0,0)$.</li>
+          <li>$y=0$ con $1-x-2y=0$: $x=1$, el punto $(1,0)$.</li>
+          <li>$1-2x-y=0$ con $x=0$: $y=1$, el punto $(0,1)$.</li>
+          <li>$1-2x-y=0$ con $1-x-2y=0$: restando queda $x=y$, y con $3x=1$, el punto $\left(\tfrac13,\tfrac13\right)$.</li>
+        </ul>
+        <p>Para clasificar uso el discriminante con las segundas derivadas: $f_{xx}=-2y$, $f_{yy}=-2x$, $f_{xy}=1-2x-2y$, y $D=f_{xx}f_{yy}-f_{xy}^2$.</p>
+        <table class="datos">
+          <thead><tr><th>Punto</th><th>$f_{xx}$</th><th>$f_{yy}$</th><th>$f_{xy}$</th><th>$D$</th><th>Clasificación</th></tr></thead>
+          <tbody>
+            <tr><td>$(0,0)$</td><td>$0$</td><td>$0$</td><td>$1$</td><td>$-1$</td><td>silla</td></tr>
+            <tr><td>$(0,1)$</td><td>$-2$</td><td>$0$</td><td>$-1$</td><td>$-1$</td><td>silla</td></tr>
+            <tr><td>$(1,0)$</td><td>$0$</td><td>$-2$</td><td>$-1$</td><td>$-1$</td><td>silla</td></tr>
+            <tr><td>$\left(\tfrac13,\tfrac13\right)$</td><td>$-\tfrac23$</td><td>$-\tfrac23$</td><td>$\tfrac13$</td><td>$\tfrac13$</td><td>máximo local</td></tr>
+          </tbody>
+        </table>
+        <p>En $\left(\tfrac13,\tfrac13\right)$, $D=\tfrac{4}{9}-\tfrac{1}{9}=\tfrac13>0$ y $f_{xx}=-\tfrac23<0$, luego es máximo local. Su valor es $f\left(\tfrac13,\tfrac13\right)=\tfrac19\cdot\tfrac13=\tfrac{1}{27}$.</p>
+      </div>
+      <h4>Respuesta</h4>
+      <div class="resp">
+        <p>Críticos: $(0,0)$, $(0,1)$ y $(1,0)$, los tres puntos de silla ($D=-1$). Y $\left(\tfrac13,\tfrac13\right)$, máximo local con $f=\tfrac{1}{27}$.</p>
+      </div>
+    </div>
+    <aside class="margen">
+      <p class="margen-t">Nota</p>
+      <p>El discriminante Hessiano $D=f_{xx}f_{yy}-f_{xy}^2$ lo vimos en la semana 6 (s25) y es el número que clasifica un punto crítico. Acá el trabajo real está en los cuatro casos del sistema, no en el determinante.</p>
+    </aside>
+  </div>
+</article>
+
+<article class="ej hecho" id="G77" data-bloque="G">
+  <h3><span class="idx">24.</span> G.77, Hessiano degenerado en $x^2-2xy+y^2$</h3>
+  <div class="cuerpo">
+    <div class="principal">
+      <p class="enun"><strong>Enunciado.</strong> Determine y clasifique los puntos críticos de $f(x,y)=x^2-2xy+y^2$. Además, interprete geométricamente la gráfica y explique por qué el criterio usual del determinante Hessiano resulta degenerado.</p>
+      <h4>Procedimiento</h4>
+      <div class="proc">
+        <p>Las parciales son</p>
+        $$f_x=2x-2y=2(x-y),\qquad f_y=-2x+2y=-2(x-y).$$
+        <p>Las dos se anulan exactamente cuando $x=y$. Es decir, no hay puntos críticos aislados: todo punto de la recta $x=y$ es crítico.</p>
+        <p>El Hessiano es constante: $f_{xx}=2$, $f_{yy}=2$, $f_{xy}=-2$, de modo que</p>
+        $$D=f_{xx}f_{yy}-f_{xy}^2=2\cdot 2-(-2)^2=0$$
+        <p>en todo el plano. Con $D=0$ el criterio no decide nada, ni máximo ni mínimo ni silla.</p>
+        <p>La salida es mirar la forma algebraica: completando el cuadrado,</p>
+        $$f(x,y)=(x-y)^2\ge 0,$$
+        <p>con $f=0$ exactamente sobre $x=y$ y $f>0$ fuera de la recta. Sobre la recta se alcanza el menor valor posible de la función, así que cada punto de $x=y$ es un mínimo.</p>
+        <figure>
+          <img src="img/g77-valle.png" alt="Superficie z=(x-y)^2 en GeoGebra 3D con la recta x=y marcada en rojo sobre el fondo del valle.">
+          <figcaption>El valle $z=(x-y)^2$: la superficie no baja de $0$ y lo alcanza en toda la recta $x=y$ (en rojo).</figcaption>
+        </figure>
+        <p>La gráfica es $z=(x-y)^2$. En las variables giradas $u=x-y$, $v=x+y$, queda $z=u^2$: una parábola que se traslada sin cambio a lo largo de $v$, o sea un valle parabólico (canal) cuyo fondo es la recta $x=y$.</p>
+      </div>
+      <h4>Respuesta</h4>
+      <div class="resp">
+        <p>Los críticos son todos los puntos de la recta $x=y$, y cada uno es un mínimo global no estricto ($f=0$). El Hessiano es degenerado porque $D\equiv 0$. La gráfica es un canal parabólico con fondo a lo largo de $x=y$.</p>
+      </div>
+    </div>
+    <aside class="margen">
+      <p class="margen-t">Nota</p>
+      <p>Me enredé al principio buscando puntos aislados. Cuando el sistema da una recta entera, la información útil está en la factorización $f=(x-y)^2$, no en el Hessiano.</p>
+    </aside>
+  </div>
+</article>
+
+<article class="ej hecho" id="GR3" data-bloque="G">
+  <h3><span class="idx">25.</span> G.R3, Críticos de $x^4+y^4-4xy$</h3>
+  <div class="cuerpo">
+    <div class="principal">
+      <p class="enun"><strong>Enunciado.</strong> Analice los puntos críticos de $f(x,y)=x^4+y^4-4xy$. Use el Hessiano donde sea concluyente y un argumento adicional donde no lo sea.</p>
+      <h4>Procedimiento</h4>
+      <div class="proc">
+        <p>Igualando a cero las parciales:</p>
+        $$f_x=4x^3-4y=0\Rightarrow y=x^3,\qquad f_y=4y^3-4x=0\Rightarrow x=y^3.$$
+        <p>Sustituyendo $y=x^3$ en $x=y^3$: $x=x^9$, o sea $x(x^8-1)=0$, luego $x\in\{0,1,-1\}$. Los críticos son $(0,0)$, $(1,1)$ y $(-1,-1)$.</p>
+        <p>Con $f_{xx}=12x^2$, $f_{yy}=12y^2$, $f_{xy}=-4$, el determinante es $D=144x^2y^2-16$.</p>
+        <table class="datos">
+          <thead><tr><th>Punto</th><th>$D$</th><th>$f_{xx}$</th><th>Clasificación</th></tr></thead>
+          <tbody>
+            <tr><td>$(0,0)$</td><td>$-16$</td><td>$0$</td><td>silla</td></tr>
+            <tr><td>$(1,1)$</td><td>$128$</td><td>$12$</td><td>mínimo local</td></tr>
+            <tr><td>$(-1,-1)$</td><td>$128$</td><td>$12$</td><td>mínimo local</td></tr>
+          </tbody>
+        </table>
+        <p>En $(0,0)$ el Hessiano decide de una vez: $D<0$, silla. En $(\pm1,\pm1)$, $D>0$ y $f_{xx}>0$, mínimos locales con $f(\pm1,\pm1)=1+1-4=-2$.</p>
+        <div class="intento">
+          <p>Con eso ya sabría que son mínimos locales, pero no si hay valores menores en otra parte. Para cerrar el asunto busco una identidad que acote $f$ por debajo.</p>
+        </div>
+        <p>Desarrollando los cuadrados,</p>
+        $$(x^2-y^2)^2+2(xy-1)^2-2=x^4+y^4-4xy=f(x,y).$$
+        <p>Como los dos cuadrados son $\ge 0$, $f\ge -2$ en todo $\mathbb{R}^2$. La igualdad $f=-2$ exige $x^2=y^2$ y $xy=1$, es decir $(x,y)=(1,1)$ o $(-1,-1)$. Esos dos puntos alcanzan la cota: son mínimos globales.</p>
+      </div>
+      <h4>Respuesta</h4>
+      <div class="resp">
+        <p>$(0,0)$ es punto de silla ($D=-16$). Los puntos $(\pm1,\pm1)$ son mínimos locales ($D=128$, $f_{xx}=12$) y, por la identidad $f=(x^2-y^2)^2+2(xy-1)^2-2\ge-2$, también mínimos globales con valor $-2$.</p>
+      </div>
+    </div>
+    <aside class="margen">
+      <p class="margen-t">Nota</p>
+      <p>Este $f=x^4+y^4-4xy$ apareció como ejercicio tipo parcial en la semana 6 (s29). Al desarrollar la identidad vuelven a salir exactamente los cuatro términos de $f$.</p>
+    </aside>
+  </div>
+</article>
+
+<aside class="pausa" id="pausa3">
+  <h3>Pausa 3, después del ejercicio 25</h3>
+  <dl>
+    <dt>¿Qué entiendo mejor ahora?</dt>
+    <dd>Que el gradiente organiza el bloque completo: dirección de máximo cambio, planos tangentes y la lectura del mapa de niveles.</dd>
+    <dt>¿Qué error estoy repitiendo?</dt>
+    <dd>Clasificar antes de entender el punto crítico. El Hessiano degenerado de G.77 y el argumento de cuadrados de G.R3 muestran que primero se mira la forma.</dd>
+    <dt>¿Qué ejercicio debo repetir?</dt>
+    <dd>G.R3 completo, y los planos tangentes de F.74 sin mirar las fórmulas.</dd>
+    <dt>¿Qué estrategia sí me está funcionando?</dt>
+    <dd>Completar cuadrados antes de clasificar cuando el polinomio lo permita: es la lectura más rápida.</dd>
+  </dl>
+</aside>
+</section>
+
+<section class="bloque-sec" id="bloque-H"><h2>Bloque H. Multiplicadores de Lagrange</h2>
+
+<article class="ej hecho" id="H80" data-bloque="H">
+  <h3><span class="idx">26.</span> H.80, Utilidad máxima con presupuesto</h3>
+  <p class="meta">Tipo: aplicación.</p>
+  <div class="cuerpo">
+    <div class="principal">
+      <p class="enun"><strong>Enunciado.</strong> Un consumidor tiene utilidad $U(x,y)=\ln x+2\ln y$ con $x,y>0$, y enfrenta el presupuesto $p_xx+p_yy=m$ con $p_x,p_y,m>0$. (a) Maximice $U$ sujeta a la restricción. (b) Obtenga $x^*$ y $y^*$. (c) Interprete la condición de primer orden como igualdad entre la tasa marginal de sustitución y la razón de precios.</p>
+      <h4>Procedimiento</h4>
+      <div class="proc">
+        <p>Escribo $g(x,y)=p_xx+p_yy=m$ y planteo $\nabla U=\lambda\nabla g$, que da el sistema</p>
+        $$\frac1x=\lambda p_x,\qquad \frac2y=\lambda p_y,\qquad p_xx+p_yy=m.$$
+        <p>De las dos primeras, $\lambda=\dfrac{1}{x\,p_x}=\dfrac{2}{y\,p_y}$, de donde $y\,p_y=2x\,p_x$, o sea $y=\dfrac{2x\,p_x}{p_y}$.</p>
+        <p>Sustituyo en el presupuesto:</p>
+        $$p_xx+p_y\frac{2x\,p_x}{p_y}=p_xx+2p_xx=3p_xx=m\Rightarrow x^*=\frac{m}{3p_x}.$$
+        <p>Y de vuelta en $y$:</p>
+        $$y^*=\frac{2m}{3p_y}.$$
+        <p>El multiplicador sale de $\frac1x=\lambda p_x$: $\lambda=\dfrac{1}{x^*p_x}=\dfrac3m$.</p>
+        <p>Para (c), la tasa marginal de sustitución es el cociente de utilidades marginales:</p>
+        $$TMS=\frac{U_x}{U_y}=\frac{1/x}{2/y}=\frac{y}{2x}.$$
+        <p>En el óptimo, $\dfrac{y^*}{2x^*}=\dfrac{2m/(3p_y)}{2m/(3p_x)}=\dfrac{p_x}{p_y}$. La condición de primer orden dice justo eso: la pendiente de la curva de nivel se iguala con la pendiente de la recta presupuestal.</p>
+      </div>
+      <h4>Respuesta</h4>
+      <div class="resp">
+        <p>(a)-(b) $x^*=\dfrac{m}{3p_x}$, $y^*=\dfrac{2m}{3p_y}$, con $\lambda=\dfrac3m$. (c) En el óptimo $TMS=\dfrac{y}{2x}=\dfrac{p_x}{p_y}$: la curva de nivel es tangente a la recta presupuestal. Además $\lambda=\dfrac{\partial U^*}{\partial m}$: es la utilidad marginal del ingreso.</p>
+      </div>
+    </div>
+    <aside class="margen">
+      <p class="margen-t">Nota</p>
+      <p>La lectura geométrica (recta presupuestal tangente a la curva de nivel) es la de la semana 6 (s30-s31). El reparto del gasto en el óptimo (un tercio en $x$, dos tercios en $y$) coincide con los exponentes de la utilidad, así que no extraña que $y^*$ lleve el factor 2.</p>
+    </aside>
+  </div>
+</article>
+
+<article class="ej hecho" id="H82" data-bloque="H">
+  <h3><span class="idx">27.</span> H.82, Caja de volumen fijo y área mínima</h3>
+  <p class="meta">Tipo: aplicación.</p>
+  <div class="cuerpo">
+    <div class="principal">
+      <p class="enun"><strong>Enunciado.</strong> Caja rectangular cerrada de dimensiones $x,y,z>0$ con volumen fijo $xyz=V_0$, y área total $A(x,y,z)=2(xy+xz+yz)$. (a) Minimice $A$. (b) Interprete geométricamente. (c) Compruebe que es mínimo global en $x,y,z>0$.</p>
+      <h4>Procedimiento</h4>
+      <div class="proc">
+        <p>Con $g(x,y,z)=xyz=V_0$, el sistema $\nabla A=\lambda\nabla g$ es</p>
+        $$2(y+z)=\lambda yz,\qquad 2(x+z)=\lambda xz,\qquad 2(x+y)=\lambda xy.$$
+        <p>Divido la primera entre la segunda:</p>
+        $$\frac{y+z}{yz}=\frac{x+z}{xz}\Rightarrow x(y+z)=y(x+z)\Rightarrow xz=yz\Rightarrow x=y$$
+        <p>pues $z>0$. Igualando la primera y la tercera se llega a $y=z$. Por tanto $x=y=z$, y de la restricción</p>
+        $$x^3=V_0\Rightarrow x=y=z=\sqrt[3]{V_0}.$$
+        <p>El área mínima es $A=2(3x^2)=6x^2=6V_0^{2/3}$. De $2(y+z)=\lambda yz$ con $y=z=x$: $4x=\lambda x^2$, luego $\lambda=\dfrac4x=\dfrac{4}{\sqrt[3]{V_0}}$.</p>
+        <p>Para (c): el sistema tiene un único punto crítico en el dominio abierto $x,y,z>0$. En la frontera, $A\to\infty$. Si $x\to0^+$, entonces $yz=V_0/x\to\infty$ y $A\ge 2yz\to\infty$. Si más bien $x\to\infty$, entonces $yz=V_0/x$ y, usando $y+z\ge 2\sqrt{yz}$,</p>
+        $$A=2(xy+xz+yz)\ge 2x(y+z)\ge 4x\sqrt{yz}=4\sqrt{V_0 x}\to\infty.$$
+        <p>Lo mismo pasa con cada variable, así que $A\to\infty$ hacia toda la frontera y el único crítico interior es el mínimo global.</p>
+      </div>
+      <h4>Respuesta</h4>
+      <div class="resp">
+        <p>(a)-(b) $x=y=z=\sqrt[3]{V_0}$: el cubo, con área mínima $A_{\min}=6V_0^{2/3}$. (c) Es mínimo global: único crítico en el dominio abierto y $A\to\infty$ cuando alguna arista tiende a $0^+$ o a $+\infty$. El multiplicador $\lambda=4/\sqrt[3]{V_0}$ es la sensibilidad, pues $\dfrac{dA_{\min}}{dV_0}=4V_0^{-1/3}=\lambda$.</p>
+      </div>
+    </div>
+    <aside class="margen">
+      <p class="margen-t">Nota</p>
+      <p>Comprobé la sensibilidad derivando $6V_0^{2/3}$: da $4V_0^{-1/3}$, igual al $\lambda$ del sistema. Es el mismo patrón del ejemplo de costo mínimo de la semana 6 (s32). Como estudiante de sistemas lo pienso así: es cuadrar un recurso limitado (costos, CPU, ancho de banda) sabiendo cuánto vale aflojar la restricción un poco. Pensando en el multiplicador me acordé del Lab 6 de redes (el de las cárceles): ahí repartía direcciones sin desperdiciar hosts y dejando margen para el crecimiento. Es el mismo problema de fondo: un recurso limitado con una restricción encima.</p>
+    </aside>
+  </div>
+</article>
+
+<article class="ej hecho" id="H84" data-bloque="H">
+  <h3><span class="idx">28.</span> H.84, Punto del plano más cercano a $P_0$</h3>
+  <p class="meta">Tipo: geométrico.</p>
+  <div class="cuerpo">
+    <div class="principal">
+      <p class="enun"><strong>Enunciado.</strong> Encuentre el punto $(x,y,z)$ del plano $x+2y-2z=5$ más cercano a $P_0=(1,-2,4)$. (a) Formule como minimización y aplique Lagrange. (b) Halle el punto y la distancia mínima. (c) Compare con la proyección ortogonal.</p>
+      <h4>Procedimiento</h4>
+      <div class="proc">
+        <p>Minimizo el cuadrado de la distancia, que tiene el mismo optimizador y es más cómodo:</p>
+        $$d^2=(x-1)^2+(y+2)^2+(z-4)^2,\qquad g(x,y,z)=x+2y-2z=5.$$
+        <p>Con $\nabla d^2=\lambda\nabla g$:</p>
+        $$2(x-1)=\lambda,\qquad 2(y+2)=2\lambda,\qquad 2(z-4)=-2\lambda.$$
+        <p>Despejando, $x=1+\dfrac\lambda2$, $y=-2+\lambda$, $z=4-\lambda$. Al sustituir en el plano:</p>
+        $$\left(1+\frac\lambda2\right)+2(-2+\lambda)-2(4-\lambda)=5\Rightarrow \frac{9\lambda}{2}-11=5\Rightarrow \lambda=\frac{32}{9}.$$
+        <p>Entonces $x=1+\dfrac{16}{9}=\dfrac{25}{9}$, $y=-2+\dfrac{32}{9}=\dfrac{14}{9}$, $z=4-\dfrac{32}{9}=\dfrac{4}{9}$.</p>
+        <p>La distancia: los desplazamientos hasta $P_0$ son $\left(\tfrac{16}{9},\tfrac{32}{9},-\tfrac{32}{9}\right)$, de norma al cuadrado</p>
+        $$d^2=\frac{256+1024+1024}{81}=\frac{2304}{81}=\frac{256}{9}\Rightarrow d=\frac{16}{3}.$$
+        <p>Para (c) uso la proyección ortogonal con $\mathbf n=(1,2,-2)$, que es normal al plano. Como $\mathbf n\cdot P_0-5=1-4-8-5=-16$ y $\|\mathbf n\|^2=9$,</p>
+        $$P^*=P_0-\frac{\mathbf n\cdot P_0-5}{\|\mathbf n\|^2}\,\mathbf n=P_0+\frac{16}{9}(1,2,-2)=\left(\frac{25}{9},\frac{14}{9},\frac{4}{9}\right).$$
+        <p>Coincide exactamente con el punto hallado por Lagrange.</p>
+      </div>
+      <h4>Respuesta</h4>
+      <div class="resp">
+        <p>(a)-(b) $P^*=\left(\tfrac{25}{9},\tfrac{14}{9},\tfrac{4}{9}\right)$, con distancia mínima $d=\dfrac{16}{3}$. (c) La proyección ortogonal sobre el plano da el mismo punto, $P^*=P_0-\dfrac{\mathbf n\cdot P_0-5}{\|\mathbf n\|^2}\mathbf n$ con $\mathbf n=(1,2,-2)$.</p>
+      </div>
+    </div>
+    <aside class="margen">
+      <p class="margen-t">Nota</p>
+      <p>El punto del ejercicio es justo contrastar los dos métodos: Lagrange para la mínima distancia y la fórmula de proyección llegan al mismo $P^*$. Verifiqué la distancia con el vector normal: $|-16|/3=16/3$. Esto me recordó al proyecto final de redes (la WAN de 4 ciudades): allá también había que minimizar el costo de un camino bajo restricciones, y comparé métodos igual que aquí. En esa clase hice además el curso Introduction to Networking de NetAcad, donde el costo de un enlace es lo que decide las rutas.</p>
+    </aside>
+  </div>
+</article>
+</section>
+
+    <section id="especiales">
+      <h2>Entradas especiales</h2>
+      <p class="intro">Seis entradas de formato libre. Cada una se apoya en un ejercicio de arriba para mirar el tema desde otra representación.</p>
+
+<article class="especial hecho" id="especial1">
+  <h3>Entrada especial 1: Ver el espacio</h3>
+  <p class="meta">Ejercicio: A.4. Qué revelan las trazas del paraboloide hiperbólico.</p>
+  <p>La silla $z=x^2-y^2$ se puede contar con tres cortes: $x=0$ da la parábola $z=-y^2$ y $y=0$ la parábola $z=x^2$ (perfiles opuestos), y $z=0$ da las rectas $y=\pm x$. Los niveles $z=c$ completan la historia: hipérbolas cuya orientación rota al cruzar el cero. Es el caso que en clase quedó marcado como el de la traza central degenerada (semana 2, s21), y es la superficie donde mejor se ve que una familia de cortes explica más que un solo dibujo. Y queda el truco del profe para no perderse en $\mathbb{R}^3$: la esquina del salón como sistema de ejes (piso $XY$, pared de la pantalla $ZY$, pared lateral $ZX$). En general me sirve dibujar: hago borradores feos a mano antes de cualquier cuenta, porque ver la forma me ordena más que leer los pasos en fila. Con el dibujo adelante, el resto cae más fácil.</p>
+</article>
+
+<article class="especial hecho" id="especial2">
+  <h3>Entrada especial 2: Cambiar de representación</h3>
+  <p class="meta">Ejercicio: B.24. De la fórmula al mapa de niveles y a la superficie.</p>
+  <p>La fórmula $y/(x^2+y^2)$ parecía un obstáculo, pero sus niveles son limpios: para $c\neq0$, $\ x^2+\left(y-\tfrac{1}{2c}\right)^2=\tfrac{1}{4c^2}$ son circunferencias que pasan por el origen. Cambiar de representación permitió ver el comportamiento cerca de $(0,0)$, el punto que ni siquiera está en el dominio: sobre el eje $x$ la función se aplana, sobre el eje $y$ se dispara en ambos sentidos, y todo lo demás queda en medio.</p>
+</article>
+
+<article class="especial hecho" id="especial3">
+  <h3>Entrada especial 3: Defender un argumento</h3>
+  <p class="meta">Ejercicio: D.R5. Por qué la prueba de continuidad o diferenciabilidad sí es suficiente.</p>
+  <p>La duda al resolver D.R5 era si tanta cota bastaba como prueba. Sí: $|f|\le r^{2}$ muestra que el límite en el origen es 0 (continuidad), y la misma cota aplicada a $|f|/r\le r$ muestra que el error de linealización es $o(r)$ (diferenciabilidad). No quedaron caminos por probar ni casos raros: las dos desigualdades son la demostración completa, y eso es lo que las vuelve suficientes. Cuando lo estaba escribiendo me acordé de la lógica de cuantificadores de Discretas: el límite es un "para todo camino" y tumbarlo solo necesita un "existe un camino" que falle.</p>
+</article>
+
+<article class="especial hecho" id="especial4">
+  <h3>Entrada especial 4: Seguir una dirección</h3>
+  <p class="meta">Ejercicio: F.R4. Con el gradiente y las curvas de nivel, hacia dónde crece la colina.</p>
+  <p>Con $\nabla h(3,1)=(-10,4)$ el mapa de la colina se lee así: el gradiente apunta hacia donde los niveles se aprietan (semana 6, s16-s18), que es la subida más empinada. Girando 90° quedan las direcciones $\pm\tfrac{1}{\sqrt{29}}(2,5)$, sobre las cuales la altura no cambia en primera aproximación. Caminar en la dirección del gradiente gana altura al máximo ritmo. Caminar perpendicular es quedarse sobre la misma curva de nivel.</p>
+</article>
+
+<article class="especial hecho" id="especial5">
+  <h3>Entrada especial 5: Aprender de un error</h3>
+  <p class="meta">Ejercicio: C.31. Un intento que falló, su corrección y la alerta para el parcial.</p>
+  <p>El error que vale la pena contar es el de C.31: probar por rectas, obtener 0 en todas y creer que el límite existía. Las rectas solo sirven de filtro. Varios valores iguales no demuestran nada. Con el camino $x=y^3$ el valor cambia a 1 y el límite se cae. El criterio que me llevo es emparejar las potencias del denominador, y así entendí por qué ese camino funcionaba. La alerta: denominadores con potencias distintas ($x^2$ contra $y^6$) ⇒ buscar $x=y^k$ que empareje los exponentes, como en los caminos de la semana 4 (s5).</p>
+</article>
+
+<article class="especial hecho" id="especial6">
+  <h3>Entrada especial 6: Conectar con una aplicación</h3>
+  <p class="meta">Ejercicio: H.80. Qué significa el resultado en el problema económico.</p>
+  <p>El óptimo $x^*=m/(3p_x)$, $y^*=2m/(3p_y)$ tiene lectura económica: el consumidor gasta un tercio del ingreso en $x$ y dos tercios en $y$ (lo que marcan los exponentes de la utilidad), y el multiplicador $\lambda=3/m$ es la utilidad marginal del ingreso, es decir cuánto sube $U^*$ por cada peso adicional. La condición de primer orden, $TMS=p_x/p_y$, dice que en el punto de tangencia el intercambio subjetivo y el de precios coinciden.</p>
+</article>
+    </section>
+
+    <section id="herramientas">
+      <h2>Herramientas usadas</h2>
+      <p>El material base son las diapositivas de cada semana y las grabaciones de las clases, transcritas con WhisperX (large-v3, con alineación) en un notebook de Colab. Las transcripciones traen los errores típicos de un audio de salón, así que las usé como apoyo para ubicar las conexiones con lo visto en clase, nunca como cita literal.</p>
+      <p>Cada resultado pasó por una verificación antes de quedar escrito: los límites, con las cotas y las polares (y una comprobación numérica por trayectorias cuando hacía falta). Las derivadas y los sistemas de optimización los contrasté con SymPy (Python), y las superficies y los mapas de nivel, con GeoGebra 3D. Es la regla del curso (semana 2, s14): primero se razona, después se verifica con software.</p>
+      <p>Y los proyectos de otros cursos que menciono en las notas (el de redes, el clasificador de señales, los trabajos de S.O.) están en <a href="https://github.com/carlonox">github.com/carlonox</a>.</p>
+    </section>
+
+    <section id="cierre" class="cierre">
+      <h2>Cierre</h2>
+      <ol>
+        <li><p>La idea del curso que más cambió para mí fue…</p><p>…creo que fue pensar las fórmulas como superficies y mapas de niveles. En varios ejercicios la lectura geométrica llegó antes que el cálculo, y el bloque de límites me enseñó a no confiar en la primera impresión.</p></li>
+        <li><p>El error que ahora detecto más rápido es…</p><p>…el de los caminos que "confirman" un límite (C.31) y los signos al pasar de fórmulas a números.</p></li>
+        <li><p>La estrategia que más me ayuda cuando me bloqueo es…</p><p>…dibujar primero, con un bosquejo feo que me diga qué objeto tengo enfrente, y después escribir el problema en el lenguaje que menos arrastre tenga: completar cuadrados, pasar a polares o nombrar bien las variables antes de derivar.</p></li>
+        <li><p>Antes del parcial quiero repetir el ejercicio… porque…</p><p>…creo que C.31 y G.R3: uno por las potencias del denominador y el otro por el argumento global, que son los puntos más fáciles de olvidar bajo presión.</p></li>
+        <li><p>Una nota para mí el día del parcial:</p><p>Decidir primero qué se está preguntando (existencia, pendiente, aproximación o extremo), dibujar el objeto que acompaña y escribir el razonamiento completo. La cuenta viene después. Me di cuenta de que varios errores bobos fueron por ir de acelerado, a veces sabiendo lo que había que hacer y equivocándome igual, y cuando uno cae en cuenta se siente como bobo :P. Eso me pasa en parciales, así que voy a intentar ir más lento y esperar que el tiempo alcance, más ahora que el primer parcial va sin ficha bibliográfica de fórmulas.</p></li>
+      </ol>
+    </section>
+
+    <p class="pie">Ejercicios tomados de la Hoja del primer corte, 2026-2. Docente: Jhoan Sebastián Tenjo García.</p>
+  </main>
+</div>
+
+<script>
+(function () {
+  var arts = document.querySelectorAll('article.ej');
+  var porBloque = {}, hechos = 0;
+  arts.forEach(function (a) {
+    var b = a.dataset.bloque;
+    porBloque[b] = porBloque[b] || {h: 0, t: 0};
+    porBloque[b].t++;
+    var ok = a.classList.contains('hecho');
+    if (ok) { porBloque[b].h++; hechos++; }
+    var fila = document.querySelector('tr[data-ej="' + a.id + '"]');
+    if (fila) {
+      fila.classList.toggle('hecho', ok);
+      fila.querySelector('.estado').textContent = ok ? 'hecho' : 'pendiente';
+    }
+  });
+  Object.keys(porBloque).forEach(function (b) {
+    var c = document.querySelector('[data-cuenta="' + b + '"]');
+    if (c) c.textContent = porBloque[b].h + ' de ' + porBloque[b].t;
+  });
+  var esp = document.querySelectorAll('article.especial.hecho').length;
+  document.getElementById('avance').textContent =
+    hechos + ' de ' + arts.length + ' ejercicios terminados. Entradas especiales: ' + esp + ' de 6.';
+})();
+</script>
+</body>
+</html>
