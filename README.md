@@ -6,6 +6,7 @@ Carlos Javier Cuervo Baracaldo · Ingeniería de Sistemas, Universidad Nacional 
 ## Contenido
 
 - [Primer corte](./corte-1/): geometría en el espacio, límites, diferenciabilidad y optimización. 28 ejercicios.
+- [Segundo corte](./corte-2/): integrales dobles e iteradas, cambio de orden, polares, triples, cilíndricas, esféricas y aplicaciones. 19 ejercicios.
 
 ## Formato
 
