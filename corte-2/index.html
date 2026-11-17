@@ -41,6 +41,7 @@
       <li><a href="#bloque-E">E. Cilíndricas y esféricas</a></li>
       <li><a href="#bloque-F">F. Aplicaciones</a></li>
       <li><a href="#especiales">Entradas especiales</a></li>
+      <li><a href="#avance">Mi avance y antes de entregar</a></li>
       <li><a href="#herramientas">Herramientas usadas</a></li>
       <li><a href="#cierre">Cierre</a></li>
     </ul>
@@ -50,9 +51,9 @@
     <section id="inicio">
       <h2 class="primero">Índice de ejercicios</h2>
       <div class="intro">
-        <p>Los 19 ejercicios que escogí de la hoja del segundo corte (banco de 64, actualización del 21 de octubre de 2026), recorriendo los bloques A a F. Todos llevan la marca ⋆ de la hoja. Cada entrada responde cuatro preguntas: qué región o sólido es, cómo se recorre, qué sistema de coordenadas conviene y qué se obtiene. El planteamiento es la mitad de la calificación de este corte, así que el dibujo y los límites van primero y la integral después.</p>
-        <p>La selección supera en uno a la meta de 18 del taller a propósito: el reparto A2·B4·C4·D2·E4·F2 deja fuera B.15, y B.15 es el mismo tipo de trampa que B.6 ($e^{x^2}$ no tiene primitiva), con los límites espejados. Son 19 dentro del rango permitido de 15 a 20. Las cuatro entradas especiales van sobre la meta: cambio de orden (B.9), polares (C.9), descripción de un sólido (E.2) y elección de coordenadas (F.4).</p>
-        <p>La página está inspirada en los apuntes abiertos del MIT (OpenCourseWare), igual que el primer corte. El contenido se apoya en las diapositivas de las semanas 7 a 11 y en las clases transcritas con WhisperX. Todas las integrales quedaron verificadas con SymPy antes de escribirlas, y los dibujos de región, con matplotlib.</p>
+        <p>Los 19 ejercicios que escogí de la hoja del segundo corte (banco de 64, con actualización del 21 de octubre de 2026), por los bloques A a F. Todos llevan la marca ⋆ de la hoja. Cada entrada responde las cuatro preguntas del taller: qué región o sólido es, cómo se recorre, qué sistema de coordenadas conviene y qué se obtiene. El planteamiento es la mitad de la nota de este corte, y por eso el dibujo y los límites van antes que la cuenta.</p>
+        <p>Son 19 y no 18: la meta A2·B4·C4·D2·E4·F2 dejaría fuera B.15, y B.15 es el reflejo de B.6 ($e^{x^2}$ tampoco tiene primitiva) con los papeles de $x$ e $y$ cambiados. De lo demás, las cuatro entradas especiales van sobre la meta: cambio de orden (B.9), polares (C.9), describir un sólido (E.2) y elegir coordenadas (F.4).</p>
+        <p>La página sigue el formato del primer corte, inspirada en los apuntes abiertos del MIT. El contenido se apoya en las diapositivas de las semanas 7 a 11 y en las clases transcritas con WhisperX. Las integrales quedaron verificadas con SymPy antes de escribirlas, y las regiones y sólidos, con matplotlib.</p>
       </div>
       <p class="avance" id="avance" aria-live="polite"></p>
       <div class="tabla-wrap">
@@ -99,9 +100,9 @@
       <p class="enun"><strong>Enunciado.</strong> Evalúe $\displaystyle\int_0^2 \int_1^3 (2x + y)\,dy\,dx.$</p>
       <h4>Procedimiento</h4>
       <div class="proc">
-        <p>El orden lo da el enunciado: primero $y$ con $x$ fija, después $x$. La integral interior:</p>
+        <p>El orden ya viene en el enunciado: primero $y$ con la $x$ quieta, después la $x$. La integral de adentro es:</p>
         $$\int_1^3 (2x + y)\,dy = \Big[2xy + \tfrac{y^2}{2}\Big]_1^3 = \Big(6x + \tfrac{9}{2}\Big) - \Big(2x + \tfrac{1}{2}\Big) = 4x + 4.$$
-        <p>La exterior cierra:</p>
+        <p>Y la de afuera cierra:</p>
         $$\int_0^2 (4x + 4)\,dx = \Big[2x^2 + 4x\Big]_0^2 = 8 + 8 = 16.$$
       </div>
       <h4>Respuesta</h4>
@@ -109,7 +110,7 @@
     </div>
     <aside class="margen">
       <p class="margen-t">Nota</p>
-      <p>Lectura antes que cuenta: los límites son $y$ de 1 a 3 y $x$ de 0 a 2, en el orden en que aparecen. En el parcial 1 el fallo típico mío fue de etiqueta, no de cálculo (leí el mínimo como máximo, leí $D&lt;0$ como máximo), así que acá la rutina es la misma de la ficha: nombrar la regla antes de marcar, sustituir un punto y revisar el signo. Tamaño esperado: el integrando va de $2x+1$ a $2x+3$, con $x\le 2$ eso da algo por debajo de $4\cdot 2\cdot 3=24$ y por encima de 0; 16 encaja.</p>
+      <p>El error no está en la cuenta sino en la lectura de los límites. Yo de afán leo $dy\,dx$ al revés y termino integrando en el orden que no tocaba, y por eso la rutina de la ficha empieza por nombrar el orden en voz alta antes de derivar nada. De aquí en adelante, primero se dice qué variable va adentro y después se toca el papel. Y el tamaño cuadra: el integrando queda entre $2x+1$ y $2x+3$ con $x \le 2$, así que el resultado tiene que salir positivo y por debajo de $24$; 16 entra sin pelear.</p>
     </aside>
   </div>
 </article>
@@ -122,19 +123,19 @@
       <p class="enun"><strong>Enunciado.</strong> Sea $R = [0,1] \times [0,2]$. Evalúe $\displaystyle\iint_R x e^y \, dA$ en los dos órdenes posibles y compruebe que obtiene el mismo resultado.</p>
       <h4>Procedimiento</h4>
       <div class="proc">
-        <p>En un rectángulo los límites no dependen de la variable exterior, así que el orden es libre.</p>
-        <p><strong>Orden $dy\,dx$:</strong></p>
+        <p>El rectángulo es el único caso donde los límites no dependen de la variable de afuera, y por eso el orden queda libre.</p>
+        <p><strong>Orden $dy\,dx$.</strong></p>
         $$\int_0^1 \int_0^2 x e^y \, dy\, dx = \int_0^1 x\,(e^2 - 1)\, dx = (e^2 - 1)\cdot \tfrac{1}{2}.$$
-        <p><strong>Orden $dx\,dy$:</strong></p>
+        <p><strong>Orden $dx\,dy$.</strong></p>
         $$\int_0^2 \int_0^1 x e^y \, dx\, dy = \int_0^2 e^y \cdot \tfrac{1}{2}\, dy = \tfrac{1}{2}(e^2 - 1).$$
-        <p>Mismo valor en los dos órdenes, como debe ser en un rectángulo. El integrando es separable ($x \cdot e^y$), así que la integral se factoriza de dos maneras distintas y llega al mismo sitio.</p>
+        <p>Cae el mismo valor en los dos órdenes. El integrando se puede factorizar como $x \cdot e^y$, y esa forma separada es la que hace que las dos cuentas lleguen al mismo sitio.</p>
       </div>
       <h4>Respuesta</h4>
       <div class="resp"><p>$\displaystyle\iint_R x e^y \, dA = \dfrac{e^2 - 1}{2} \approx 3{,}19.$</p></div>
     </div>
     <aside class="margen">
       <p class="margen-t">Nota</p>
-      <p>La separabilidad es la señal para intentar ambos órdenes sin miedo. Si el integrando no fuera separable, el orden seguiría sin importar en un rectángulo, pero un orden puede ser más barato que el otro en cuenta; acá salen igual de baratos. Comprobación rápida: $e^2 \approx 7{,}39$, menos 1 son $6{,}39$, partido 2 son $3{,}19$.</p>
+      <p>Cuando el integrando es producto de una función de $x$ por una de $y$ y la región es un rectángulo, las dos integrales se parten solas. Lo demás es rutina. La comprobación con números ayuda a no quedarse con una fórmula bonita: $e^2$ da como 7.39, menos 1 son 6.39, partido 2 son 3.19, y eso es lo que devuelve cualquier calculadora.</p>
     </aside>
   </div>
 </article>
@@ -151,11 +152,11 @@
       <h4>Procedimiento</h4>
       <div class="proc">
         <p><strong>Intersecciones.</strong> $x^2 = 2x \Rightarrow x(x-2) = 0 \Rightarrow x = 0,\ 2$. Los puntos son $(0,0)$ y $(2,4)$.</p>
-        <p><strong>Quién está arriba.</strong> Entre 0 y 2 la recta va por encima de la parábola ($2x \ge x^2$). La región es de tipo I: $0 \le x \le 2$, $x^2 \le y \le 2x$.</p>
+        <p><strong>Quién cierra arriba.</strong> Entre 0 y 2 la recta va por encima de la parábola, $2x \ge x^2$. La región es de tipo I: $0 \le x \le 2$, $x^2 \le y \le 2x$.</p>
         $$\iint_D x\, dA = \int_0^2 \int_{x^2}^{2x} x \, dy\, dx = \int_0^2 x\,(2x - x^2)\, dx = \int_0^2 (2x^2 - x^3)\, dx = \Big[\tfrac{2x^3}{3} - \tfrac{x^4}{4}\Big]_0^2 = \tfrac{16}{3} - 4 = \tfrac{4}{3}.$$
         <figure>
           <img src="img/b1-region.png" alt="Región entre y=x^2 (abajo) e y=2x (arriba), entre x=0 y x=2.">
-          <figcaption>$D$: la recta $y=2x$ cierra por arriba, la parábola $y=x^2$ por abajo, entre $(0,0)$ y $(2,4)$.</figcaption>
+          <figcaption>$D$: la recta manda por arriba, la parábola por abajo, entre $(0,0)$ y $(2,4)$.</figcaption>
         </figure>
       </div>
       <h4>Respuesta</h4>
@@ -163,7 +164,7 @@
     </div>
     <aside class="margen">
       <p class="margen-t">Nota</p>
-      <p>La regla del corte es: dibujar antes de integrar. El fallo típico de método en este bloque es integrar sin dibujar la región y terminar con los límites al revés o con la curva equivocada arriba. Acá basta sustituir un punto interior, por ejemplo $x=1$: $2x=2$ contra $x^2=1$, gana la recta. Si el dibujo están feo, igual ordena.</p>
+      <p>El fallo del bloque no es integrar mal, es integrar sin dibujar. Con el dibujo delante, el techo y el piso salen solos; sin el dibujo, uno termina invirtiendo los límites y ni se entera. Y lo confirmo con un punto interior, por ejemplo $x = 1$: ahí $2x = 2$ contra $x^2 = 1$, y la recta gana como debe.</p>
     </aside>
   </div>
 </article>
@@ -176,17 +177,17 @@
       <p class="enun"><strong>Enunciado.</strong> Dibuje la región y cambie el orden de integración: $\displaystyle\int_0^1 \int_x^1 f(x,y)\, dy\, dx.$ No es necesario evaluar.</p>
       <h4>Procedimiento</h4>
       <div class="proc">
-        <p><strong>Leer la región desde los límites originales.</strong> $0 \le x \le 1$ y, para cada $x$, $x \le y \le 1$. Es el triángulo de vértices $(0,0)$, $(0,1)$ y $(1,1)$: por debajo de la recta $y=x$ no hay nada, por encima de $y=1$ tampoco.</p>
-        <p><strong>Reescribir desde el otro eje.</strong> Ahora $y$ es la variable exterior, $0 \le y \le 1$. Fijada $y$, los valores de $x$ van de $x = 0$ hasta la recta $x = y$ (despejada de $y = x$):</p>
+        <p><strong>Leer la región desde los límites como vienen.</strong> $0 \le x \le 1$ y, para cada $x$, $x \le y \le 1$. Es el triángulo de vértices $(0,0)$, $(0,1)$ y $(1,1)$, apoyado sobre el eje $y$ con hipotenusa $y = x$.</p>
+        <p><strong>Escribirla desde el otro lado.</strong> Con $y$ como variable de afuera, $0 \le y \le 1$. Fijada $y$, la $x$ corre de $x = 0$ a la recta $x = y$:</p>
         $$\int_0^1 \int_0^y f(x,y)\, dx\, dy.$$
-        <p>No hay que partir la región: el borde es una sola recta, $x=y$, y el techo y el piso son únicos.</p>
+        <p>Aquí no toca partir: el borde derecho es una sola recta, $x = y$, y ni el techo ni el piso cambian de fórmula en ningún punto.</p>
       </div>
       <h4>Respuesta</h4>
       <div class="resp"><p>$\displaystyle\int_0^1 \int_x^1 f(x,y)\, dy\, dx = \int_0^1 \int_0^y f(x,y)\, dx\, dy.$</p></div>
     </div>
     <aside class="margen">
       <p class="margen-t">Nota</p>
-      <p>Cambiar el orden es dibujar otra vez desde el otro eje, no reescribir los límites a ojo. El chequeo que uso: tomar un punto interior del triángulo, digamos $(0{,}2,\ 0{,}6)$, y verificar que cumple los límites nuevos ($0 \le 0{,}2 \le 0{,}6 \le 1$, sí). Si el punto no encaja, el orden está mal. Este ejercicio vale como plantilla de todos los cambios de orden del corte.</p>
+      <p>Cambiar el orden es dibujar la misma región desde la otra ventana, no mover límites a ojo. Para no quedarme con una región imaginada meto un punto interior, digamos $(0.2, 0.6)$, y verifico: $0 \le 0.2 \le 0.6 \le 1$ cumple los límites nuevos. Si no cumpliera, la inversión está mal. Esta plantilla sirve para todos los cambios de orden del corte.</p>
     </aside>
   </div>
 </article>
@@ -199,8 +200,8 @@
       <p class="enun"><strong>Enunciado.</strong> Evalúe, cambiando primero el orden de integración: $\displaystyle\int_0^1 \int_x^1 e^{y^2} \, dy\, dx.$</p>
       <h4>Procedimiento</h4>
       <div class="proc">
-        <p><strong>Por qué no se puede directo.</strong> $e^{y^2}$ no tiene primitiva elemental. La integral interior es imposible en el orden dado; el enunciado lo avisa.</p>
-        <p><strong>Región.</strong> $0 \le x \le 1$, $x \le y \le 1$: el mismo triángulo de B.4, con vértices $(0,0)$, $(0,1)$, $(1,1)$. En el otro orden: $0 \le y \le 1$, $0 \le x \le y$.</p>
+        <p><strong>Por qué este orden no funciona.</strong> $e^{y^2}$ no tiene primitiva elemental, así que la integral de adentro no se puede hacer como está. El enunciado lo pide invertido a propósito.</p>
+        <p><strong>La región.</strong> $0 \le x \le 1$, $x \le y \le 1$. El triángulo de B.4 otra vez, con vértices $(0,0)$, $(0,1)$ y $(1,1)$. Invertido queda $0 \le y \le 1$, $0 \le x \le y$.</p>
         $$\int_0^1 \int_x^1 e^{y^2}\, dy\, dx = \int_0^1 \int_0^y e^{y^2}\, dx\, dy = \int_0^1 y\, e^{y^2}\, dy = \Big[\tfrac{1}{2} e^{y^2}\Big]_0^1 = \tfrac{e - 1}{2}.$$
       </div>
       <h4>Respuesta</h4>
@@ -208,7 +209,7 @@
     </div>
     <aside class="margen">
       <p class="margen-t">Nota</p>
-      <p>La señal no es "integral difícil", es "integrando sin primitiva": $e^{y^2}$, $e^{x^2}$, $\sen y / y$. Cuando aparece, el orden está mal por construcción y se cambia. El factor $y$ que aparece al integrar en $x$ es lo que salva: $y e^{y^2}$ sí es derivable. Este es uno de los tipos que el profe dijo que cae sí o sí en el orden correcto.</p>
+      <p>La señal no es que la integral se vea difícil, es que el integrando no tiene primitiva: $e^{y^2}$, $e^{x^2}$, $\sen y / y$. Cada vez que aparecen, el orden está mal por construcción, y cambiarlo es la respuesta. Lo que salva la cuenta es el factor $y$ que aparece al integrar en $x$, ya que $y e^{y^2}$ sí es derivable. Este tipo cae en el parcial sí o sí.</p>
     </aside>
   </div>
 </article>
@@ -217,13 +218,13 @@
   <h3>Pausa 1, después del ejercicio 5</h3>
   <dl>
     <dt>¿Qué planteo mejor ahora?</dt>
-    <dd>Veo la región antes de escribir límites. El triángulo de B.4 y B.6 se dibuja en segundos, y el cambio de orden sale de mirarlo desde el otro eje, no de manipular símbolos.</dd>
+    <dd>Veo la región antes de escribir límites. El triángulo de B.4 y B.6 se dibuja en segundos, y el cambio de orden sale de mirarlo desde el otro lado, no de mover símbolos.</dd>
     <dt>¿Dónde sigo fallando?</dt>
-    <dd>En el orden de los diferenciales al leer el enunciado: $dy\,dx$ versus $dx\,dy$ se leen al revés si voy de afán. Toca detenerse en la integral interior.</dd>
+    <dd>En el orden de los diferenciales al leer el enunciado. $dy\,dx$ y $dx\,dy$ se me leen al revés cuando voy de afán, y toca frenar en la integral de adentro.</dd>
     <dt>¿Qué debo repetir?</dt>
-    <dd>B.6 desde cero, tapando la solución: la decisión "no tiene primitiva, cambio el orden" es la que tiene que salir sola.</dd>
+    <dd>B.6 desde cero y tapada la solución. La decisión "no tiene primitiva, cambio el orden" tiene que salir sola.</dd>
     <dt>¿Qué ya hago sin ayuda?</dt>
-    <dd>Detectar cuándo un integrando es imposible en el orden dado y cuándo no. Eso ya está automatizado; lo que falta es hacerlo rápido bajo presión.</dd>
+    <dd>Reconocer cuándo un integrando es imposible en el orden dado. Eso ya está, lo que falta es hacerlo rápido con reloj encima.</dd>
   </dl>
 </aside>
 
@@ -235,14 +236,14 @@
       <p class="enun"><strong>Enunciado.</strong> Cambie el orden de integración en $\displaystyle\int_0^1 \int_y^{2-y} f(x,y)\, dx\, dy.$ La nueva descripción requiere separar la región en dos partes.</p>
       <h4>Procedimiento</h4>
       <div class="proc">
-        <p><strong>La región en los límites dados.</strong> $0 \le y \le 1$, y para cada $y$, $y \le x \le 2 - y$. El piso es la recta $x = y$ (es decir $y = x$) y el techo es $x = 2 - y$ (es decir $y = 2 - x$). Se cruzan donde $x = 2 - x$, o sea $x = 1,\ y = 1$.</p>
-        <p><strong>Vértices.</strong> Cortando $y = 0$: $x = 0$ por la izquierda y $x = 2$ por la derecha. El tercer vértice es el cruce $(1,1)$. La región es el triángulo de $(0,0)$, $(2,0)$ y $(1,1)$.</p>
-        <p><strong>El problema al cambiar.</strong> Si ahora $x$ es exterior, el techo y el piso no son una sola función: en $0 \le x \le 1$ la cota superior es $y = x$ (la recta izquierda manda); en $1 \le x \le 2$ la cota superior es $y = 2 - x$ (la derecha manda). Por eso hay que partir en $x = 1$:</p>
+        <p><strong>La región como viene dada.</strong> $0 \le y \le 1$, y para cada $y$, $y \le x \le 2 - y$. El piso es la recta $x = y$, o sea $y = x$, y el techo es $x = 2 - y$, o sea $y = 2 - x$. Se cortan donde $x = 2 - x$, punto $(1,1)$.</p>
+        <p><strong>Los tres vértices.</strong> En $y = 0$ la izquierda da $x = 0$ y la derecha $x = 2$; el tercer vértice es el cruce $(1,1)$. La región es el triángulo de $(0,0)$, $(2,0)$ y $(1,1)$.</p>
+        <p><strong>En qué se enreda uno al invertir.</strong> Con $x$ de afuera, el techo cambia de fórmula en el punto interior: en $0 \le x \le 1$ la cota superior es $y = x$, y en $1 \le x \le 2$ pasa a ser $y = 2 - x$. De aquí la partición en $x = 1$:</p>
         $$\int_0^1 \int_0^x f(x,y)\, dy\, dx \;+\; \int_1^2 \int_0^{2-x} f(x,y)\, dy\, dx.$$
-        <p>Comprobación de áreas: el triángulo tiene base 2 y altura 1, área $= 1$. La integral con $f = 1$ da $\int_0^1 x\,dx + \int_1^2 (2-x)\,dx = \tfrac12 + \tfrac12 = 1$. Cuadra.</p>
+        <p>Y el área cuadra: el triángulo mide $\tfrac{2 \cdot 1}{2} = 1$, y la integral con $f = 1$ da $\int_0^1 x\,dx + \int_1^2 (2-x)\,dx = \tfrac{1}{2} + \tfrac{1}{2} = 1$.</p>
         <figure>
           <img src="img/b9-region.png" alt="Triángulo de vértices (0,0), (2,0) y (1,1), partido en x=1 en dos subregiones.">
-          <figcaption>La región partida en $x = 1$: a la izquierda $0 \le y \le x$; a la derecha $0 \le y \le 2 - x$.</figcaption>
+          <figcaption>La región partida en $x = 1$; a la izquierda $0 \le y \le x$, a la derecha $0 \le y \le 2 - x$.</figcaption>
         </figure>
       </div>
       <h4>Respuesta</h4>
@@ -250,7 +251,7 @@
     </div>
     <aside class="margen">
       <p class="margen-t">Nota</p>
-      <p>Esta es la variante que no cabe en una sola integral y por eso vale doble en la bitácora: el borde superior cambia de fórmula en un punto interior, y detectarlo exige dibujar. El error clásico es escribir $0 \le y \le x$ para todo $x$ hasta 2, que describe otra región (más grande). El punto de prueba lo delata: $(1{,}5,\ 0{,}7)$ está fuera del triángulo ($y \le 2-x = 0{,}5$ falla) y dentro de la respuesta mal escrita.</p>
+      <p>Este ejercicio vale el doble porque obliga a soltar el vicio de escribir una sola integral para toda la región. El borde de arriba cambia de fórmula justo en $(1,1)$, y ese punto no lo encuentra nadie mirando los límites de la integral original, hay que dibujar. El punto $(1.5, 0.7)$ me sirve de alarma: cae fuera del triángulo ($2 - x = 0.5$ y $y = 0.7$ no cabe), y sin embargo encaja perfectamente en la versión mal escrita $y \le x$. Un solo punto de prueba delata el error.</p>
     </aside>
   </div>
 </article>
@@ -263,17 +264,17 @@
       <p class="enun"><strong>Enunciado.</strong> Evalúe, cambiando primero el orden de integración: $\displaystyle\int_0^1 \int_y^1 e^{x^2} \, dx\, dy.$</p>
       <h4>Procedimiento</h4>
       <div class="proc">
-        <p><strong>Mismo diagnóstico.</strong> $e^{x^2}$ no tiene primitiva elemental. Se cambia el orden.</p>
-        <p><strong>Región.</strong> $0 \le y \le 1$, $y \le x \le 1$: triángulo de vértices $(0,0)$, $(1,0)$ y $(1,1)$. En el otro orden, $x$ es exterior: $0 \le x \le 1$ e $y$ va de $0$ hasta la recta $y = x$:</p>
+        <p><strong>Mismo diagnóstico.</strong> $e^{x^2}$ tampoco tiene primitiva elemental, y la integral de adentro es inviable como está.</p>
+        <p><strong>La región.</strong> $0 \le y \le 1$, $y \le x \le 1$: el triángulo de vértices $(0,0)$, $(1,0)$ y $(1,1)$. Con $x$ de afuera, $0 \le x \le 1$ e $y$ corre de $0$ a la recta $y = x$:</p>
         $$\int_0^1 \int_y^1 e^{x^2}\, dx\, dy = \int_0^1 \int_0^x e^{x^2}\, dy\, dx = \int_0^1 x\, e^{x^2}\, dx = \Big[\tfrac{1}{2} e^{x^2}\Big]_0^1 = \tfrac{e - 1}{2}.$$
-        <p>El resultado coincide con el de B.6, $\tfrac{e-1}{2}$. No es coincidencia: los dos triángulos son simétricos respecto a $y = x$ y los integrandos, espejados.</p>
+        <p>El resultado es el mismo de B.6. Los dos triángulos son simétricos respecto a la recta $y = x$, y los integrandos también, así que no debe sorprender.</p>
       </div>
       <h4>Respuesta</h4>
       <div class="resp"><p>$\displaystyle\int_0^1 \int_y^1 e^{x^2} \, dx\, dy = \dfrac{e - 1}{2} \approx 0{,}86.$</p></div>
     </div>
     <aside class="margen">
       <p class="margen-t">Nota</p>
-      <p>B.6 y B.15 son el mismo ejercicio con los ejes intercambiados, y por eso conviene hacerlos seguidos: la decisión es idéntica y la cuenta, espejo. Si en uno sale $(e-1)/2$ y en el otro no, el error está en el dibujo, no en la derivada de $e^{x^2}$. La comprobación de cordura es que ambos dan lo mismo.</p>
+      <p>B.6 y B.15 son el mismo ejercicio con los ejes intercambiados, y hacerlos seguidos paga bien porque entrena la decisión y no la memoria. Si en uno sale $(e-1)/2$ y en el otro no, el error está en el dibujo, no en la derivada de $e^{x^2}$. Y como comprobación cruzada, los dos tienen que dar lo mismo.</p>
     </aside>
   </div>
 </article>
@@ -289,7 +290,7 @@
       <p class="enun"><strong>Enunciado.</strong> Use coordenadas polares para evaluar $\displaystyle\iint_D (x^2 + y^2)\, dA$, con $D: x^2 + y^2 \le 4.$</p>
       <h4>Procedimiento</h4>
       <div class="proc">
-        <p>$D$ es el disco de radio 2 centrado en el origen: frontera circular, así que polares. $x^2 + y^2 = r^2$, $dA = r\, dr\, d\theta$, $0 \le r \le 2$, $0 \le \theta \le 2\pi$:</p>
+        <p>La frontera es una circunferencia centrada en el origen, y eso manda: $x^2 + y^2 = r^2$ y $dA = r\, dr\, d\theta$. En polares, el disco es $0 \le r \le 2$ y $0 \le \theta \le 2\pi$:</p>
         $$\iint_D (x^2+y^2)\, dA = \int_0^{2\pi} \int_0^2 r^2 \cdot r \, dr\, d\theta = \int_0^{2\pi} \Big[\tfrac{r^4}{4}\Big]_0^2 d\theta = \int_0^{2\pi} 4\, d\theta = 8\pi.$$
       </div>
       <h4>Respuesta</h4>
@@ -297,7 +298,7 @@
     </div>
     <aside class="margen">
       <p class="margen-t">Nota</p>
-      <p>El $r$ del jacobiano es el que se olvida siempre: escribirlo antes de integrar, no al final. Sin él la integral da $16\pi/3$ en vez de $8\pi$, y un disco no distingue cuál de las dos respuestas está bien salvo que uno recuerde el factor. Ritual de la ficha: al pasar a polares, la primera línea escrita es $dA = r\,dr\,d\theta$.</p>
+      <p>El factor $r$ es el que se cae de la cuenta siempre. El truco que me funciona es escribir $dA = r\,dr\,d\theta$ como primera línea, antes de cualquier cosa, y dejarlo ahí mientras trabajo. Sin ese $r$ la integral da $16\pi/3$ y uno no sabe por qué el disco no cuadra. Y el disco completo pide $\theta$ hasta $2\pi$, no hasta $\pi$, así que el rango también se lee del dibujo y no de la costumbre.</p>
     </aside>
   </div>
 </article>
@@ -310,16 +311,16 @@
       <p class="enun"><strong>Enunciado.</strong> Sea $D$ el semidisco superior $x^2 + y^2 \le 4$, $y \ge 0$. Evalúe $\displaystyle\iint_D y \, dA.$</p>
       <h4>Procedimiento</h4>
       <div class="proc">
-        <p>Mismo disco, pero solo la mitad con $y \ge 0$: el ángulo recorre $0 \le \theta \le \pi$ y $0 \le r \le 2$. El integrando es $y = r \sen\theta$:</p>
+        <p>Mismo disco de C.1 pero solo la mitad con $y \ge 0$, y eso se traduce en $\theta$ de $0$ a $\pi$ con el mismo radio $0 \le r \le 2$. El integrando también cambia de ropa: $y = r\sen\theta$:</p>
         $$\iint_D y\, dA = \int_0^{\pi} \int_0^2 (r \sen\theta)\, r \, dr\, d\theta = \Big(\int_0^\pi \sen\theta\, d\theta\Big) \Big(\int_0^2 r^2\, dr\Big) = 2 \cdot \tfrac{8}{3} = \tfrac{16}{3}.$$
-        <p>La integral se separó en $\theta$ y $r$ porque los límites son constantes: otro regalo de las polares.</p>
+        <p>La integral se factoriza en dos porque los límites no dependen de ninguna de las dos variables.</p>
       </div>
       <h4>Respuesta</h4>
       <div class="resp"><p>$\displaystyle\iint_D y \, dA = \dfrac{16}{3}.$</p></div>
     </div>
     <aside class="margen">
       <p class="margen-t">Nota</p>
-      <p>El error aquí no es el jacobiano, es el rango de $\theta$: poner $[0, 2\pi]$ duplica el resultado ($32/3$) y describe el disco completo, no el semidisco. La regla: el rango de $\theta$ sale del dibujo, no de la costumbre. $y \ge 0$ es $\sen\theta \ge 0$, o sea $[0, \pi]$. Un punto interior del semidisco, digamos $(0, 1)$, da $\theta = \pi/2$, que está en $[0, \pi]$: señal de que el rango sirve.</p>
+      <p>El jacobiano está bien acá; el punto flojo es el rango de $\theta$. Poner $[0, 2\pi]$ describe el disco completo, duplica el resultado a $32/3$ y nadie lo nota si no piensa la mitad del plano $y \ge 0$. El rango sale de $\sen\theta \ge 0$, o del dibujo de una vez. Un punto de prueba como $(0, 1)$ con $\theta = \pi/2$ entra justo en medio del rango correcto.</p>
     </aside>
   </div>
 </article>
@@ -332,8 +333,8 @@
       <p class="enun"><strong>Enunciado.</strong> Halle el volumen bajo el paraboloide $z = 4 - x^2 - y^2$ y sobre el plano $z = 0$.</p>
       <h4>Procedimiento</h4>
       <div class="proc">
-        <p><strong>Primero, la base.</strong> El sólido existe donde $z \ge 0$: $4 - x^2 - y^2 \ge 0 \Rightarrow x^2 + y^2 \le 4$. La proyección es el disco de radio 2.</p>
-        <p><strong>Planteamiento.</strong> El techo es una función de $r$, y la base es circular: polares. $z = 4 - r^2$, $0 \le r \le 2$:</p>
+        <p><strong>La base.</strong> El sólido vive donde $z \ge 0$, y eso fuerza $4 - x^2 - y^2 \ge 0$, o sea el disco $x^2 + y^2 \le 4$. Este paso sale del propio enunciado y es el que fija el radio.</p>
+        <p><strong>La integral.</strong> Con el disco como base y el paraboloide como tapa, las polares salen limpias: $z = 4 - r^2$ sobre $0 \le r \le 2$:</p>
         $$V = \iint_D (4 - r^2)\, dA = \int_0^{2\pi} \int_0^2 (4 - r^2)\, r \, dr\, d\theta = 2\pi \Big[2r^2 - \tfrac{r^4}{4}\Big]_0^2 = 2\pi (8 - 4) = 8\pi.$$
       </div>
       <h4>Respuesta</h4>
@@ -341,7 +342,7 @@
     </div>
     <aside class="margen">
       <p class="margen-t">Nota</p>
-      <p>El paso que no se puede saltar es de dónde sale el radio: no lo da el enunciado, lo da $z = 0$. $4 - r^2 = 0$ es la circunferencia $r = 2$, y ese es el límite de integración. Saltar eso y poner $0 \le r \le 4$ es el error más común del bloque. Y la comprobación: un paraboloide de altura 4 y base radio 2 da $V = \tfrac12 \pi R^2 h = \tfrac12 \pi \cdot 4 \cdot 4 = 8\pi$, que es exactamente la fórmula del volumen del paraboloide. Cuadra.</p>
+      <p>El radio $2$ no lo da el enunciado: lo da el plano $z = 0$, cortado con el paraboloide en $4 - r^2 = 0$. Saltarse eso y poner $r \le 4$ es de los errores más repetidos del bloque. Y el resultado deja una comprobación bonita: un paraboloide de altura $h$ sobre un disco de radio $R$ tiene volumen $\tfrac{1}{2}\pi R^2 h$, y aquí $\tfrac{1}{2}\pi \cdot 4 \cdot 4 = 8\pi$, justo lo que salió.</p>
     </aside>
   </div>
 </article>
@@ -350,13 +351,13 @@
   <h3>Pausa 2, después del ejercicio 10</h3>
   <dl>
     <dt>¿Qué planteo mejor ahora?</dt>
-    <dd>Los límites en $\theta$ ahora salen del dibujo: semidisco $[0, \pi]$, y reconozco los círculos desplazados por la ecuación, no solo los centrados en el origen.</dd>
+    <dd>Los rangos de $\theta$ ya salen del dibujo: semidisco en $[0, \pi]$, disco completo en $[0, 2\pi]$. Y reconozco los círculos desplazados por la ecuación completando cuadrados.</dd>
     <dt>¿Dónde sigo fallando?</dt>
-    <dd>En el jacobiano bajo presión: $dA = r\,dr\,d\theta$ se escribe bien en frío y desaparece en el examen. Escribirlo como primera línea es el seguro.</dd>
+    <dd>En el jacobiano bajo presión. Frío lo escribo bien y en el examen desaparece, y por eso queda atornillado a la primera línea del procedimiento.</dd>
     <dt>¿Qué debo repetir?</dt>
-    <dd>C.4 tapando la solución, y C.9 desde cero: los dos revisan el mismo punto débil, el rango de $\theta$.</dd>
+    <dd>C.4 y C.9 tapadas. Las dos castigan el mismo sitio, que es el rango de $\theta$.</dd>
     <dt>¿Qué ya hago sin ayuda?</dt>
-    <dd>Decidir cuándo polares es el sistema correcto: frontera circular o integrando con $x^2 + y^2$. Esa decisión ya sale sola.</dd>
+    <dd>Decidir cuándo toca polares: frontera circular o integrando con $x^2 + y^2$. La decisión sale sola, lo que falta es la velocidad.</dd>
   </dl>
 </aside>
 
@@ -368,13 +369,13 @@
       <p class="enun"><strong>Enunciado.</strong> Use coordenadas polares para hallar el área de la región $x^2 + y^2 \le 2y.$ Identifique primero el círculo en coordenadas cartesianas.</p>
       <h4>Procedimiento</h4>
       <div class="proc">
-        <p><strong>El círculo en cartesianas.</strong> Completar el cuadrado: $x^2 + y^2 - 2y \le 0 \Rightarrow x^2 + (y-1)^2 \le 1$. Centro $(0,1)$, radio 1: tangente al eje $x$ en el origen, apoyado sobre $y = 0$.</p>
-        <p><strong>La misma región en polares.</strong> $x^2 + y^2 = r^2$ e $y = r\sen\theta$: $r^2 \le 2 r \sen\theta \Rightarrow r \le 2\sen\theta$ (descartando $r = 0$, un solo punto). La cota $2\sen\theta \ge 0$ exige $\theta \in [0, \pi]$, no $[0, 2\pi]$.</p>
+        <p><strong>El círculo en cartesianas.</strong> Completando el cuadrado queda $x^2 + (y-1)^2 \le 1$, centro $(0,1)$ y radio 1. El círculo se apoya en el origen y vive en $y \ge 0$.</p>
+        <p><strong>La misma región en polares.</strong> Sustituyendo $x^2 + y^2 = r^2$ e $y = r\sen\theta$ en la desigualdad: $r^2 \le 2r\sen\theta$, y por tanto $r \le 2\sen\theta$. La cota solo tiene sentido donde $2\sen\theta \ge 0$, es decir $\theta \in [0, \pi]$.</p>
         $$A = \int_0^{\pi} \int_0^{2\sen\theta} r \, dr\, d\theta = \int_0^{\pi} \tfrac{(2\sen\theta)^2}{2}\, d\theta = 2 \int_0^{\pi} \sen^2\theta\, d\theta = 2 \cdot \tfrac{\pi}{2} = \pi.$$
-        <p>Comprobación: el círculo tiene radio 1, así que su área es $\pi$. Cuadra.</p>
+        <p>El círculo tiene radio 1 y su área es $\pi$; la integral da lo mismo, y eso es suficiente confirmación.</p>
         <figure>
           <img src="img/c9-circulo.png" alt="Círculo de centro (0,1) y radio 1, tangente al origen, descrito en polares por r = 2 sen θ.">
-          <figcaption>$x^2 + (y-1)^2 = 1$: en polares la frontera es $r = 2\sen\theta$, con $\theta \in [0, \pi]$.</figcaption>
+          <figcaption>$x^2 + (y-1)^2 = 1$ visto en polares: la frontera es $r = 2\sen\theta$, con $\theta \in [0, \pi]$.</figcaption>
         </figure>
       </div>
       <h4>Respuesta</h4>
@@ -382,7 +383,7 @@
     </div>
     <aside class="margen">
       <p class="margen-t">Nota</p>
-      <p>La trampa de este ejercicio es escribir $0 \le \theta \le 2\pi$ "porque es un círculo" y obtener integrales con $r$ negativo o doble cubrimiento. $2\sen\theta$ es negativo en $(\pi, 2\pi)$, y un radio negativo no describe la región. El rango sale de $2\sen\theta \ge 0$, o del dibujo: el círculo vive en $y \ge 0$. Es la misma trampa de la semana 11 con las curvas polares, y la razón por la que el profe pide explicar por qué no se integra sobre $[0, 2\pi]$.</p>
+      <p>El vicio acá es poner $\theta$ de $0$ a $2\pi$ porque es un círculo y ya. Resulta que $2\sen\theta$ se vuelve negativo en $(\pi, 2\pi)$, y un radio negativo no describe nada. El rango correcto se lee del dibujo, o del signo de la frontera, y en este caso los dos dicen lo mismo: $[0, \pi]$. Es el mismo caso del profe con las curvas polares de la semana 11, y por eso insiste en que se justifique por qué no se integra sobre $[0, 2\pi]$.</p>
     </aside>
   </div>
 </article>
@@ -398,18 +399,18 @@
       <p class="enun"><strong>Enunciado.</strong> Calcule el volumen de $E = \{(x,y,z) : 0 \le x \le 1,\ 0 \le y \le x,\ 0 \le z \le x + y\}.$</p>
       <h4>Procedimiento</h4>
       <div class="proc">
-        <p>El orden lo dictan las desigualdades: $z$ es la más acotada, con piso $z = 0$ y techo $z = x + y$, y no depende de sí misma. Se integra $z$ primero con $1$ adentro.</p>
+        <p>El orden lo dicta el propio sólido: $z$ es la variable mejor acotada, piso $z = 0$ y techo $z = x + y$, y ninguno de los dos depende de $z$. Toca integrar $z$ primero con un 1 adentro.</p>
         <p><strong>La base en el plano $xy$.</strong> $0 \le x \le 1$, $0 \le y \le x$: triángulo de vértices $(0,0)$, $(1,0)$ y $(1,1)$.</p>
         <p><strong>Volumen.</strong></p>
         $$V = \int_0^1 \int_0^x \int_0^{x+y} dz\, dy\, dx = \int_0^1 \int_0^x (x + y)\, dy\, dx = \int_0^1 \Big[xy + \tfrac{y^2}{2}\Big]_0^x dx = \int_0^1 \tfrac{3}{2} x^2\, dx = \tfrac{3}{2} \cdot \tfrac{1}{3} = \tfrac{1}{2}.$$
-        <p>Lectura del sólido: un prisma cuya base es el triángulo $y \le x$ y cuya tapa es el plano $z = x + y$, con piso $z = 0$. El valor promedio de la tapa sobre la base es $\tfrac{V}{A} = \tfrac{1/2}{1/2} = 1$, y el centroide de la base es $(\tfrac{2}{3}, \tfrac{1}{3})$, donde $z = x + y = 1$: consistente.</p>
+        <p>Lectura del sólido: un prisma sobre el triángulo $y \le x$ con techo en el plano $z = x + y$. El área de la base es $\tfrac12$ y la altura promedio del centroide $(\tfrac{2}{3}, \tfrac{1}{3})$ es $z = 1$, y como $V = A \cdot \bar{z}$ sale $\tfrac12$: la cuenta cierra por dos caminos.</p>
       </div>
       <h4>Respuesta</h4>
       <div class="resp"><p>$V = \dfrac{1}{2}.$</p></div>
     </div>
     <aside class="margen">
       <p class="margen-t">Nota</p>
-      <p>Cuando el sólido viene en desigualdades, el orden lo elige la variable cuyo techo es una sola superficie, y acá es $z = x+y$. Elegir otro orden obliga a partir el triángulo y no paga nada. El hábito útil: antes de integrar, escribir la base en el plano $xy$ y nombrar el techo; si no puedo nombrarlos, el planteamiento no está terminado.</p>
+      <p>Cuando el sólido viene en desigualdades, el orden lo elige la variable cuyo techo es una sola superficie, y aquí esa variable es $z$. Forzar otro orden obliga a partir el triángulo sin ninguna ganancia. El hábito útil es escribir primero la base en el plano $xy$ y nombrar el techo; si no los puedo nombrar, el planteamiento no está terminado.</p>
     </aside>
   </div>
 </article>
@@ -422,19 +423,19 @@
       <p class="enun"><strong>Enunciado.</strong> Plantee y evalúe una integral triple para el volumen del sólido del primer octante situado bajo el plano $x + 2y + z = 4$.</p>
       <h4>Procedimiento</h4>
       <div class="proc">
-        <p><strong>Cortes con los ejes.</strong> Con $y = z = 0$: $x = 4$. Con $x = z = 0$: $2y = 4 \Rightarrow y = 2$. Con $x = y = 0$: $z = 4$. El sólido es el tetraedro de vértices $(0,0,0)$, $(4,0,0)$, $(0,2,0)$, $(0,0,4)$.</p>
-        <p><strong>Planteamiento con $z$ primero.</strong> $0 \le z \le 4 - x - 2y$, y la base exige $4 - x - 2y \ge 0$, o sea $0 \le x \le 4$ con $0 \le y \le \tfrac{4 - x}{2}$:</p>
+        <p><strong>Cortes con los ejes.</strong> Con $y = z = 0$ queda $x = 4$; con $x = z = 0$ queda $y = 2$; con $x = y = 0$ queda $z = 4$. El sólido es el tetraedro de vértices $(0,0,0)$, $(4,0,0)$, $(0,2,0)$ y $(0,0,4)$.</p>
+        <p><strong>Planteamiento con $z$ primero.</strong> $0 \le z \le 4 - x - 2y$. La base exige $4 - x - 2y \ge 0$, y eso da $0 \le x \le 4$ con $0 \le y \le \tfrac{4 - x}{2}$:</p>
         $$V = \int_0^4 \int_0^{(4-x)/2} \int_0^{4-x-2y} dz\, dy\, dx = \int_0^4 \int_0^{(4-x)/2} (4 - x - 2y)\, dy\, dx.$$
-        <p><strong>Cuenta interior.</strong> $\displaystyle\int_0^{(4-x)/2} (4 - x - 2y)\, dy = \Big[(4-x)y - y^2\Big]_0^{(4-x)/2} = \tfrac{(4-x)^2}{2} - \tfrac{(4-x)^2}{4} = \tfrac{(4-x)^2}{4}.$</p>
+        <p><strong>Cuenta de adentro.</strong> $\displaystyle\int_0^{(4-x)/2} (4 - x - 2y)\, dy = \Big[(4-x)y - y^2\Big]_0^{(4-x)/2} = \tfrac{(4-x)^2}{2} - \tfrac{(4-x)^2}{4} = \tfrac{(4-x)^2}{4}.$</p>
         <p><strong>Cierre.</strong> $\displaystyle V = \tfrac{1}{4}\int_0^4 (4 - x)^2\, dx = \tfrac{1}{4} \cdot \tfrac{64}{3} = \tfrac{16}{3}.$</p>
-        <p>Comprobación con la fórmula del tetraedro: $V = \tfrac{1}{6} \cdot a \cdot b \cdot c$ con las intersecciones $4, 2, 4$: $\tfrac{1}{6} \cdot 32 = \tfrac{16}{3}$. Cuadra.</p>
+        <p>La fórmula del tetraedro confirma, ya que $V = \tfrac{1}{6} \cdot 4 \cdot 2 \cdot 4 = \tfrac{16}{3}$. La integral sale igual.</p>
       </div>
       <h4>Respuesta</h4>
       <div class="resp"><p>$V = \displaystyle\int_0^4 \int_0^{(4-x)/2} \int_0^{4-x-2y} dz\, dy\, dx = \dfrac{16}{3}.$</p></div>
     </div>
     <aside class="margen">
       <p class="margen-t">Nota</p>
-      <p>El error que acecha aquí es aritmético, no de concepto: el límite superior de $y$ es $(4-x)/2$, no $4 - x$ (el coeficiente 2 acompaña a $y$ en el plano). Despejar despacio es más barato que rehacer el integral. Y el tetraedro tiene atajo, $V = abc/6$; usarlo como verificación, nunca como planteamiento, porque la hoja pide la integral triple a la vista.</p>
+      <p>El punto que falla no es el concepto, es el límite superior de $y$: el coeficiente 2 del plano manda, y el techo de $y$ es $(4-x)/2$, no $4 - x$. Despejar despacio cuesta diez segundos y ahorra rehacer tres líneas. Y el atajo $V = abc/6$ sirve para verificar, nunca para plantear, porque la hoja quiere la integral triple a la vista.</p>
     </aside>
   </div>
 </article>
@@ -450,20 +451,20 @@
       <p class="enun"><strong>Enunciado.</strong> Halle el volumen del sólido limitado por el cono $z = \sqrt{x^2 + y^2}$ y el plano $z = 2$.</p>
       <h4>Procedimiento</h4>
       <div class="proc">
-        <p>El cono es $z = \sqrt{x^2+y^2}$, que en cilíndricas es $z = r$: el sólido vive $r \le z \le 2$. El cono y el plano se cortan donde $r = 2$, así que $0 \le r \le 2$ y $0 \le \theta \le 2\pi$:</p>
+        <p>El cono $z = \sqrt{x^2+y^2}$ en cilíndricas es $z = r$, y ahí se ve el sólido como $r \le z \le 2$. El corte entre cono y plano está en $r = 2$, y por eso $0 \le r \le 2$ y $0 \le \theta \le 2\pi$:</p>
         $$V = \int_0^{2\pi} \int_0^2 \int_r^2 r \, dz\, dr\, d\theta = \int_0^{2\pi} \int_0^2 (2 - r)\, r \, dr\, d\theta = 2\pi \Big[r^2 - \tfrac{r^3}{3}\Big]_0^2 = 2\pi \cdot \tfrac{4}{3} = \tfrac{8\pi}{3}.$$
         <figure>
           <img src="img/e2-cono.png" alt="Sección r-z: el cono z=r por abajo y el plano z=2 por arriba, área rellena entre ambos.">
-          <figcaption>Sección meridional: el sólido es el cono "al revés", con vértice en el origen y techo $z = 2$.</figcaption>
+          <figcaption>Sección por el eje: el sólido es el cono con el vértice abajo y la tapa en $z = 2$.</figcaption>
         </figure>
-        <p>Comprobación: es un cono de radio 2 y altura 2, $V = \tfrac{1}{3} \pi R^2 h = \tfrac{8\pi}{3}$. Cuadra.</p>
+        <p>Y el atajo confirma: un cono de radio 2 y altura 2 tiene $V = \tfrac{1}{3} \pi R^2 h = \tfrac{8\pi}{3}$, igual que la integral.</p>
       </div>
       <h4>Respuesta</h4>
       <div class="resp"><p>$V = \dfrac{8\pi}{3}.$</p></div>
     </div>
     <aside class="margen">
       <p class="margen-t">Nota</p>
-      <p>En cilíndricas el cono $z = \sqrt{x^2+y^2}$ se vuelve $z = r$ y el volumen sale en tres líneas; en cartesianas el mismo sólido obliga a partir la base en cuatro proyecciones. El criterio de la ficha: cono, cilindro o paraboloide piden cilíndricas, y el $r$ del jacobiano se escribe antes de integrar. La decisión que más vale en este ejercicio es el orden $dz\,dr\,d\theta$: $z$ tiene dos cotas limpias, $r$ y $2$.</p>
+      <p>El cono con el vértice abajo mide $z = r$ y pedido en cilíndricas se integra en tres líneas; en cartesianas el mismo sólido obliga a partir la base en cuatro pedazos. La decisión vale más que la cuenta: cono, cilindro o paraboloide piden cilíndricas. El orden $dz\,dr\,d\theta$ es el natural, ya que $z$ tiene dos cotas limpias y $r$ una sola variable.</p>
     </aside>
   </div>
 </article>
@@ -476,9 +477,9 @@
       <p class="enun"><strong>Enunciado.</strong> Use coordenadas cilíndricas para evaluar $\displaystyle\iiint_E z \, dV$, donde $E$ está dentro del cilindro $x^2 + y^2 \le 4$ y entre las superficies $z = 0$ y $z = 4 - x^2 - y^2$.</p>
       <h4>Procedimiento</h4>
       <div class="proc">
-        <p>En cilíndricas: cilindro $r \le 2$, techo $z = 4 - r^2$, piso $z = 0$. El techo toca el piso donde $4 - r^2 = 0$, en el borde $r = 2$: el sólido está bien definido y cerrado.</p>
+        <p>En cilíndricas, el sólido es $r \le 2$ con piso $z = 0$ y techo $z = 4 - r^2$. Techo y piso se tocan donde $4 - r^2 = 0$, en el borde $r = 2$, y por eso el sólido cierra justo ahí.</p>
         $$\iiint_E z\, dV = \int_0^{2\pi} \int_0^2 \int_0^{4-r^2} z \cdot r \, dz\, dr\, d\theta = \int_0^{2\pi} \int_0^2 \tfrac{(4 - r^2)^2}{2}\, r \, dr\, d\theta.$$
-        <p>Con $u = 4 - r^2$, $du = -2r\,dr$: $\displaystyle\int_0^2 \tfrac{(4-r^2)^2}{2} r\, dr = \tfrac{1}{2} \cdot \tfrac{4^3}{6} = \tfrac{16}{3}.$</p>
+        <p>Con $u = 4 - r^2$ y $du = -2r\,dr$, la integral de adentro sale sola: $\displaystyle\int_0^2 \tfrac{(4-r^2)^2}{2} r\, dr = \tfrac{1}{2} \cdot \tfrac{4^3}{6} = \tfrac{16}{3}.$</p>
         $$\iiint_E z\, dV = 2\pi \cdot \tfrac{16}{3} = \tfrac{32\pi}{3}.$$
       </div>
       <h4>Respuesta</h4>
@@ -486,7 +487,7 @@
     </div>
     <aside class="margen">
       <p class="margen-t">Nota</p>
-      <p>El sustituto $u = 4 - r^2$ hace el trabajo porque el integrando es justo la derivada del techo. Sin verlo, expandir el cuadrado cuesta lo mismo pero con más términos y más riesgo de signo. Lo otro que vigilar: el límite exterior $r \le 2$ viene del cilindro del enunciado, no del techo; el techo y el cilindro se tocan exactamente en $r = 2$, y por eso el sólido cierra ahí.</p>
+      <p>El sustituto $u = 4 - r^2$ sale del propio techo. El integrando es la derivada del techo con signo cambiado, y reconocer eso es lo que ahorra desarrollar el cuadrado. Ojo también con de dónde sale $r \le 2$: del cilindro del enunciado, no del techo; que ambos se toquen en $r = 2$ es lo que cierra el sólido.</p>
     </aside>
   </div>
 </article>
@@ -495,13 +496,13 @@
   <h3>Pausa 3, después del ejercicio 15</h3>
   <dl>
     <dt>¿Qué planteo mejor ahora?</dt>
-    <dd>En cilíndricas escribo el sólido completo antes de integrar: $r \le 2$, techo $z = 4 - r^2$, piso $z = 0$. Nombrarlo así evita media docena de errores de límites.</dd>
+    <dd>En cilíndricas escribo el sólido completo antes de integrar: $r \le 2$, techo $z = 4 - r^2$, piso $z = 0$. Nombrarlo así evita casi todos los errores de límites del bloque.</dd>
     <dt>¿Dónde sigo fallando?</dt>
-    <dd>En las sustituciones del tipo $u = (\text{techo})^2$: las veo, pero tarde. Reconocer que el integrando contiene la derivada del techo es la señal para sustituir de una.</dd>
+    <dd>En los sustitutos del tipo $u = (\text{techo})^2$. Los veo, pero tarde. El integrando trae la derivada del techo y hay que disparar la sustitución de una vez.</dd>
     <dt>¿Qué debo repetir?</dt>
-    <dd>E.4 con el integrando cambiado a $z^2$ y E.2 desde cero: los dos miden el mismo músculo de techo menos piso.</dd>
+    <dd>E.4 con el integrando cambiado a $z^2$ y E.2 desde cero. Los dos miden el mismo reflejo de techo menos piso.</dd>
     <dt>¿Qué ya hago sin ayuda?</dt>
-    <dd>Elegir el orden $dz\,dr\,d\theta$ en cilíndricas y sostener el jacobiano $r$ al final de cuentas largas.</dd>
+    <dd>Elegir $dz\,dr\,d\theta$ en cilíndricas y sostener el jacobiano $r$ hasta el final de cuentas largas.</dd>
   </dl>
 </aside>
 
@@ -513,17 +514,17 @@
       <p class="enun"><strong>Enunciado.</strong> Sea $E$ el hemisferio superior $x^2 + y^2 + z^2 \le 4$, $z \ge 0$. Evalúe $\displaystyle\iiint_E z \, dV$ usando coordenadas esféricas.</p>
       <h4>Procedimiento</h4>
       <div class="proc">
-        <p>En esféricas: $z = \rho\cos\phi$, $dV = \rho^2 \sen\phi \, d\rho\, d\phi\, d\theta$. Hemisferio superior: $0 \le \rho \le 2$, $0 \le \phi \le \tfrac{\pi}{2}$, $0 \le \theta \le 2\pi$.</p>
+        <p>En esféricas: $z = \rho\cos\phi$ y $dV = \rho^2 \sen\phi \, d\rho\, d\phi\, d\theta$. El hemisferio superior es $0 \le \rho \le 2$, $0 \le \phi \le \tfrac{\pi}{2}$, $0 \le \theta \le 2\pi$:</p>
         $$\iiint_E z\, dV = \int_0^{2\pi} \int_0^{\pi/2} \int_0^2 \rho\cos\phi \cdot \rho^2 \sen\phi \, d\rho\, d\phi\, d\theta = \Big(\int_0^{2\pi} d\theta\Big) \Big(\int_0^{\pi/2} \sen\phi \cos\phi \, d\phi\Big) \Big(\int_0^2 \rho^3 \, d\rho\Big).$$
-        <p>Los tres factores: $2\pi$, $\big[\tfrac{\sen^2\phi}{2}\big]_0^{\pi/2} = \tfrac{1}{2}$, y $\big[\tfrac{\rho^4}{4}\big]_0^2 = 4$. Multiplicados: $2\pi \cdot \tfrac{1}{2} \cdot 4 = 4\pi.$</p>
-        <p>Comprobación: el hemisferio tiene volumen $\tfrac{16\pi}{3}$ y su centroide está a $\tfrac{3R}{8} = \tfrac{3}{4}$, así que $\iiint_E z\,dV = \bar{z} \cdot V = \tfrac{3}{4} \cdot \tfrac{16\pi}{3} = 4\pi$. Cuadra.</p>
+        <p>Las tres piezas por separado: $2\pi$, $\big[\tfrac{\sen^2\phi}{2}\big]_0^{\pi/2} = \tfrac{1}{2}$ y $\big[\tfrac{\rho^4}{4}\big]_0^2 = 4$. Multiplicadas: $2\pi \cdot \tfrac{1}{2} \cdot 4 = 4\pi.$</p>
+        <p>El hemisferio mide $\tfrac{16\pi}{3}$ y su centroide está a $\tfrac{3}{4}$ del plano base, así que $\iiint_E z\,dV = \bar{z} \cdot V = \tfrac{3}{4} \cdot \tfrac{16\pi}{3} = 4\pi$. Cuadra.</p>
       </div>
       <h4>Respuesta</h4>
       <div class="resp"><p>$\displaystyle\iiint_E z \, dV = 4\pi.$</p></div>
     </div>
     <aside class="margen">
       <p class="margen-t">Nota</p>
-      <p>$\phi$ se mide desde el eje $z$, no desde el plano $xy$: por eso el hemisferio superior es $\phi \in [0, \pi/2]$ y $\sen\phi$ no se anula dentro salvo en el borde. El jacobiano completo es $\rho^2 \sen\phi$, y olvidarlo es el error número uno del bloque. Cuando el integrando incluye $z = \rho\cos\phi$, la cuenta se factoriza en tres piezas y cada una se revisa por separado: más difícil equivocarse.</p>
+      <p>$\phi$ se mide desde el eje $z$, y no desde el plano. Por eso el hemisferio sale con $\phi \in [0, \pi/2]$ y el $\sen\phi$ del jacobiano sobrevive. El jacobiano completo es $\rho^2 \sen\phi$, y el que se cae es el $\sen\phi$, no el $\rho^2$. Y cuando el integrando trae $z = \rho\cos\phi$, la integral se factoriza en tres piezas que se revisan por separado, con lo que es más difícil equivocarse.</p>
     </aside>
   </div>
 </article>
@@ -536,22 +537,22 @@
       <p class="enun"><strong>Enunciado.</strong> Halle el volumen de la parte de la bola $x^2 + y^2 + z^2 \le 16$ que está por encima del cono $\phi = \pi/4$ alrededor del eje $z$ positivo.</p>
       <h4>Procedimiento</h4>
       <div class="proc">
-        <p>La bola es $\rho \le 4$. "Por encima del cono" alrededor del eje $+z$ significa dentro del cono, $\phi \le \pi/4$: el sólido es el casquete frío de cono de helado con la punta en el origen. Los límites: $0 \le \rho \le 4$, $0 \le \phi \le \tfrac{\pi}{4}$, $0 \le \theta \le 2\pi$:</p>
+        <p>La bola es $\rho \le 4$. Lo de por encima del cono, medido desde el eje $+z$, es quedarse con $\phi \le \pi/4$, y el sólido resultante es el barquillo de helado junto al eje. Los límites: $0 \le \rho \le 4$, $0 \le \phi \le \tfrac{\pi}{4}$, $0 \le \theta \le 2\pi$:</p>
         $$V = \int_0^{2\pi} \int_0^{\pi/4} \int_0^4 \rho^2 \sen\phi \, d\rho\, d\phi\, d\theta = \Big(\int_0^{2\pi} d\theta\Big) \Big(\int_0^{\pi/4} \sen\phi\, d\phi\Big) \Big(\int_0^4 \rho^2 \, d\rho\Big).$$
-        <p>Factores: $2\pi$, $\big[-\cos\phi\big]_0^{\pi/4} = 1 - \tfrac{\sqrt{2}}{2}$, y $\big[\tfrac{\rho^3}{3}\big]_0^4 = \tfrac{64}{3}$. Resultado:</p>
+        <p>Piezas: $2\pi$, $\big[-\cos\phi\big]_0^{\pi/4} = 1 - \tfrac{\sqrt{2}}{2}$ y $\big[\tfrac{\rho^3}{3}\big]_0^4 = \tfrac{64}{3}$. Resultado:</p>
         $$V = 2\pi \Big(1 - \tfrac{\sqrt{2}}{2}\Big) \cdot \tfrac{64}{3} = \tfrac{64\pi}{3}\,(2 - \sqrt{2}) \approx 19{,}8.$$
         <figure>
           <img src="img/e11-casquete.png" alt="Sección meridional: semicírculo de radio 4 y el cono de apertura pi/4; la región sombreada es el casquete sobre el cono.">
-          <figcaption>El sólido: $\rho \le 4$ con $\phi \in [0, \pi/4]$, la parte de la bola que abraza al eje $z$.</figcaption>
+          <figcaption>Corte por el eje: lo que pide el enunciado es el casquete que abraza al eje $z$, con $\phi \le \pi/4$.</figcaption>
         </figure>
-        <p>Comprobación de tamaño: la bola completa es $\tfrac{256\pi}{3} \approx 268$; el casquete es $\tfrac{64\pi}{3}(2-\sqrt2) \approx 19{,}8$, cerca del 7 %: un casquete angosto. Razonable.</p>
+        <p>Y la comprobación con la bola entera: la bola mide $\tfrac{256\pi}{3}$ y el casquete un poco menos del 8 %, cerca de $19.8$. Un sólido angosto junto al eje, justamente el que dibuja el enunciado.</p>
       </div>
       <h4>Respuesta</h4>
       <div class="resp"><p>$V = \dfrac{64\pi}{3}\,(2 - \sqrt{2}) \approx 19{,}8.$</p></div>
     </div>
     <aside class="margen">
       <p class="margen-t">Nota</p>
-      <p>"Por encima del cono" se lee como $\phi$ pequeño (cerca del eje), no $\phi$ grande: $\phi$ se mide desde $+z$. Si se leyera al revés se integrarían $3\pi/4$ radianes de más y el resultado saldría unas cinco veces mayor. El chequeo de cordura es cualitativo: un casquete sobre un cono de $45^\circ$ tiene que ser chico comparado con la bola. Y la raíz $\sqrt{2}$ solo viene de $\cos(\pi/4)$; si no aparece, $\phi$ quedó mal integrado.</p>
+      <p>Lo de por encima del cono es $\phi$ chico, muy cerca del eje. Leerlo al revés suma $3\pi/4$ radianes y el resultado se infla unas cinco veces. La raíz $\sqrt{2}$ solo puede venir de $\cos(\pi/4)$, así que si no aparece, la integral de $\phi$ quedó mal. Y el chequeo de cordura es el dibujo: el casquete tiene que ser pequeño.</p>
     </aside>
   </div>
 </article>
@@ -567,20 +568,20 @@
       <p class="enun"><strong>Enunciado.</strong> Una lámina ocupa la región $D = \{(x,y) : x \ge 0,\ y \ge 0,\ x + y \le 2\}$ y tiene densidad $\rho(x,y) = 1 + x$. Halle su masa.</p>
       <h4>Procedimiento</h4>
       <div class="proc">
-        <p>El triángulo se describe $0 \le x \le 2$, $0 \le y \le 2 - x$. La masa es la integral de la densidad sobre la lámina:</p>
+        <p>El triángulo: $0 \le x \le 2$, $0 \le y \le 2 - x$. La masa es la integral de la densidad sobre la lámina:</p>
         $$M = \iint_D (1 + x)\, dA = \int_0^2 \int_0^{2-x} (1 + x)\, dy\, dx = \int_0^2 (1 + x)(2 - x)\, dx = \int_0^2 (2 + x - x^2)\, dx = \Big[2x + \tfrac{x^2}{2} - \tfrac{x^3}{3}\Big]_0^2 = 4 + 2 - \tfrac{8}{3} = \tfrac{10}{3}.$$
         <figure>
           <img src="img/f1-lamina.png" alt="Triángulo de vértices (0,0), (2,0), (0,2): la lámina del ejercicio F.1.">
-          <figcaption>$D$: primer cuadrante bajo la recta $x + y = 2$, con densidad $\rho = 1 + x$ (crece hacia la derecha).</figcaption>
+          <figcaption>$D$: primer cuadrante bajo la recta $x + y = 2$, con densidad $\rho = 1 + x$, que crece hacia la derecha.</figcaption>
         </figure>
-        <p>Comprobación: el área del triángulo es $2$ y la densidad promedio está entre $1$ y $3$; $M = \tfrac{10}{3}$ da densidad promedio $\tfrac{5}{3}$, que es $\iint (1+x)/A = 1 + \bar{x} = 1 + \tfrac{2}{3}$, y el centroide del triángulo está en $\bar{x} = \tfrac{2}{3}$. Cuadra.</p>
+        <p>La densidad promedio es $M / A = \tfrac{10/3}{2} = \tfrac{5}{3}$, y como $\rho = 1 + x$, eso equivale a $\bar{x} = \tfrac{2}{3}$, justo el centroide del triángulo. La cuenta se lee solita.</p>
       </div>
       <h4>Respuesta</h4>
       <div class="resp"><p>$M = \dfrac{10}{3}.$</p></div>
     </div>
     <aside class="margen">
       <p class="margen-t">Nota</p>
-      <p>La integral interior es instantánea porque $\rho$ no depende de $y$: $(1+x)$ sale afuera y queda multiplicar por el largo $2 - x$. El riesgo es escribir $(1+x)^2/2$ por inercia de integrar respecto a $x$ dentro. La densidad no se integra sola: se integra sobre la lámina, y eso manda el orden, el dy va adentro. Ver la densidad como "cuánta masa hay en cada punto" y no como "una función más" es lo que hace que las aplicaciones no se mezclen con los ejercicios de cálculo puro.</p>
+      <p>La integral de adentro es inmediata porque $\rho$ no depende de $y$: $1 + x$ sale y queda multiplicar por el largo del corte, $2 - x$. La trampa es integrar $\rho$ respecto a $y$ por inercia y escribir $(1+x)^2 / 2$; la densidad no se integra sola, se integra sobre la lámina, y por eso el $dy$ va adentro. Pensar la densidad como cuánta masa hay en cada puntico, y no como una función más, es lo que separa las aplicaciones del cálculo puro.</p>
     </aside>
   </div>
 </article>
@@ -593,20 +594,20 @@
       <p class="enun"><strong>Enunciado.</strong> Para cada región, elija entre coordenadas cartesianas, cilíndricas o esféricas y escriba una integral que represente su volumen. No es necesario evaluar. (a) $x^2 + y^2 + z^2 \le 9$. (b) $0 \le z \le 4 - x^2 - y^2$. (c) $0 \le x \le 1$, $0 \le y \le 2$, $0 \le z \le x + y$.</p>
       <h4>Procedimiento</h4>
       <div class="proc">
-        <p><strong>(a) Esfera de radio 3.</strong> Frontera esférica: esféricas. $\rho \le 3$, $0 \le \phi \le \pi$, $0 \le \theta \le 2\pi$:</p>
+        <p><strong>(a) La esfera de radio 3.</strong> Frontera esférica, así que esféricas. $\rho \le 3$, $0 \le \phi \le \pi$, $0 \le \theta \le 2\pi$:</p>
         $$V = \int_0^{2\pi} \int_0^{\pi} \int_0^3 \rho^2 \sen\phi \, d\rho\, d\phi\, d\theta.$$
-        <p><strong>(b) Paraboloide $z = 4 - r^2$ con el piso $z = 0$.</strong> Frontera en cilindros de radio: cilíndricas. El techo toca el piso en $r = 2$:</p>
+        <p><strong>(b) El paraboloide $z = 4 - r^2$.</strong> Frontera en cilindros de radio, así que cilíndricas. El techo toca el piso en $r = 2$:</p>
         $$V = \int_0^{2\pi} \int_0^2 \int_0^{4-r^2} r \, dz\, dr\, d\theta.$$
-        <p><strong>(c) Caja con techo oblicuo.</strong> Caras planas y techo $z = x + y$: cartesianas, el orden $dz\,dy\,dx$:</p>
+        <p><strong>(c) La caja con techo oblicuo.</strong> Caras planas y un techo $z = x + y$, así que cartesianas con $dz\,dy\,dx$:</p>
         $$V = \int_0^1 \int_0^2 \int_0^{x+y} dz\, dy\, dx.$$
-        <p>Valores de comprobación (no pedidos): (a) $36\pi$; (b) $8\pi$; (c) $3$.</p>
+        <p>Por si acaso, los valores: (a) $36\pi$; (b) $8\pi$; (c) $3$. No los pide el enunciado.</p>
       </div>
       <h4>Respuesta</h4>
       <div class="resp"><p>(a) esféricas, $V = \int_0^{2\pi} \int_0^{\pi} \int_0^3 \rho^2 \sen\phi \, d\rho\, d\phi\, d\theta$. (b) cilíndricas, $V = \int_0^{2\pi} \int_0^2 \int_0^{4-r^2} r \, dz\, dr\, d\theta$. (c) cartesianas, $V = \int_0^1 \int_0^2 \int_0^{x+y} dz\, dy\, dx$.</p></div>
     </div>
     <aside class="margen">
       <p class="margen-t">Nota</p>
-      <p>La decisión sale de la frontera, no de la costumbre: esfera pide esféricas ($\rho$ constante), paraboloide o cono piden cilíndricas ($r$ y $z$ limpios), y las caras planas con techo oblicuo se quedan cartesianas porque ningún sistema ortogonal las simplifica. Forzar esféricas en (c) es el despiste clásico: $\rho$ no tiene techo constante ahí y los límites se vuelven un infierno. En selección múltiple este ejercicio se gana descartando opciones con jacobiano ausente o con límites que no cierran la figura.</p>
+      <p>El sistema lo manda la frontera y no el gusto: esfera, esféricas; paraboloide o cono, cilíndricas; caras planas con techo oblicuo, cartesianas porque ningún sistema ortogonal las simplifica. Forzar esféricas en (c) es el despiste típico, ya que ahí $\rho$ no tiene un techo constante y los límites se convierten en un lío. Y en múltiple se resuelve descartando, que era justo mi floja en el parcial 1: la opción con jacobiano ausente o con límites que no cierran la figura se va de una.</p>
     </aside>
   </div>
 </article>
@@ -614,46 +615,75 @@
 
     <section id="especiales">
       <h2>Entradas especiales</h2>
-      <p class="intro">Las cuatro entradas que pide el taller del segundo corte, una por tramo del corte. Cada una termina con la pregunta de cierre: ¿qué decisión fue la más importante para plantear bien este ejercicio?</p>
+      <p class="intro">Las cuatro que pide el taller del corte, una para cada tramo. Cada una cierra con la misma pregunta: ¿qué decisión fue la más importante para plantear bien este ejercicio?</p>
 
 <article class="especial hecho" id="especial1">
   <h3>Entrada especial 1: Cambiar el orden</h3>
   <p class="meta">Ejercicio: B.9. La región partida en dos bajo el orden opuesto.</p>
-  <p>La región de B.9 se ve mansa en el orden $dx\,dy$: $y$ de 0 a 1, $x$ desde $y$ hasta $2-y$. Pero al invertirla, el techo deja de ser una sola curva: para $0 \le x \le 1$ la cota es $y = x$ y para $1 \le x \le 2$ es $y = 2 - x$. La región es el triángulo de $(0,0)$, $(2,0)$ y $(1,1)$, y el punto de cruce de las rectas es justo donde la fórmula del techo cambia. Los dos órdenes posibles son: $\int_0^1 \int_y^{2-y} f\,dx\,dy$ (uno, sin partir) y $\int_0^1 \int_0^x f\,dy\,dx + \int_1^2 \int_0^{2-x} f\,dy\,dx$ (partido, dos). Calcularía con el primero, porque es la integral única; el partido es para cuando el integrando no tiene primitiva en el orden dado. <strong>¿Qué decisión fue la más importante para plantear bien este ejercicio?</strong> Dibujar la región y encontrar el punto donde el borde cambia de fórmula: $(1,1)$, antes de escribir un solo límite.</p>
+  <p>B.9 se ve manso en el orden $dx\,dy$, ya que $y$ corre de 0 a 1 y $x$ queda atrapada entre dos rectas. El orden invertido es el que enseña algo, porque ahí el techo cambia de fórmula en un punto interior y hay que partir la región en $x = 1$. Los dos órdenes posibles son $\int_0^1 \int_y^{2-y} f\,dx\,dy$ (uno solo, sin partir) y $\int_0^1 \int_0^x f\,dy\,dx + \int_1^2 \int_0^{2-x} f\,dy\,dx$ (partido). Calcularía con el primero mientras los límites sean así de limpios; el partido queda obligatorio en cuanto el integrando no tenga primitiva en el orden dado. <strong>¿Qué decisión fue la más importante para plantear bien este ejercicio?</strong> Dibujar el triángulo y localizar el punto donde el borde cambia de fórmula, $(1,1)$, antes de escribir un solo límite. Sin ese punto la integral sale partida mal y nadie se entera hasta el final.</p>
 </article>
 
 <article class="especial hecho" id="especial2">
   <h3>Entrada especial 2: Pasar a polares</h3>
   <p class="meta">Ejercicio: C.9. De dónde salen $r$ y $\theta$ sobre el círculo desplazado.</p>
-  <p>En C.9 el círculo $x^2 + (y-1)^2 = 1$ toca el origen y vive en $y \ge 0$. En el dibujo, los límites de $\theta$ van de $0$ (semirrecta positiva $x$) a $\pi$ (semirrecta negativa $x$): el círculo nunca cruza al semiplano inferior. Los límites de $r$ van de $0$ (el origen, que es un punto de la región) hasta la frontera $r = 2\sen\theta$, que se obtiene sustituyendo $x = r\cos\theta$, $y = r\sen\theta$ en $x^2 + y^2 = 2y$. No basta escribirlos: se ven en la región. Para $\theta = \pi/2$ (eje $y$), $r$ llega hasta 2, que es el punto más alto del círculo, $(0,2)$: correcto. El área $\pi$ del círculo unitario confirma el planteamiento. <strong>¿Qué decisión fue la más importante para plantear bien este ejercicio?</strong> Reconocer que $r = 2\sen\theta$ solo describe la región para $\theta \in [0, \pi]$, porque fuera de ahí el radio sería negativo: el rango de $\theta$ se lee del dibujo y del signo de la frontera.</p>
+  <p>En C.9 el círculo $x^2 + (y-1)^2 = 1$ se apoya en el origen y vive en $y \ge 0$. En el dibujo, el ángulo recorre de $0$, la semirrecta positiva del $x$, a $\pi$, la semirrecta negativa; el círculo nunca baja al semiplano inferior. El radio arranca en $0$ (el origen es parte de la región) y termina en la frontera $r = 2\sen\theta$, que sale de sustituir $x = r\cos\theta$ e $y = r\sen\theta$ en $x^2 + y^2 = 2y$. Para $\theta = \pi/2$ el radio llega hasta 2, justo el punto más alto $(0,2)$, y eso confirma que los límites dicen la verdad. <strong>¿Qué decisión fue la más importante para plantear bien este ejercicio?</strong> Entender que $r = 2\sen\theta$ solo describe la región donde $\sen\theta \ge 0$, es decir en $[0, \pi]$; fuera de ahí el radio es negativo y no acomoda ningún punto del círculo. El rango de $\theta$ se lee del dibujo y del signo de la frontera, nunca de la costumbre $[0, 2\pi]$.</p>
 </article>
 
 <article class="especial hecho" id="especial3">
   <h3>Entrada especial 3: Describir un sólido</h3>
   <p class="meta">Ejercicio: E.2. Qué está arriba, qué abajo y qué alrededor.</p>
-  <p>El sólido de E.2 está bajo el plano $z = 2$ y sobre el cono $z = \sqrt{x^2 + y^2}$. En cilíndricas: el piso es el cono $z = r$ (superficie inferior, se abre hacia arriba desde el vértice en el origen), el techo es el plano $z = 2$ (superficie superior, horizontal), y alrededor está el cilindro imaginario de radio 2 donde piso y techo se tocan. El sólido es un cono recto de altura 2 y radio 2 con el vértice en el origen, o lo que es lo mismo, la parte $r \le z \le 2$. Cada límite del integral se relaciona con una superficie: $z = r$ (abajo, el cono), $z = 2$ (arriba, el plano), $r = 2$ (lateral, donde ambos se cortan), $\theta = 0$ a $2\pi$ (giro completo). Un esquema de sección meridional basta para verlo todo. <strong>¿Qué decisión fue la más importante para plantear bien este ejercicio?</strong> Escribir el sólido como $\{(r,\theta,z) : 0 \le r \le 2,\ 0 \le \theta \le 2\pi,\ r \le z \le 2\}$ nombrando la superficie que justifica cada límite: ahí ya no hay nada que adivinar.</p>
+  <p>El sólido de E.2 está bajo el plano $z = 2$ y sobre el cono $z = \sqrt{x^2 + y^2}$. En cilíndricas, el piso del sólido es el cono $z = r$, que se abre hacia arriba desde el vértice en el origen; el techo es el plano horizontal $z = 2$; y alrededor queda el cilindro imaginario de radio 2 donde los dos se tocan. Es un cono recto de altura 2 y radio 2, con el vértice abajo, y el sólido queda descrito como $\{(r, \theta, z) : 0 \le r \le 2,\ 0 \le \theta \le 2\pi,\ r \le z \le 2\}$. Cada límite se corresponde con una superficie: $z = r$ abajo, $z = 2$ arriba, $r = 2$ en el lateral, y el giro completo en $\theta$. <strong>¿Qué decisión fue la más importante para plantear bien este ejercicio?</strong> Escribir el sólido como un conjunto de desigualdades y nombrar la superficie detrás de cada límite; ahí no queda nada que adivinar y un dibujo de sección basta para verlo todo.</p>
 </article>
 
 <article class="especial hecho" id="especial4">
   <h3>Entrada especial 4: Elegir coordenadas</h3>
-  <p class="meta">Ejercicio: F.4. Tres regiones, tres sistemas, y por qué.</p>
-  <p>En F.4 hay que comparar dos sistemas por región y quedarse con el más simple. La esfera (a): en cartesianas son límites con raíces en todas partes; en esféricas son constantes, $\rho \le 3$, así que esféricas. El paraboloide (b): en esféricas el techo $z = 4 - r^2$ no tiene expresión limpia; en cilíndricas es $z = 4 - r^2$ con $r \le 2$, así que cilíndricas. La caja con techo oblicuo (c): esféricas y cilíndricas estorban; las caras son planos coordenados y el techo es $z = x + y$, así que cartesianas con $dz\,dy\,dx$. <strong>¿Qué decisión fue la más importante para plantear bien este ejercicio?</strong> Comparar los límites concretos, no la familiaridad con el sistema: escribir ambos planteamientos en dos líneas y quedarse con el que tiene constantes o funciones de una sola variable.</p>
+  <p class="meta">Ejercicio: F.4. Tres regiones, tres sistemas, y la comparación que decide.</p>
+  <p>La comparación se hace por región y no en general. La esfera de (a): en cartesianas los límites traen raíces por todas partes y en esféricas son constantes, $\rho \le 3$; ganan las esféricas. El paraboloide de (b): en esféricas el techo $z = 4 - r^2$ no se expresa limpio, mientras que en cilíndricas es justo $z = 4 - r^2$ con $r \le 2$; ganan las cilíndricas. La caja de (c): ni esféricas ni cilíndricas aportan, ya que las caras son planos coordenados y el techo es $z = x + y$; ganan las cartesianas con $dz\,dy\,dx$. <strong>¿Qué decisión fue la más importante para plantear bien este ejercicio?</strong> Escribir ambos planteamientos en dos líneas cada uno y quedarse con el que tiene constantes o funciones de una sola variable. La familiaridad con un sistema no decide nada; los límites concretos, sí.</p>
 </article>
+    </section>
+
+    <section id="avance">
+      <h2>Mi avance y antes de entregar</h2>
+      <p class="intro">La última página del taller: el conteo por bloque y la lista de cierre. El conteo es real; las marcas sin marcar dependen del segundo pase sobre la hoja.</p>
+      <h4>Mi avance</h4>
+      <div class="tabla-wrap">
+        <table class="indice">
+          <thead><tr><th scope="col">Bloque</th><th scope="col">Mínimo</th><th scope="col">Meta</th><th scope="col">Tengo</th></tr></thead>
+          <tbody>
+<tr><td>A. Integrales dobles e iteradas</td><td>2</td><td>2</td><td>2</td></tr>
+<tr><td>B. Regiones y cambio de orden</td><td>3</td><td>4</td><td>5</td></tr>
+<tr><td>C. Coordenadas polares</td><td>3</td><td>4</td><td>4</td></tr>
+<tr><td>D. Integrales triples cartesianas</td><td>2</td><td>2</td><td>2</td></tr>
+<tr><td>E. Cilíndricas y esféricas</td><td>3</td><td>4</td><td>4</td></tr>
+<tr><td>F. Aplicaciones</td><td>2</td><td>2</td><td>2</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h4>Antes de entregar</h4>
+      <ul>
+        <li>[x] Tengo entre 15 y 20 ejercicios: 19.</li>
+        <li>[x] Cubrí los seis bloques, con ejercicio ⋆ de cada uno (los 19 son ⋆).</li>
+        <li>[x] Mis límites se pueden justificar desde el dibujo (cada entrada trae la justificación del límite).</li>
+        <li>[x] Hice las pausas de 5, 10 y 15 ejercicios.</li>
+        <li>[x] Hice las cuatro entradas especiales (B.9, C.9, E.2, F.4).</li>
+        <li>[ ] Dejé visibles algunas correcciones: pendiente del segundo pase; en la generación no hubo intentos fallidos que marcar con G/L/O/P/3D/C.</li>
+        <li>[ ] Puedo explicar mis planteamientos sin depender de software: pendiente del segundo pase (hoy las integrales están verificadas con SymPy, no contadas a mano).</li>
+      </ul>
     </section>
 
     <section id="herramientas">
       <h2>Herramientas usadas</h2>
-      <p>El material base son las diapositivas de las semanas 7 a 11 (integrales dobles, cambio de orden, polares, triples, cilíndricas, esféricas y curvas polares) y las clases transcritas con WhisperX; el resumen de NotebookLM sirvió para ubicar las conexiones con lo visto en clase, nunca como cita literal. Las fichas bibliográficas del curso (la de una hoja y la complementaria) fueron el mapa de punteros T14 a T19.</p>
-      <p>Todas las integrales de esta página quedaron verificadas con SymPy antes de escribirlas (cada resultado con su valor exacto), y las regiones y sólidos con matplotlib. Siguiendo la regla del curso: primero se razona, después se verifica con software. Esta bitácora es el documento de referencia del segundo corte: Carlos la re-resuelve en paralelo con la ficha delante, y las correcciones que aparezcan en ese segundo paso son las que vale la pena conservar y fechar.</p>
+      <p>La base del contenido son las diapositivas de las semanas 7 a 11 y las clases transcritas con WhisperX; el resumen de NotebookLM sirvió para ubicar lo visto en clase, no como cita literal. Las fichas bibliográficas del curso, la de una hoja y la complementaria, fueron el mapa de punteros T14 a T19.</p>
+      <p>Todas las integrales de esta página quedaron verificadas con SymPy antes de escribirlas, y las regiones y sólidos, con matplotlib. Siguiendo la regla del curso: primero se razona y después se verifica con software. Esta bitácora es el documento de referencia del segundo corte, y Carlos la re-resuelve en paralelo con la ficha delante; las correcciones que aparezcan en ese segundo paso son las que vale la pena conservar y fechar.</p>
     </section>
 
     <section id="cierre" class="cierre">
       <h2>Cierre</h2>
       <ol>
-        <li><p>El tipo de región que ahora describo mejor es...</p><p>...el triángulo con un borde que cambia de fórmula, como en B.9. Antes describía la región entera de una plumada y perdía el punto donde el techo cambia; ahora parto en dos sin dudar cuando aparece un cruce interior.</p></li>
-        <li><p>El error de límites que debo vigilar es...</p><p>...el rango de $\theta$ en polares: poner $[0, 2\pi]$ por costumbre cuando la región solo vive en una mitad (C.4, C.9). Escribir el signo de la frontera y leer el dibujo antes de fijar el rango.</p></li>
-        <li><p>Sé cuándo cambiar de coordenadas porque...</p><p>...la frontera lo pide: círculo o disco pide polares; cilindro, cono o paraboloide piden cilíndricas; esfera, bola o cono medido desde el eje $+z$ piden esféricas; caras planas con techo oblicuo se quedan cartesianas. Si la cuenta se ensucia en el sistema elegido, la frontera mandó mal y toca reconsiderar.</p></li>
-        <li><p>Antes del parcial volveré a plantear el ejercicio...</p><p>...B.9 (partir la región al cambiar el orden) y C.9 (el rango de $\theta$ en el círculo desplazado), porque son los dos donde mi error típico de límites se repite. Una segunda vuelta sin mirar la solución es la que muestra si ya los entendí.</p></li>
+        <li><p>El tipo de región que ahora describo mejor es...</p><p>...el triángulo con un borde que cambia de fórmula, como en B.9. Antes describía la región entera de una vez y perdía el punto donde el techo cambia; ahora parto en dos sin dudar en cuanto aparece un cruce interior.</p></li>
+        <li><p>El error de límites que debo vigilar es...</p><p>...el rango de $\theta$ en polares, el vicio de poner $[0, 2\pi]$ por costumbre cuando la región solo vive en una mitad, como en C.4 o C.9. Ahora escribo primero el signo de la frontera y después el rango, y de ahí el dibujo confirma.</p></li>
+        <li><p>Sé cuándo cambiar de coordenadas porque...</p><p>...la frontera lo manda: círculo o disco, polares; cilindro, cono o paraboloide, cilíndricas; esfera o cono medido desde el eje $+z$, esféricas; caras planas con techo oblicuo se quedan en cartesianas. Si la cuenta se ensucia en el sistema elegido, es señal de que la frontera mandó a otro lado.</p></li>
+        <li><p>Antes del parcial volveré a plantear el ejercicio...</p><p>...B.9 y C.9, porque son los dos donde mi error típico de límites se repite. Una segunda vuelta sin mirar la solución es la que muestra si ya los entendí.</p></li>
       </ol>
     </section>
 
